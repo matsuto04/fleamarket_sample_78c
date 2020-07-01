@@ -57,11 +57,9 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|card_number|integer|null: false, unique: true|
-|expiration_year|integer|null: false|
-|expiration_month|integer|null: false|
-|security_code|integer|null: false|
 |user|references|null:false, foregin_key:ture|
+|customer_id|string|null: false|
+|card_id|string|null: false|
 
 ### Association
 - belongs_to :user
