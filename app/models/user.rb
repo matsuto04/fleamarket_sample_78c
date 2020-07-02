@@ -11,8 +11,6 @@ class User < ApplicationRecord
   validates :family_name,presence: true,format: {with: /\A[ぁ-んァ-ン一-龥]/}
   validates :first_name_kana,presence: true,format: {with: /\A[\p{katakana}　ー－&&[^ -~｡-ﾟ]]+\z/}
   validates :family_name_kana,presence: true,format: {with: /\A[\p{katakana}　ー－&&[^ -~｡-ﾟ]]+\z/}
-  validates :birth_year,presence: true
-  validates :birth_month,presence: true
   validates :birth_day,presence: true
   
   has_many :seller_items, foreign_key: "seller_id",class_name: "items"

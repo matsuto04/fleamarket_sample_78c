@@ -8,6 +8,7 @@ FactoryBot.define do
     prefecture_code {"1"}
     city {"世田谷区"}
     house_number {"11-1"}
+    phone_number {"08023451234"}
     user
   end
 end
