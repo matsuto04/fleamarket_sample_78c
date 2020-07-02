@@ -6,11 +6,11 @@ class User < ApplicationRecord
 
   validates :nickname,presence: true
   validates :email,presence: true,uniqueness: true
-  validates :encrypted_password,presence: true,length: { minimum: 7 }
+  validates :password,presence: true,length: { minimum: 7 }
   validates :first_name,presence: true,format: {with: /\A[ぁ-んァ-ン一-龥]/}
   validates :family_name,presence: true,format: {with: /\A[ぁ-んァ-ン一-龥]/}
-  validates :first_name_kana,presence: true,format: {with: [\p{katakana}　ー－&&[^ -~｡-ﾟ]]+}
-  validates :family_name_kana,presence: true,format: {with: [\p{katakana}　ー－&&[^ -~｡-ﾟ]]+}
+  validates :first_name_kana,presence: true,format: {with: /\A[\p{katakana}　ー－&&[^ -~｡-ﾟ]]+\z/}
+  validates :family_name_kana,presence: true,format: {with: /\A[\p{katakana}　ー－&&[^ -~｡-ﾟ]]+\z/}
   validates :birth_year,presence: true
   validates :birth_month,presence: true
   validates :birth_day,presence: true
