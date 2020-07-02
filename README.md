@@ -61,7 +61,7 @@
 |expiration_year|integer|null: false|
 |expiration_month|integer|null: false|
 |security_code|integer|null: false|
-|user|references|null:false, foregin_key:ture|
+|user|references|null:false, foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -72,7 +72,7 @@
 |------|----|-------|
 |introduction|text| |
 |avatar|string| |
-|user|references|null:false, foregin_key:ture|
+|user|references|null:false, foreign_key: true|
 
 ### Association
 - belongs_to :user
