@@ -1,0 +1,135 @@
+.Login {
+  width: 100vw;
+  height: 100vh;
+  &__Header {
+    display: flex;
+    justify-content: center;
+    height: 110px;
+    &__logo {
+      margin-top: 30px;
+      width: 140px;
+    }
+  }
+  &__Main {
+    height: calc(100vh - 110px);
+    &__header {
+      text-align: center;
+      margin: 13px 0;
+    }
+    &__info {
+      width: 400px;
+      margin: auto;
+      &__noaccount {
+        width: 400px;
+        height: 70px;
+        text-align: center;
+        &__comment {
+          margin-bottom: 3px;
+          font-size: 12px;
+        }
+        .Sign_up {
+          width: 250px;
+          padding: 14px 79px;
+          border: 1px solid #0099e8;
+          border-radius: 4px;
+          background-color: #0099e8;
+          color: #fff;
+          font-size: 15px;
+          line-height: 40px;
+          text-align: center;
+        }
+      }
+      &__field {
+        padding: 15px 75px 10px;
+        &__email {
+          width: 250px;
+          line-height: 33px;
+          padding: 5px;
+        }
+        &__password {
+          width: 250px;
+          line-height: 33px;
+          padding: 5px;
+        }
+      }
+      &__actions {
+        padding: 10px 75px;
+        &__submit {
+          width: 250px;
+          border: 1px solid #ea352d;
+          border-radius: 4px;
+          background: #ea352d;
+          color: #fff;
+          font-size: 15px;
+          line-height: 40px;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+.Signup {
+  width: 100vw;
+  height: 100vh;
+  &__Header {
+    display: flex;
+    justify-content: center;
+    height: 110px;
+    &__logo {
+      margin-top: 30px;
+      width: 140px;
+    }
+  }
+  &__Main {
+    &__header {
+      text-align: center;
+      margin: 13px 0;
+
+    }
+    &__info {
+      width: 400px;
+      margin: auto;
+      &__field {
+        &__label {
+
+        }
+        .required {
+          
+        }
+      }
+      &__text{
+        width: 400x;
+        word-wrap: break-word;
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+
+// _links.html.haml
+
+.Sign_up {
+    width: 250px;
+    padding: 14px 79px;
+    border: 1px solid #0099e8;
+    border-radius: 4px;
+    background-color: #0099e8;
+    color: #fff;
+    font-size: 15px;
+    // line-height: 40px;
+    // text-align: center;
+}
+
+.Log_in {
+  width: 250px;
+  padding: 14px 79px;
+  border: 1px solid #ea352d;
+  border-radius: 4px;
+  background-color: #ea352d;
+  color: #fff;
+  font-size: 15px;
+  // line-height: 40px;
+  // text-align: center;
+}
