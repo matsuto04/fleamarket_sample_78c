@@ -22,7 +22,7 @@
 - has_many :buyer_items, foreign_key: "buyer_id", class_name: "items"
 - has_one :profile, dependent: :destroy
 - has_one :sending_destination, dependent: :destroy
-- has_one :credit_card, dependent: :destroy
+- has_one :card, dependent: :destroy
 
 ## itemsテーブル
 
@@ -53,7 +53,7 @@
 - belongs_to :seller, class_name: "User"
 - belongs_to :buyer, class_name: "User"
 
-## credit_cardsテーブル
+## cardsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
