@@ -1,3 +1,6 @@
+
+#ログインした状態でのviewなので、エラー回避のためにコメントアウトしています
+
 # class CardsController < ApplicationController
 #   require "payjp"
 #   before_action :set_card, only: [:index, :show, :destroy]

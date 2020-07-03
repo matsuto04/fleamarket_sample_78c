@@ -1,3 +1,6 @@
+
+//ログインした状態でのjsなので、エラー回避のためにコメントアウトしています
+
 // $(document).on('turbolinks:load', function() {
 //   //テスト鍵のセット
 //   payjp.setPublicKey('sk_test_15e772991a03b9ebde1f7980');
