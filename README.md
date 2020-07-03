@@ -31,7 +31,7 @@
 |name|string|null: false|
 |introduction|text|null: false|
 |price|integer|null: false|
-|item_condition|references|null: false, foreign_key: true|
+|item_condition|string|null: false|
 |postage_payer|integer|null: false|
 |prefecture_code|integer|null: false|
 |preparation_day|integer|null: false|
