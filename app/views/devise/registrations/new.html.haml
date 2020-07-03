@@ -9,35 +9,37 @@
       = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
         = render "devise/shared/error_messages", resource: resource
         .Signup__Main__info__field
-          = f.label :ニックネーム
-          %span.requier 必須
-          %br
-          = f.email_field :nickname, autofocus: true, autocomplete: "nickname", placeholder: '例：フリマ太郎'
+          .Signup__Main__info__field__title
+            %p ニックネーム
+            %span.requier 必須
+          = f.email_field :nickname, autofocus: true, autocomplete: "nickname", placeholder: '例：フリマ太郎', class: "Signup__Main__info__field__form"
 
         .Signup__Main__info__field
-          = f.label :メールアドレス
-          %span.requier 必須
-          %br
-          = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'PC・携帯どちらでも可'
+          .Signup__Main__info__field__title
+            %p メールアドレス
+            %span.requier 必須
+          = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'PC・携帯どちらでも可', class: "Signup__Main__info__field__form"
+
         .Signup__Main__info__field
-          = f.label :パスワード
-          %br
-          = f.password_field :password, autocomplete: "off" ,placeholder: '7文字以上の半角英数字'
-          %p.Signup__Main__info__field__text ※英数字と数字の両方を含めて設定してください
+          .Signup__Main__info__field__title
+            %p パスワード
+            %span.requier 必須
+          = f.password_field :password, autocomplete: "off" ,placeholder: '7文字以上の半角英数字', class: "Signup__Main__info__field__form"
+          %p.Signup__Main__info__field__text ※英数字と数字の両方を含めて設定ください
         .Signup__Main__info__field
-          = f.label :確認用パスワード
-          %span.requier 必須
-          %br
-          = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: '上と同じパスワードを入力してください'
-        %h1 本人確認
-        %p.Signup__Main__info__text 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
-        .Signup__Main__info__field
-          -# = f.label :名前（全角）
-          -# %span.requier 必須
+          .Signup__Main__info__field__title
+            %p 確認用パスワード
+            %span.requier 必須
+          = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: '上と同じパスワードを入力してください', class: "Signup__Main__info__field__form"
+        .Signup__Main__info__text
+          %h1.Signup__Main__info__text__title 本人確認
+        -# .Signup__Main__info__field
+        -#   %p.Signup__Main__info__field__title 名前（全角）
+        -#   %span.requier 必須
           -# %br
-          -# = f.name_field :name, autofocus: true, autocomplete: "first-name", placeholder: '例：山田'
+          -# = f.name_field :email, autofocus: true, autocomplete: "first-name", placeholder: '例：山田'
 
         .Signup__Main__info__field
-          = f.submit "Sign up"
+          = f.submit "登録する", class: "Signup__Main__info__field__submit"
 
         -# = render "devise/shared/links"

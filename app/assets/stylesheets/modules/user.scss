@@ -42,12 +42,12 @@
       &__field {
         padding: 15px 75px 10px;
         &__email {
-          width: 250px;
+          width: 300px;
           line-height: 33px;
           padding: 5px;
         }
         &__password {
-          width: 250px;
+          width: 300px;
           line-height: 33px;
           padding: 5px;
         }
@@ -85,23 +85,59 @@
     &__header {
       text-align: center;
       margin: 13px 0;
-
     }
     &__info {
       width: 400px;
       margin: auto;
       &__field {
-        &__label {
-
+        text-align: center;
+        margin: 10px;
+        &__title {
+          display: flex;
+          width: 250px;
+          p {
+            text-align: start;
+            padding: 0 5px 0 35px;
+          }
+          span {
+            background-color: #ea352d;
+            border: 1px solid #ea352d;
+            border-radius: 3px;
+            font-size: 13px;
+            color: #fff;
+            line-height: 22px;
+            padding: 0 5px;
+          }
         }
-        .required {
-          
+        &__form{
+          width: 300px;
+          line-height: 33px;
+          padding: 5px;
+          font-size: 13px;
+          margin: 5px 0;
         }
+        &__text {
+          text-align: start;
+          color: gray;
+          font-size: 12px;
+          padding-left: 45px;
+        }
+        &__submit {
+          width: 250px;
+          border: 1px solid #ea352d;
+          border-radius: 4px;
+          background: #ea352d;
+          color: #fff;
+          font-size: 15px;
+          line-height: 40px;
+          text-align: center;        }
       }
-      &__text{
-        width: 400x;
-        word-wrap: break-word;
-        font-size: 12px;
+      &__text {
+        width: 300px;
+        h1 {
+          text-align: start;
+          padding: 0 5px 0 35px;
+        }
       }
     }
   }
