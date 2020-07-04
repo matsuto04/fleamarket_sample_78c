@@ -2,8 +2,8 @@
   .HeaderInner
     .HeaderInnerTop
       .HeaderInnerTop__icon
-        = link_to "root_path", class: "HeaderInnerTop__icon--logo" do
-          = image_tag "logo.png", alt: "logo", class: 'HeaderInnerTop__icon--logo--img'
+        = link_to root_path do
+          = image_tag "logo.png", alt: "logo", class: 'HeaderInnerTop__icon--img'
       .HeaderInnerTop__searchBox
         %form.HeaderInnerTop__searchBox__form
           %input.HeaderInnerTop__searchBox__form__input{name: "key", placeholder: "キーワードから探す"}

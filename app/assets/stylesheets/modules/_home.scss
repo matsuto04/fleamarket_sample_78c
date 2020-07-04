@@ -25,12 +25,10 @@ section{display: block;}
       &__icon{
         padding-bottom: 10px;
         margin-right: 30px;
-        &--logo{
+        &--img{
+          width: 100%;
           display: block;
           width: 140px;
-          &--img{
-            width: 100%;
-          }
         }
       }
       &__searchBox{
