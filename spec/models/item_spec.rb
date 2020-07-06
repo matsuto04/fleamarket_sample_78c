@@ -5,7 +5,11 @@ RSpec.describe Item, type: :model do
 
   describe Item do
     describe '#create' do
-      
+      it "nameが空白だとエラー" do
+        item = build(:item,name: "")
+        item.valid?
+        expect(item.errors[:name]).to include("can't be blank")
+      end
     end
   end
   
