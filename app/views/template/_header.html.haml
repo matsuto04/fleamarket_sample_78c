@@ -1,0 +1,21 @@
+%header.Header
+  .HeaderInner
+    .HeaderInnerTop
+      .HeaderInnerTop__icon
+        = link_to root_path do
+          = image_tag "logo.png", alt: "logo", class: 'HeaderInnerTop__icon--img'
+      .HeaderInnerTop__searchBox
+        %form.HeaderInnerTop__searchBox__form
+          %input.HeaderInnerTop__searchBox__form__input{name: "key", placeholder: "キーワードから探す"}
+          %button.HeaderInnerTop__searchBox__form__btn{type: "submit"}
+            .HeaderInnerTop__searchBox__form__btn--icon
+              = image_tag "icon-search 1.png", alt: "search_icon", class: 'HeaderInnerTop__searchBox__form__btn--icon--img'
+    .HeaderInnerNav
+      %ul.HeaderInnerNavlistsLeft
+        %li.HeaderInnerNavlistsLeft__item
+          = link_to 'カテゴリー', '#'
+      %ul.HeaderInnerNavlistsRight
+        %li.HeaderInnerNavlistsRight__item
+          = link_to 'ログイン', '#'
+        %li.HeaderInnerNavListsRight__item
+          = link_to '新規館員登録', '#'

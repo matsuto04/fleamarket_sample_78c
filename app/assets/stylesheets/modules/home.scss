@@ -1,0 +1,446 @@
+body{
+  color: #000;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+}
+
+section{display: block;}
+
+.Header{
+  color: #000;
+  padding: 0 60px;
+  &Inner{
+    color: #000;
+    max-width: 1040px;
+    width: 100%;
+    min-height: 82px;
+    margin: 0 auto;
+    padding-top: 15px;
+    &Top{
+      color: #000;
+      display: flex;
+      align-items: center;
+      &__icon{
+        padding-bottom: 10px;
+        margin-right: 30px;
+        &--img{
+          width: 100%;
+          display: block;
+          width: 140px;
+        }
+      }
+      &__searchBox{
+        margin-left: auto;
+        width: 100%;
+        &__form{
+          width: 100%;
+          display: flex;
+          margin-bottom: 5px;
+          &__input{
+            width: calc(100% - 26px);
+            height: 36px;
+            padding: 0 0 0 5px;
+          }
+          &__btn{
+            width: 36px;
+            height: 36px;
+            border: 0;
+            background-color: #3CCACE;
+            padding: 8px;
+            &--icon{
+              &--img{
+                width: 100%;
+              }
+            }
+          }
+        }
+      }
+    }
+    &Nav{
+      font-size: 14px;
+      display: flex;
+      margin-bottom: 10px;
+      &listsLeft{
+        display: flex;
+      }
+      &listsRight{
+        display: flex;
+        margin-left: auto;
+        &__item{
+          padding-right: 10px;
+        }
+      }
+    }
+  }
+}
+
+.Main{
+  &Visual{
+    width: 100%;
+    height: 560px;
+    background-image: url(bg-mainVisual-pict_pc.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+    padding: 0 60px;
+    display: flex;
+    align-items: center;
+    &Content{
+      max-width: 1280px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 35px 0 0 0;
+      &__subtitle{
+        text-shadow: 0 0 5px rgba(0,0,0,0.4);
+        font-size: 60px;
+        color: #ffffff;
+      }
+      &__text{
+        text-shadow: 0 0 5px rgba(0,0,0,0.4);
+        font-size: 18px;
+        color: #fff;
+        margin: 16px 0 0 0;
+        line-height: 36px;
+      }
+      &__btn{
+        display: flex;
+        margin: 24px 0 0 0;
+        &--aBtn{
+          width: 180px;
+          margin-right: 10px;
+          &--appleIcon{
+            width: 100%;
+          }
+        }
+        &--gBtn{
+          width: 180px;
+          &--googleIcon{
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  &Introduction{
+    padding: 60px 20px;
+    &SubTitle{
+      text-align: center;
+      font-size: 26px;
+      font-weight: bold;
+      margin-bottom: 25px;
+      padding-bottom: 15px;
+      position: relative;
+    }
+    &Lists{
+      text-align: center;
+      display: flex;
+      max-width: 1020px;
+      width: 100%;
+      margin: 0 auto;
+      &__list{
+        width: 30%;
+        margin: 16px 5% 0 0;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        &__pict{
+          margin-bottom: 20px;
+          position: relative;
+          &--number{
+            background-color: #3CCACE;
+            color: #ffffff;
+            font-size: 30px;
+            padding: 10px 20px;
+            text-align: center;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+          }
+          &--image{
+            width: 100%;
+          }
+        }
+        &__text{
+          font-weight: bold;
+          font-size: 24px;
+          &--feat{
+            color: #3CCACE;
+          }
+        }
+        &__description{
+          font-size: 18px;
+          margin-top: 16px;
+        }
+      }
+      &__list--last{
+        width: 30%;
+        margin: 16px 5% 0 0;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        &__pict{
+          margin-bottom: 20px;
+          position: relative;
+          &--number{
+            background-color: #3CCACE;
+            color: #ffffff;
+            font-size: 30px;
+            padding: 10px 20px;
+            text-align: center;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+          }
+          &--image{
+            width: 100%;
+          }
+        }
+        &__text{
+          font-weight: bold;
+          font-size: 24px;
+          &--feat{
+            color: #3CCACE;
+          }
+        }
+        &__description{
+          font-size: 18px;
+          margin-top: 16px;
+        }
+      }
+    }
+  }
+  &Download{
+    height: 400px;
+    background-image: url(bg-topMiddleDl-pict.jpg);
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    &Inner{
+      width: 100%;
+      color: #ffffff;
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+      text-align: left;
+      max-width: 1040px;
+      margin: 0 auto;
+      &__subtitle{
+        font-size: 27px;
+        font-weight: bold;
+      }
+      &__text{
+        font-size: 18px;
+        margin: 20px 0 30px;
+      }
+      &__btn{
+        display: flex;
+        &--aBtn{
+          margin-right: 10px;
+          width: 180px;
+        }
+        &--gBtn{
+          width: 180px;
+        }
+      }
+    }
+  }
+
+  &Features{
+    padding: 60px 100px;
+    background-color: #fff;
+    &Head{
+      font-size: 27px;
+      text-align: center;
+      margin: 0 0 40px;
+      font-weight: bold;
+      margin-bottom: 25px;
+      padding-bottom: 15px;
+    }
+    &Contents{
+      display: flex;
+      &__item{
+        display: flex;
+        flex-direction: column;
+        width: calc(1 / 3 * 100%);
+        text-align: center;
+        padding: 0 20px;
+        &__img{
+          width: 70%;
+          margin: 0 auto;
+          &--icon{
+            width: 100%;
+          }
+        }
+        &__subtitle{
+          margin: 38px 0 10px;
+          font-size: 19px;
+          font-weight: bold;
+        }
+        &__detail{
+          margin: 0 0 40px;
+          font-size: 17px;
+          font-weight: 200;
+          text-align: left;
+        }
+      }
+    }
+  }
+
+
+
+
+
+  &Pickup{
+    padding: 80px 0 0;
+    background-color: #f8f8f8;
+    height: 100%;
+    &Head{
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+    }
+    &ProductBox{
+      &Top{
+        text-align: center;
+        &__title{
+          font-weight: bold;
+        }
+      }
+      &ProductLists{
+        width: 780px;
+        margin: 26px auto;
+        display: flex;
+        justify-content: space-around;
+        &__list{
+          width: 220px;
+          &--img{
+            width: 220px;
+            height: 150px;
+            position: relative;
+            overflow: hidden;
+            margin: 0;
+            z-index: auto;
+            &--pict{
+              position: absolute;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              width: 100%;
+              z-index: auto;
+              height: 150px;
+              object-fit: cover;
+            }
+          }
+          &--body{
+            background-color: white;
+            color: #333;
+            padding: 16px;
+            &--name{
+              font-size: 16px;
+              text-align: left;
+            }
+            &__details{
+              font-size: 16px;
+              &--ul{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.AppBanner{
+  background-image: url(bg-appBanner-pict.jpg);
+  background-size: cover;
+  padding: 100px 40px;
+  &Inner{
+    color: #fff;
+    text-align: center;
+    &__title{
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+      font-size: 24px;
+      font-weight: bold;
+    }
+    &__text{
+      font-size: 35px;
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+    }
+    &__btn{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin: 20px auto 0;
+      &--aBtn{
+        width: 180px;
+        margin-right: 10px;
+      }
+      &--gBtn{
+        width: 180px;
+      }
+    }
+  }
+}
+
+.Footer{
+  padding: 60px 0;
+  color: #fff;
+  background-color: #272727;
+  text-align: center;
+  &Contents{
+    display: flex;
+    margin: 0 auto;
+    &__content{
+      width: calc(1 / 3 * 100%);
+      &__head{
+        margin-bottom: 20px;
+        font-size: 16px;
+        font-weight: bold;
+      }
+      &__lists{
+        &__list{
+          line-height: 32px;
+          &__link{
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+  &__logo{
+    max-width: 160px;
+    width: 100%;
+    margin: 0 auto;
+    &--img{
+      width: 100%;
+    }
+  }
+}
+
+.PurchaseBtn{
+  &__box{
+    width: 120px;
+    background: #3CCACE;
+    text-align: center;
+    bottom: 32px;
+    right: 32px;
+    position: fixed;
+    padding: 15px;
+    &__text{
+      color: #fff;
+      display: block;
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+    &__icon{
+      width: 60%;
+    }
+  }
+}
