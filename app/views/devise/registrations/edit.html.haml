@@ -1,35 +1,80 @@
-%h2 Edit = resource_name.to_s.humanize
+.Header
+.Main
+  .Main__Header
+  .Main__Contener
+    .Main__Contener__data
+      = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+        = render "devise/shared/error_messages", resource: resource
+          .Main__Contener__data__field
+            .Main__Contener__data__field__label
+              %p お名前
+              %span.requier 必須
+            .Main__Contener__data__field__input
+              = f.text_field :family_name, autocomplete: "family_name", class: "Main__Contener__data__field__input--name"
+              = f.text_field :last_name, autocomplete: "given_name", class: "Main__Contener__data__field__input--name"
+          .Main__Contener__data__field
+            .Main__Contener__data__field__label
+              %p お名前カナ
+              %span.requier 必須
+            .Main__Contener__data__field__input
+              = f.text_field :family_name_kana, autocomplete: "family_name", class: "Main__Contener__data__field__input--name"
+              = f.text_field :last_name_kana, autocomplete: "given_name", class: "Main__Contener__data__field__input--name"
+          .Main__Contener__data__field
+            .Main__Contener__data__field__label
+              %p 郵便番号
+              %span.requier 必須
+            .Main__Contener__data__field__input
+              = f.text_field :postal_code, autocomplete: "postal_code", class: "Main__Contener__data__field__input--number"
+          .Main__Contener__data__field
+            .Main__Contener__data__field__label
+              %p 都道府県
+              %span.requier 必須
+            .Main__Contener__data__field__input
+              = f.from_select :address, autocomplete: "address-level1", class: "Main__Contener__data__field__input--address"
+          .Main__Contener__data__field
+            .Main__Contener__data__field__label
+              %p 市区町村
+              %span.requier 必須
+            .Main__Contener__data__field__input
+              = f.text_field  :address, autocomplete: "address-level2", class: "Main__Contener__data__field__input--address"
+          .Main__Contener__data__field
+            .Main__Contener__data__field__label
+              %p 番地
+              %span.requier 必須
+            .Main__Contener__data__field__input
+              = f.text_field  :address, autocomplete: "address-level3", class: "Main__Contener__data__field__input--address"
+          .Main__Contener__data__field
+            .Main__Contener__data__field__label
+              %p 建物名
+              %span.option 任意
+            .Main__Contener__data__field__input
+              = f.text_field  :address, autocomplete: "address-level4", class: "Main__Contener__data__field__input--address"
+          .Main__Contener__data__field
+            .Main__Contener__data__field__label
+              %p 電話番号
+              %span.option 任意
+            .Main__Contener__data__field__input
+              = f.text_field  :tel, autocomplete: "tel", class: "Main__Contener__data__field__input--num"
+          .Main__Contener__data__field
+            .Main__Contener__data__field__label
+              %p メールアドレス
+              %span.requier 必須
+            .Main__Contener__data__field__input
+              = f.email_field :email  :address, autocomplete: "email", class: "Main__Contener__data__field__input--email"
+          .Main__Contener__data__field
+            .Main__Contener__data__field__label
+              %p パスワード
+              %span.requier 必須
+            .Main__Contener__data__field__input
+              = f.password_field  :password, autocomplete: "off", class: "Main__Contener__data__field__input--password"
+          .Main__Contener__data__field
+            .Main__Contener__data__field__label
+              %p 確認用パスワード
+              %span.requier 必須
+            .Main__Contener__data__field__input
+              = f.password_field  :password_confirmation, autocomplete: "off", class: "Main__Contener__data__field__input--password"
+            %p.Main__Contener__data__field__text ※英数字と数字の両方を含めて設定ください
+        .Main__Contener__data__field
+          = f.submit "変更する", class: "Main__Contener__data__field__submit"
 
-= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-  = render "devise/shared/error_messages", resource: resource
-
-  %div.field
-    = f.label :email
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-
-  - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-    %div.Currently waiting confirmation for: = resource.unconfirmed_email
-
-  %div.field
-    = f.label :password -#%i ("leave blank if you dont want to change it)
-    = f.password_field :password, autocomplete: "new-password"
-    - if @minimum_password_length
-      %em = @minimum_password_length characters minimum
-
-  %div.field
-    = f.label :password_confirmation
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-
-  %div.field
-    = f.label :current_password <i>(we need your current password to confirm your changes)</i><br />
-    = f.password_field :current_password, autocomplete: "current-password"
-
-  %div.actions
-    = f.submit "Update"
-
-%h3 Cancel my account
-
-%p Unhappy? = button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete
-
-= link_to "Back", :back
-
+    .Main__Contener__info

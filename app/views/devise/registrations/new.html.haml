@@ -12,14 +12,12 @@
           .Signup__Main__info__field__title
             %p ニックネーム
             %span.requier 必須
-          = f.email_field :nickname, autofocus: true, autocomplete: "nickname", placeholder: '例：フリマ太郎', class: "Signup__Main__info__field__form"
-
+          = f.text_field :nickname, autofocus: true, autocomplete: "nickname", placeholder: '例：フリマ太郎', class: "Signup__Main__info__field__form"
         .Signup__Main__info__field
           .Signup__Main__info__field__title
             %p メールアドレス
             %span.requier 必須
           = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'PC・携帯どちらでも可', class: "Signup__Main__info__field__form"
-
         .Signup__Main__info__field
           .Signup__Main__info__field__title
             %p パスワード
@@ -31,15 +29,24 @@
             %p 確認用パスワード
             %span.requier 必須
           = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: '上と同じパスワードを入力してください', class: "Signup__Main__info__field__form"
-        .Signup__Main__info__text
-          %h1.Signup__Main__info__text__title 本人確認
-        -# .Signup__Main__info__field
-        -#   %p.Signup__Main__info__field__title 名前（全角）
-        -#   %span.requier 必須
-          -# %br
-          -# = f.name_field :email, autofocus: true, autocomplete: "first-name", placeholder: '例：山田'
-
         .Signup__Main__info__field
+          .Signup__Main__info__field__title
+            %p お名前
+            %span.requier 必須
+          = f.text_field :famly_name, autofocus: true, autocomplete: "famly_name", placeholder: '例：山田', class: "Signup__Main__info__field__form"
+          = f.text_field :first_name, autofocus: true, autocomplete: "first_name", placeholder: '例：太郎', class: "Signup__Main__info__field__form"
+        .Signup__Main__info__field
+          .Signup__Main__info__field__title
+            %p お名前カナ
+            %span.requier 必須
+          = f.text_field :famly_name_kana, autofocus: true, autocomplete: "famly_name_kana", placeholder: '例：ヤマダ', class: "Signup__Main__info__field__form"
+          = f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana", placeholder: '例：タロウ', class: "Signup__Main__info__field__form"
+        .Signup__Main__info__field
+          .Signup__Main__info__field__title
+            %p 生年月日
+            %span.requier 必須
+          = f.text_field :birth_day, autofocus: true, autocomplete: "postal_code", placeholder: '例：1986年01月01日→19860101', class: "Signup__Main__info__field__form"
+
           = f.submit "登録する", class: "Signup__Main__info__field__submit"
 
         -# = render "devise/shared/links"

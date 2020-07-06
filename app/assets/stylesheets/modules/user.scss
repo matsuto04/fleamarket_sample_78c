@@ -1,3 +1,4 @@
+// app/views/devise/registrations/new.html.haml
 .Login {
   width: 100vw;
   height: 100vh;
@@ -19,17 +20,19 @@
     &__info {
       width: 400px;
       margin: auto;
+      text-align: center;
       &__noaccount {
         width: 400px;
         height: 70px;
         text-align: center;
         &__comment {
+          text-align: center;
           margin-bottom: 3px;
           font-size: 12px;
         }
         .Sign_up {
-          width: 250px;
-          padding: 14px 79px;
+          width: 300px;
+          padding: 13px 104px;
           border: 1px solid #0099e8;
           border-radius: 4px;
           background-color: #0099e8;
@@ -40,7 +43,7 @@
         }
       }
       &__field {
-        padding: 15px 75px 10px;
+        padding: 15px 49px 10px;
         &__email {
           width: 300px;
           line-height: 33px;
@@ -53,9 +56,9 @@
         }
       }
       &__actions {
-        padding: 10px 75px;
+        padding: 10px 49px;
         &__submit {
-          width: 250px;
+          width: 300px;
           border: 1px solid #ea352d;
           border-radius: 4px;
           background: #ea352d;
@@ -69,6 +72,7 @@
   }
 }
 
+// app/views/devise/sessions/new.html.haml
 .Signup {
   width: 100vw;
   height: 100vh;
@@ -142,6 +146,8 @@
     }
   }
 }
+
+// app/views/devise/registrations/edit.html.haml
 
 
 // _links.html.haml
