@@ -1,6 +1,6 @@
-class Prefecture < ActiveHash::Base
+class PrefectureCode < ActiveHash::Base
   self.date = [
-    {id: 0, name: '選択してください'},
+    {id: 0, name: '未使用'}
     {id: 1, name: '北海道'},{id: 2,name:'青森県'},{id: 3,name: '岩手県'},
     {id: 4, name: '宮城県'},{id: 5,name:'秋田県'},{id: 6,name: '山形県'},
     {id: 7, name: '福島県'},{id: 8,name:'茨城県'},{id: 9,name: '栃木県'},
@@ -15,6 +15,6 @@ class Prefecture < ActiveHash::Base
     {id: 34,name: '広島県'},{id: 38,name:'愛媛県'},{id:39,name:'高知県'},
     {id: 40,name: '福岡県'},{id: 41,name:'佐賀県'},{id:42,name:'長崎'},
     {id: 43,name: '熊本県'},{id: 44,name:'大分県'},{id:45,name:'宮崎県'},
-    {id: 46,name: '鹿児島県'},{id: 47,name: '沖縄県'},{id:48,name: '未定'}
+    {id: 46,name: '鹿児島県'},{id: 47,name: '沖縄県'}、{id:48,name: '未定'}
   ]
 end

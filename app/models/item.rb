@@ -8,6 +8,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :postage_payer
   belongs_to_active_hash :preparation_day
   belongs_to_active_hash :postage_type
+  belongs_to_active_hash :prefecture_code
 
   validatas :name,presence: true
   validates :introduction,presence: true
