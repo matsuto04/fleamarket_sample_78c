@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2020_07_03_034646) do
     t.string "name", null: false
     t.text "introduction", null: false
     t.integer "price", null: false
-    t.string "item_condition", null: false
+    t.integer "item_condition", null: false
     t.integer "postage_payer", null: false
     t.integer "prefecture_code", null: false
     t.integer "preparation_day", null: false
