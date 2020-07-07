@@ -2,20 +2,20 @@
 .Back
   .User
     .User__image
-      = link_to '#' do
+      = link_to user_path(current_user.id) do
         = image_tag 'bg-appBanner-pict.jpg', alt: 'sample'
       .User__image__name
-        = link_to 'ユーザー名', '#'
+        = link_to @user.nickname, user_path(current_user.id)
       .User__image__edit
         .User__image__edit__items
           = "出品数:10000"
         .User__image__edit__mypage
-          = link_to '編集', "#"
+          = link_to '編集', edit_user_registration_path(@user)
     .User__card
       .User__card__new
-        = link_to 'カードの登録', '#'
+        = link_to 'カードの登録', new_user_card_path(@user)
       .User__card__edit
-        = link_to 'カードの変更', '#'
+        = link_to 'カードの変更', edit_user_card_path(@user)
     .User__introduction
       %h2 テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
     .User__item
