@@ -1,0 +1,18 @@
+.Login
+  .Header
+    .Header__logo
+      = link_to '#', class: "Header__logo--img" do
+        = image_tag "logo.png",size: "140x50", alt: "icon"
+  .Main
+    %h1.Main__header ログイン
+    .Main__Container
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        .Main__Container__noaccount
+          .Main__Container__noaccount__comment アカウントをお持ちでない方はこちら
+          = render "devise/shared/links"
+        .Main__Container__field
+          = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'メールアドレス', class: "Main__Container__field__input"
+        .Main__Container__field
+          = f.password_field :password, autocomplete: "current-password", placeholder: 'パスワード', class: "Main__Container__field__input"
+        .Main__Container__actions
+          = f.submit "ログイン", class: "Main__Container__actions__submit"
