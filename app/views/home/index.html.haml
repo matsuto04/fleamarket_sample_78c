@@ -1,6 +1,5 @@
 %body
-  = render partial: 'template/header.html.haml'
-
+  = render 'template/header'
   .Main
     %section.MainVisual
       .MainVisualContent
@@ -215,10 +214,5 @@
                       %i.fa.fa-star.likeIcon
                       0
                   %p (税込)
-
-  = render partial: 'template/footer.html.haml'
-
-  = link_to '#', class: "PurchaseBtn" do
-    .PurchaseBtn__box
-      %span.PurchaseBtn__box__text 出品する
-      = image_tag 'icon_camera.png', class: 'PurchaseBtn__box__icon'
+  = render 'template/footer'
+  = render 'template/item'

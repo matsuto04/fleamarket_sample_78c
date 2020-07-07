@@ -17,11 +17,13 @@ class CardsController < ApplicationController
 #     end
 #   end
 
-#   def new #クレジットカードの登録画面
+  def new #クレジットカードの登録画面
 #     @card = Card.where(user_id: current_user.id)
 #     redirect_to card_path(current_user.id) if @card.exists?
-#   end
-
+  end
+  def edit
+    
+  end
 #   def create # クレジットカードの登録
 #     Payjp.api_key = "sk_test_15e772991a03b9ebde1f7980" # テスト鍵のセット
 #     if params['payjp-token'].blank? # paramsの中にjsで作ったトークンがあるか確かめる
