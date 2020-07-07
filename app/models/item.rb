@@ -22,17 +22,29 @@ class Item < ApplicationRecord
   validates :trading_status,presence: true
   validates :seller_id,presence: true
 
-  enum trading_status: { AlreadyDelivered:0,
-                          InTransit:1,
-                          InDelivery:2,
-                          Delivered:3,
-                          InVestigating:4
+  enum trading_status: { AlreadyDelivered:0,#配送済み
+                          InTransit:1,#輸送中
+                          InDelivery:2,#配達中
+                          Delivered:3,#配達済み
+                          InVestigating:4#調査中
                         }
-  enum item_condition: { BrandNew:0,NearUnused:1,NoNoticeableScratchesOrStains:2,
-                         SomeScratchesAndDirt:3,ThereAreScratchesAndDirt:4,OverallConditionIsbad:5
-  }
+  enum item_condition: { BrandNew:0,#新品、未使用
+                        NearUnused:1,#未使用に近い
+                        NoNoticeableScratchesOrStains:2,#目立った傷や汚れなし
+                         SomeScratchesAndDirt:3,#やや傷や汚れあり
+                         ThereAreScratchesAndDirt:4,#傷や汚れあり
+                         OverallConditionIsbad:5#全体的に状態が悪い
+                        }
  
-  enum postage_payer: { PostageIncluded:0,FreightCollect:1}
-  enum preparation_day:{ MaxTwo:0,MaxThree:1,MaxSeven:2}
-  enum postage_type:{Undecided:0,Courier:1,Post:2}
+  enum postage_payer: { PostageIncluded:0,#送料込み
+                        FreightCollect:1#着払い
+                      }
+  enum preparation_day:{ MaxTwo:0,#1~2日で発送
+                        MaxThree:1,#2~3日で発送
+                        MaxSeven:2#4~7日で発送
+                      }
+  enum postage_type:{Undecided:0,#未定
+                      Courier:1,#宅急便
+                      Post:2#郵便
+                    }
 end

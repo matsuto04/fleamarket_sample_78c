@@ -9,6 +9,6 @@ FactoryBot.define do
     city {"世田谷区"}
     house_number {"11-1"}
     phone_number {"08023451234"}
-    user
+    user_id {1}
   end
 end

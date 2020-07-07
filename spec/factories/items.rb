@@ -9,7 +9,7 @@ FactoryBot.define do
     preparation_day {"MaxThree"}
     postage_type {"Courier"}
     trading_status {"InTransit"}
-    category_id {1}
-    seller_id {1}
+    category_id { FactoryBot.create(:category).id }
+    seller_id { FactoryBot.create(:user).id }     
   end
 end
