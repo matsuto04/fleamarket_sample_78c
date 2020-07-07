@@ -22,7 +22,7 @@
 - has_many :buyer_items, foreign_key: "buyer_id", class_name: "items"
 - has_one :profile, dependent: :destroy
 - has_one :sending_destination, dependent: :destroy
-- has_one :credit_card, dependent: :destroy
+- has_one :card, dependent: :destroy
 
 ## itemsテーブル
 
@@ -50,15 +50,13 @@
 - has_one :buyer, class_name: "User"
 - belongs_to_active_hash :prefecture_code
 
-## credit_cardsテーブル
+## cardsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|card_number|integer|null: false, unique: true|
-|expiration_year|integer|null: false|
-|expiration_month|integer|null: false|
-|security_code|integer|null: false|
-|user|references|null:false, foreign_key: true|
+|user|references|null:false, foregin_key:ture|
+|customer_id|string|null: false|
+|card_id|string|null: false|
 
 ### Association
 - belongs_to :user
