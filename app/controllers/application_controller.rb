@@ -3,25 +3,39 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configre_permitted_parameters, if: :devise_controller?
   
+  def after_sign_up_path_for(resource)
+    root_path
+  end
+
+  def after_sign_in_path_for(resource)
+    root_path
+  end
+
   private
 
   def configre_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname])
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name])
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:family_name])
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name_kana])
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:family_name_kana])
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:birth_day])
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:destination_first_name])
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:destination_family_name])
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:destination_first_name_kana])
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:destination_family_name_kana])
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:post_code])
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:prefecture_code])
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:city])
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:house_number])
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:building_name])
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:phone_number])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [
+      :nickname,
+      :first_name,
+      :family_name,
+      :first_name_kana,
+      :family_name_kana,
+      :birth_day
+    ])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [
+      sending_destination_attributes: [
+        :destination_first_name,
+        :destination_family_name,
+        :destination_first_name_kana,
+        :destination_family_name_kana,
+        :post_code, 
+        :prefecture_code,
+        :city,
+        :house_number,
+        :building_name,
+        :phone_number
+      ] 
+    ])
   end
 
   def basic_auth

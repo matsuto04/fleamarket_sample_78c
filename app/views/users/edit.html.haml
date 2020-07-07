@@ -6,8 +6,12 @@
   .Main
     %h1.Main__header 各種変更
     .Main__Container
-      = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-        = render "devise/shared/error_messages", resource: resource
+      = form_for(@user) do |f|
+        - if @user.errors.any?
+          %h2= "#{@user.errors.full_messages.count}件のエラーが発生しました"
+          %ul
+            - @user.errors.full_messages.each do |message|
+              %li= message
         .Main__Container__field
           .Main__Container__field__label
             %p ニックネーム
