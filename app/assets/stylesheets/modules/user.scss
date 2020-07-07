@@ -1,23 +1,24 @@
+.Header {
+  display: flex;
+  justify-content: center;
+  height: 110px;
+  &__logo {
+    margin-top: 30px;
+    width: 140px;
+  }
+}
+
 // app/views/devise/registrations/new.html.haml
 .Login {
   width: 100vw;
   height: 100vh;
-  &__Header {
-    display: flex;
-    justify-content: center;
-    height: 110px;
-    &__logo {
-      margin-top: 30px;
-      width: 140px;
-    }
-  }
-  &__Main {
+  .Main {
     height: calc(100vh - 110px);
     &__header {
       text-align: center;
       margin: 13px 0;
     }
-    &__info {
+    &__Container {
       width: 400px;
       margin: auto;
       text-align: center;
@@ -44,12 +45,7 @@
       }
       &__field {
         padding: 15px 49px 10px;
-        &__email {
-          width: 300px;
-          line-height: 33px;
-          padding: 5px;
-        }
-        &__password {
+        &__input {
           width: 300px;
           line-height: 33px;
           padding: 5px;
@@ -76,34 +72,26 @@
 .Signup {
   width: 100vw;
   height: 100vh;
-  &__Header {
-    display: flex;
-    justify-content: center;
-    height: 110px;
-    &__logo {
-      margin-top: 30px;
-      width: 140px;
-    }
-  }
-  &__Main {
+  .Main {
     &__header {
       text-align: center;
       margin: 13px 0;
     }
-    &__info {
+    &__Container {
       width: 400px;
       margin: auto;
       &__field {
         text-align: center;
         margin: 10px;
-        &__title {
+        &__label {
           display: flex;
           width: 250px;
+          font-size: 14px;
           p {
             text-align: start;
             padding: 0 5px 0 35px;
           }
-          span {
+          span.requier {
             background-color: #ea352d;
             border: 1px solid #ea352d;
             border-radius: 3px;
@@ -112,8 +100,17 @@
             line-height: 22px;
             padding: 0 5px;
           }
+          span.option {
+            background-color: #cccc;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 13px;
+            color: #fff;
+            line-height: 22px;
+            padding: 0 5px;
+          }
         }
-        &__form{
+        &__input{
           width: 300px;
           line-height: 33px;
           padding: 5px;
@@ -126,21 +123,18 @@
           font-size: 12px;
           padding-left: 45px;
         }
+      }
+      &__actions {
+        padding: 10px 49px;
         &__submit {
-          width: 250px;
+          width: 300px;
           border: 1px solid #ea352d;
           border-radius: 4px;
           background: #ea352d;
           color: #fff;
           font-size: 15px;
           line-height: 40px;
-          text-align: center;        }
-      }
-      &__text {
-        width: 300px;
-        h1 {
-          text-align: start;
-          padding: 0 5px 0 35px;
+          text-align: center;
         }
       }
     }
@@ -148,6 +142,77 @@
 }
 
 // app/views/devise/registrations/edit.html.haml
+.Edit {
+  width: 100vw;
+  height: 100vh;
+  .Main {
+    &__header {
+      text-align: center;
+      margin: 13px 0;
+    }
+    &__Container {
+      width: 400px;
+      margin: auto;
+      &__field {
+        text-align: center;
+        margin: 10px;
+        &__label {
+          display: flex;
+          width: 250px;
+          font-size: 14px;
+          p {
+            text-align: start;
+            padding: 0 5px 0 35px;
+          }
+          span.requier {
+            background-color: #ea352d;
+            border: 1px solid #ea352d;
+            border-radius: 3px;
+            font-size: 13px;
+            color: #fff;
+            line-height: 22px;
+            padding: 0 5px;
+          }
+          span.option {
+            background-color: #cccc;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 13px;
+            color: #fff;
+            line-height: 22px;
+            padding: 0 5px;
+          }
+        }
+        &__input{
+          width: 300px;
+          line-height: 33px;
+          padding: 5px;
+          font-size: 13px;
+          margin: 5px 0;
+        }
+        &__text {
+          text-align: start;
+          color: gray;
+          font-size: 12px;
+          padding-left: 45px;
+        }
+      }
+      &__actions {
+        padding: 10px 49px;
+        &__submit {
+          width: 300px;
+          border: 1px solid #ea352d;
+          border-radius: 4px;
+          background: #ea352d;
+          color: #fff;
+          font-size: 15px;
+          line-height: 40px;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
 
 
 // _links.html.haml
