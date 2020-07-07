@@ -1,0 +1,26 @@
+%body
+  = render partial: 'template/header.html.haml'
+
+.Items
+  .Main
+    .MainContainer
+      .MainContainer__title
+        %h1 サンプル
+      .MainContainer__item
+        .MainContainer__item--image
+          %image_tag
+        .MainContainer__item--table
+          .TableBody
+            %tr
+              %th 見出し
+              %td データ
+      .MainContainer__pricebox
+        %span.price 1900円
+        %span.tax 税込
+        %span.fee_side 送料込み
+      %form.MainContainer__actions
+        %button.MainContainer__actions--btn{type: "submit"}
+          = link_to '購入画面に進む', "#"
+      .MainContainer__description
+        .MainContainer__description--text
+          テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト

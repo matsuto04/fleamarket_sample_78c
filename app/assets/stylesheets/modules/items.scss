@@ -1,3 +1,68 @@
-// Place all the styles related to the items controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.Items{
+  background: rgb(245, 245, 245);
+  .Main {
+    width: 100vw;
+    height: 100vh;
+    &Container {
+      width: 700px;
+      margin: 40px auto;
+      background-color: #ffffff;
+      &__title {
+        h1 {
+
+          text-align: center;
+        }
+      }
+      &__item {
+        display: flex;
+        justify-content: space-around;
+        &--image {
+          width: 300px;
+          height: 400px;
+          background-color: grey;
+        }
+        &--table {
+          width: 300px;
+          height: 400px;
+          background-color: grey;
+          .TableBody{
+            tr {
+              border: 1px solid gray;
+            }
+          }
+        }
+      }
+      &__pricebox {
+        display: flex;
+        justify-content: center;
+        .price {
+          background-color: grey;
+        }
+        .tax {
+          background-color: grey;
+        }
+        .fee_side {
+          background-color: grey;
+        }
+      }
+      &__actions {
+        text-align: center;
+        &--btn {
+          width: 300px;
+          border: 1px solid #ea352d;
+          border-radius: 4px;
+          background: #ea352d;
+          color: #fff;
+          font-size: 15px;
+          line-height: 40px;
+          text-align: center;
+        }
+      }
+      &__description {
+        &--text {
+
+        }
+      }
+    }
+  }
+}
