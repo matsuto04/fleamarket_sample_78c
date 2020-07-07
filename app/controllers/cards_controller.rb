@@ -1,7 +1,7 @@
 
 #ログインした状態でのviewなので、エラー回避のためにコメントアウトしています
 
-# class CardsController < ApplicationController
+class CardsController < ApplicationController
 #   require "payjp"
 #   before_action :set_card, only: [:index, :show, :destroy]
 
@@ -74,4 +74,4 @@
 #     @card = Card.find_by(user_id: current_user.id)
 #   end
 
-# end
+end
