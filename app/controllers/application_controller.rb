@@ -15,23 +15,24 @@ class ApplicationController < ActionController::Base
 
   def configre_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [
-      :nickname, 
-      :first_name, 
-      :family_name, 
-      :first_name_kana, 
-      :family_name_kana, 
+      :nickname,
+      :first_name,
+      :family_name,
+      :first_name_kana,
+      :family_name_kana,
       :birth_day
     ])
     devise_parameter_sanitizer.permit(:sign_up, keys: [
       sending_destination_attributes: [
-        :destination_first_name, 
-        :destination_family_name, 
-        :destination_first_name_kana, 
-        :destination_family_name_kana, 
-        :post_code, :prefecture_code, 
-        :city, 
-        :house_number, 
-        :building_name, 
+        :destination_first_name,
+        :destination_family_name,
+        :destination_first_name_kana,
+        :destination_family_name_kana,
+        :post_code, 
+        :prefecture_code,
+        :city,
+        :house_number,
+        :building_name,
         :phone_number
       ] 
     ])
