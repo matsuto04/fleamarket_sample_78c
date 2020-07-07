@@ -33,7 +33,7 @@
 |price|integer|null: false|
 |item_condition|integer|null: false|
 |postage_payer|integer|null: false|
-|prefecture_code|integer|null: false|
+|prefecture_code_id|integer|null: false|
 |preparation_day|integer|null: false|
 |postage_type|integer|null: false|
 |category_id|bigint|null: false, foreign_key: true|
@@ -47,11 +47,7 @@
 - has_many :item_images, dependent: :destroy
 - belongs_to :category
 - belongs_to :seller, class_name: "User"
-- belongs_to :buyer, class_name: "User"
-- belongs_to_active_hash :item_condition
-- belongs_to_active_hash :postage_payer
-- belongs_to_active_hash :preparation_day
-- belongs_to_active_hash :postage_type
+- has_one :buyer, class_name: "User"
 - belongs_to_active_hash :prefecture_code
 
 ## credit_cardsテーブル
