@@ -24,11 +24,11 @@ ActiveRecord::Schema.define(version: 2020_07_03_034646) do
     t.string "name", null: false
     t.text "introduction", null: false
     t.integer "price", null: false
-    t.integer "item_condition", null: false
-    t.integer "postage_payer", null: false
-    t.integer "prefecture_code", null: false
-    t.integer "preparation_day", null: false
-    t.integer "postage_type", null: false
+    t.string "item_condition", null: false
+    t.string "postage_payer", null: false
+    t.integer "prefecture_code_id", null: false
+    t.string "preparation_day", null: false
+    t.string "postage_type", null: false
     t.bigint "category_id", null: false
     t.integer "trading_status", default: 0, null: false
     t.bigint "buyer_id"

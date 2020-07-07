@@ -3,12 +3,12 @@ FactoryBot.define do
     name {"ガム"}
     introduction {"ああああああああああああ"}
     price {200}
-    item_condition {1}
-    postage_payer {1}
-    prefecture_code {1}
-    preparation_day {1}
-    postage_type {1}
-    trading_status {1}
+    item_condition {"NearUnused"}
+    postage_payer {"FreightCollect"}
+    prefecture_code_id {1}
+    preparation_day {"MaxThree"}
+    postage_type {"Courier"}
+    trading_status {"InTransit"}
     category_id {1}
     seller_id {1}
   end
