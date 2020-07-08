@@ -1,0 +1,142 @@
+%body.Sell
+  %header.SellTop
+    .SellTop__icon
+      = link_to root_path do
+        = image_tag "logo.png", alt: "logo", class: 'SellTop__icon--img'
+  
+  %main.SellMain
+    %form.SellMainForm
+      .SellMainFormContainer
+        .SellMainFormContainer__title
+          %h3.SellMainFormContainer__title--text
+            出品画像
+          %span.SellMainFormContainer__title--require
+            必須
+        %p.SellMainFormContainer__note
+          最大10枚までアップロードできます
+        .SellMainFormContainer__dropBox
+          %label.SellMainFormContainer__dropBox__label
+            = icon("fas", "camera", class: "SellMainFormContainer__dropBox__label__icon")
+            %input(type="file" accept=".png, .jpg, .jpeg, .pdf, .doc" multiple required class="SellMainFormContainer__dropBox__label__input")/
+          %p.SellMainFormContainer__dropBox__text
+            ドラッグアンドドロップ
+            %br
+            またはクリックしてファイルをアップロード
+
+      .SellMainFormContainer
+        .SellMainFormContainer__title
+          %h3.SellMainFormContainer__title--text
+            商品名
+          %span.SellMainFormContainer__title--require
+            必須
+        .SellMainFormContainer__itemName
+          %input(type="text" placeholder="40文字まで" class="SellMainFormContainer__itemName__field")/
+
+      .SellMainFormContainer
+        .SellMainFormContainer__title
+          %h3.SellMainFormContainer__title--text
+            商品の説明
+          %span.SellMainFormContainer__title--require
+            必須
+        .SellMainFormContainer__itemExplanation
+          %textarea(class="SellMainFormContainer__itemExplanation__field" cols="30" rows="10" placeholder="例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでおすすめです。（1,000文字以内）（色、素材、重さ、定価、注意点など）")
+        .SellMainFormContainer__wordCount
+          0/1000
+
+      .SellMainFormContainer
+        .SellMainFormContainer__subTitle
+          商品の詳細
+        .SellMainFormContainer__title
+          %h3.SellMainFormContainer__title--text
+            カテゴリー
+          %span.SellMainFormContainer__title--require
+            必須
+        .SellMainFormContainer__select
+          %select.SellMainFormContainer__select__field{:name => "category" }
+            %label.SellMainFormContainer__select__field__label
+              %option(selected value label="選択してください")
+              -# = icon("fas", "chevron-down", class: "SellMainFormContainer__select__field__label__icon")
+        .SellMainFormContainer__title
+          %h3.SellMainFormContainer__title--text
+            商品の状態
+          %span.SellMainFormContainer__title--require
+            必須
+        .SellMainFormContainer__select
+          %select.SellMainFormContainer__select__field{:name => "item_condition"}
+            %option(selected value label="選択してください")
+
+      .SellMainFormContainer
+        .SellMainFormContainer__subTitle
+          発送について
+        .SellMainFormContainer__title
+          %h3.SellMainFormContainer__title--text
+            発送料の負担
+          %span.SellMainFormContainer__title--require
+            必須
+        .SellMainFormContainer__select
+          %select.SellMainFormContainer__select__field{name: "postage_payer" }
+            %option(selected value label="選択してください")
+        .SellMainFormContainer__title
+          %h3.SellMainFormContainer__title--text
+            発送元の地域
+          %span.SellMainFormContainer__title--require
+            必須
+        .SellMainFormContainer__select
+          %select.SellMainFormContainer__select__field{name: "iprefecture_code"}
+            %option(selected value label="選択してください")
+        .SellMainFormContainer__title
+          %h3.SellMainFormContainer__title--text
+            発送までの日数
+          %span.SellMainFormContainer__title--require
+            必須
+        .SellMainFormContainer__select
+          %select.SellMainFormContainer__select__field{name: "preparation_day"}
+            %option(selected value label="選択してください")
+
+      .SellMainFormContainer
+        .SellMainFormContainer__subTitle
+          価格（¥300〜9,999,999）
+        .SellMainFormContainer__price
+          %h3.SellMainFormContainer__price__title
+            販売価格
+          %span.SellMainFormContainer__price__require
+            必須
+          %span.SellMainFormContainer__price__ennMark
+            ¥
+          %input(type="number" placeholder=0 class="SellMainFormContainer__price__number")/
+        .SellMainFormContainer__tax
+          .SellMainFormContainer__tax__text
+            販売手数料（10%）
+          .SellMainFormContainer__tax__bar
+            ー
+        %hr.SellMainFormContainer__bar/
+        .SellMainFormContainer__tax
+          .SellMainFormContainer__tax__text
+            販売利益
+          .SellMainFormContainer__tax__bar
+            ー
+        .SellMainFormContainer__btn
+          %button(type="submit" class="SellMainFormContainer__btn__submit")
+            出品する
+          %button(type="submit" class="SellMainFormContainer__btn__draft")
+            下書きに保存
+          = link_to("もどる", root_path, {class: "SellMainFormContainer__btn__back"})
+        .SellMainFormContainer__note
+          %p.SellMainFormContainer__note__text
+            禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
+
+
+  %footer.SellBottom
+    .SellBottomContents
+      %ul.SellBottomContents__lists
+        %li.SellBottomContents__lists__list
+          = link_to 'プライバシーポリシー', '#'
+        %li.SellBottomContents__lists__list
+          = link_to 'メルカリ利用規約', '#'
+        %li.SellBottomContents__lists__list
+          = link_to '特定商取引に関する表記', '#'
+    .SellBottomLogo
+      = link_to root_path do
+        = image_tag 'logo.png', alt: 'logo', class: 'SellBottomLogo--img'
+    %p.SellBottom__copyright
+      © FURIMA
