@@ -1,5 +1,4 @@
 class CardsController < ApplicationController
-#   require "payjp"
   require 'payjp'
   before_action :set_card, only:[:index, :show, :destroy]
 
