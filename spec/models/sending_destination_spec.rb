@@ -59,5 +59,9 @@ describe SendingDestination do
       send.valid?
       expect(send.errors[:post_code]).to include("is invalid")
     end
+    it "すべての条件が合格すると登録可能" do
+      send = build(:sending_destination)
+      expect(send).to be_valid
+    end
   end
 end
