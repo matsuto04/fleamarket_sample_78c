@@ -211,22 +211,22 @@ ja:
         InTransit: "輸送中"
         InDelivery: "配達中"
         Delivered: "配達済み"
-        InVestigating: 調査中
+        InVestigating: "調査中"
       item_condition:
-        BrandNew: 新品、未使用
-        NearUnused: 未使用に近い
-        NoNoticeableScratchesOrStains: 目立った傷や汚れなし
-        SomeScratchesAndDirt: やや傷や汚れあり
-        ThereAreScratchesAndDirt: 傷や汚れあり
-        OverallConditionIsbad: 全体的に状態が悪い
+        BrandNew: "新品、未使用"
+        NearUnused: "未使用に近い"
+        NoNoticeableScratchesOrStains: "目立った傷や汚れなし"
+        SomeScratchesAndDirt: "やや傷や汚れあり"
+        ThereAreScratchesAndDirt: "傷や汚れあり"
+        OverallConditionIsbad: "全体的に状態が悪い"
       postage_payer:
-        PostageIncluded: 送料込み
-        FreightCollect: 着払い
+        PostageIncluded: "送料込み"
+        FreightCollect: "着払い"
       preparation_day:
-        MaxTwo: 1~2日で発送
-        MaxThree: 2~3日で発送
-        MaxSeven: 4~7日で発送
+        MaxTwo: "1~2日で発送"
+        MaxThree: "2~3日で発送"
+        MaxSeven: "4~7日で発送"
       postage_type:
-        Undecided: 未定
-        Courier: 宅急便
-        Post: 郵便
+        Undecided: "未定"
+        Courier: "宅急便"
+        Post: "郵便"
