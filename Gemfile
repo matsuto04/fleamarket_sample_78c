@@ -75,4 +75,5 @@ gem 'jquery-rails'
 gem 'ancestry'
 gem 'active_hash'
 gem 'payjp'
-
+gem 'rails-i18n'
+gem 'enum_help'
