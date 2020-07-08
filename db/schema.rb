@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_03_023704) do
+ActiveRecord::Schema.define(version: 2020_07_03_034646) do
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -27,6 +27,27 @@ ActiveRecord::Schema.define(version: 2020_07_03_023704) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "ancestry"
     t.index ["ancestry"], name: "index_categories_on_ancestry"
+  end
+
+  create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "introduction", null: false
+    t.integer "price", null: false
+    t.integer "item_condition", default: 0, null: false
+    t.integer "postage_payer", default: 0, null: false
+    t.integer "prefecture_code_id", null: false
+    t.integer "preparation_day", default: 0, null: false
+    t.integer "postage_type", default: 0, null: false
+    t.bigint "category_id", null: false
+    t.integer "trading_status", default: 0, null: false
+    t.bigint "buyer_id"
+    t.bigint "seller_id", null: false
+    t.timestamp "deal_closed_date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["buyer_id"], name: "index_items_on_buyer_id"
+    t.index ["category_id"], name: "fk_rails_89fb86dc8b"
+    t.index ["seller_id"], name: "index_items_on_seller_id"
   end
 
   create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -73,7 +94,9 @@ ActiveRecord::Schema.define(version: 2020_07_03_023704) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
-
+  add_foreign_key "items", "categories"
+  add_foreign_key "items", "users", column: "buyer_id"
+  add_foreign_key "items", "users", column: "seller_id"
   add_foreign_key "cards", "users"
   add_foreign_key "profiles", "users"
   add_foreign_key "sending_destinations", "users"

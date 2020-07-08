@@ -15,6 +15,12 @@
         %li.HeaderInnerNavlistsLeft__item
           = link_to 'カテゴリー', '#'
       %ul.HeaderInnerNavlistsRight
+      - if user_signed_in?
+        %li.HeaderInnerNavlistsRight__item
+          = link_to 'ログアウト', destroy_user_session_path, method: :delete
+        %li.HeaderInnerNavlistsRight__item
+          = link_to 'マイページ', user_path(current_user.id)
+      - else
         %li.HeaderInnerNavlistsRight__item
           = link_to 'ログイン', new_user_session_path
         %li.HeaderInnerNavListsRight__item

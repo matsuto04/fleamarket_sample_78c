@@ -12,7 +12,7 @@ RSpec.describe User, type: :model do
       it "名前が空白ならばエラー" do
         category = build(:category,name: "")
         category.valid?
-        expect(category.errors[:name]).to include("can't be blank")
+        expect(category.errors[:name]).to include("を入力してください")
       end
     end
   end
