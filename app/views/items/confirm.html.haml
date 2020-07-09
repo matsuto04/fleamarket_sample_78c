@@ -1,37 +1,69 @@
-%body.Sell
-  %header.SellTop
-    .SellTop__icon
+%body.Buy
+  %header.BuyTop
+    .BuyTop__icon
       = link_to root_path do
-        = image_tag "logo.png", alt: "logo", class: 'SellTop__icon--img'
+        = image_tag "logo.png", alt: "logo", class: 'BuyTop__icon--img'
 
-  %main.SellMain
-    .SellMainConfirm
-      .SellMainConfirmContainer
-        %h2.SellMainConfirmContainer__title
+  %main.BuyMain
+    .BuyMainConfirm
+      .BuyMainConfirmContainer
+        %h2.BuyMainConfirmContainer__title
           購入内容の確認
-      .SellMainConfirmContainer__info
-        %figure.SellMainConfirmContainer__info__figure
-          = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m25161980338_1.jpg?1593936690', alt: '商品のイメージ画像', height: '80px', width: '80px', class: 'SellMainConfirmContainer__info__figure__img'
-        .SellMainConfirmContainer__info__rough
-          %p.SellMainConfirmContainer__info__rough__text
-            牛革 メンズ 折り財布 カーキ 小銭入れ 本革レザー 大容量 贈り物 未使用
-          %p.SellMainConfirmContainer__info__rough__price
-            %span.SellMainConfirmContainer__info__rough__price__taxIn
-              送料込み（税込）
-            %span.SellMainConfirmContainer__info__rough__price__number
-              ¥3,300
+        .BuyMainConfirmContainer__info
+          %figure.BuyMainConfirmContainer__info__figure
+            = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m25161980338_1.jpg?1593936690', alt: '商品のイメージ画像', class: 'BuyMainConfirmContainer__info__figure__img'
+          .BuyMainConfirmContainer__info__box
+            %p.BuyMainConfirmContainer__info__box__text
+              牛革 メンズ 折り財布 カーキ 小銭入れ 本革レザー 大容量 贈り物 未使用
+            %p.BuyMainConfirmContainer__info__box__price
+              %span.BuyMainConfirmContainer__info__box__price__taxIn
+                送料込み（税込）
+              %span.BuyMainConfirmContainer__info__box__price__number
+                ¥3,300
+        .BuyMainConfirmContainer__payment
+          %span.BuyMainConfirmContainer__payment__text
+            支払い金額
+          %span.BuyMainConfirmContainer__payment__number
+            ¥3,300
+        .BuyMainConfirmContainer__payWay
+          %h3.BuyMainConfirmContainer__payWay__title
+            支払い方法
+          = link_to("変更する ", '#', {class: "BuyMainConfirmContainer__payWay__edit"})
+        .BuyMainConfirmContainer__cardData
+          %p 
+            クレジットカード
+          %p
+            ************1234
+          %p
+            有効期限
+          = image_tag 'https://pcweb-assets.mercdn.net/assets/img/card/visa.svg?2269318488', alt: 'visa', height: '20px', width: '50px', class: 'BuyMainConfirmContainer__cardData__img'
+        .BuyMainConfirmContainer__postageType
+          %h3.SellMainConfirmContainer__postageType__title
+            配送方法
+          = link_to("変更する", '#', {class: "BuyMainConfirmContainer__postageType__edit"})
+        .BuyMainConfirmContainer__postData
+          %p 
+            〒220-0012
+          %p
+            神奈川県 横浜市西区みなとみらい 1-2-34
+          %p
+            フリマ 太郎
+        .BuyMainConfirmContainer__btn
+          %button(type="submit" class="BuyMainConfirmContainer__btn__submit")
+            購入する
 
-  %footer.SellBottom
-    .SellBottomContents
-      %ul.SellBottomContents__lists
-        %li.SellBottomContents__lists__list
+
+  %footer.BuyBottom
+    .BuyBottomContents
+      %ul.BuyBottomContents__lists
+        %li.BuyBottomContents__lists__list
           = link_to 'プライバシーポリシー', '#'
-        %li.SellBottomContents__lists__list
+        %li.BuyBottomContents__lists__list
           = link_to 'メルカリ利用規約', '#'
-        %li.SellBottomContents__lists__list
+        %li.BuyBottomContents__lists__list
           = link_to '特定商取引に関する表記', '#'
-    .SellBottomLogo
+    .BuyBottomLogo
       = link_to root_path do
-        = image_tag 'logo.png', alt: 'logo', class: 'SellBottomLogo--img'
-    %p.SellBottom__copyright
+        = image_tag 'logo.png', alt: 'logo', class: 'BuyBottomLogo--img'
+    %p.BuyBottom__copyright
       © FURIMA
