@@ -13,7 +13,30 @@
     .HeaderInnerNav
       %ul.HeaderInnerNavlistsLeft
         %li.HeaderInnerNavlistsLeft__item
-          = link_to 'カテゴリー', '#'
+          .Categories
+            %ul
+              %li
+                = link_to "#", class: "category__seach search__btn" do
+                  %i.fas.fa-bars.category__icon
+                  カテゴリーから探す
+                %ul.Category__parent.category__list
+                  - @parents.each do |parent|
+                    %li
+                      = link_to "#", class: "category__parent__name" do
+                        = parent.name
+                      %ul.Category__child.category__list
+                        - parent.children.each do |child|
+                          %li
+                            = link_to "#", class: "category__child__name" do
+                              = child.name
+                            %ul.Category__grandchild.category__list
+                              - child.children.each do |grandchild|
+                                %li 
+                                  = link_to "#", class: "category__child__name" do
+                                    = grandchild.name
+              
+              
+
       %ul.HeaderInnerNavlistsRight
       - if user_signed_in?
         %li.HeaderInnerNavlistsRight__item
