@@ -1,6 +1,7 @@
 class CardsController < ApplicationController
   require 'payjp'
   before_action :set_card, only:[:index, :show, :destroy]
+  before_action :set_category
 
   def index
     if @card.blank?
@@ -67,5 +68,9 @@ class CardsController < ApplicationController
 
   def set_card
     @card = Card.find_by(user_id: current_user.id)
+  end
+
+  def set_category
+    @parents = Category.where(ancestry: nil)
   end
 end

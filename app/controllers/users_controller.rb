@@ -1,10 +1,12 @@
 class UsersController < ApplicationController
   before_action :set_user
+  before_action :set_category
   def index
   end
 
   def show
     @user = User.find(current_user.id)
+    @parents = Category.where(ancestry: nil)
   end
 
   def edit
@@ -49,6 +51,10 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
+  end
+
+  def set_category
+    @parents = Category.where(ancestry: nil)
   end
 
 end
