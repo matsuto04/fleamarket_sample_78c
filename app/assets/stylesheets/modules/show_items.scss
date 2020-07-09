@@ -25,7 +25,7 @@
         justify-content: space-around;
         &__image {
           width: 300px;
-          height: 420px;
+          height: 300px;
           background-color: #f5f5f5;
           &__box {
             width: 100%;
@@ -33,20 +33,10 @@
               .Image {
                 vertical-align: bottom;
               }
-            &__sub {
-              width: 100%;
-              height: 120px;
-              .Image__sub {
-                float: left;
-                display: block;
-                vertical-align: bottom;
-              }
-            }
           }
         }
         &__table {
           width: 300px;
-          height: 400px;
           table.TableBody{
             width: 100%;
             tr{
