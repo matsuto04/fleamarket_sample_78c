@@ -61,6 +61,11 @@
             = f.text_field :destination_first_name_kana, autocomplete: "destination_first_name_kana", placeholder: '例：タロウ', class: "Main__Container__field__input"
           .Main__Container__field
             .Main__Container__field__label
+              %p 電話番号
+              %span.requier 必須
+            = f.text_field :phone_number, autocomplete: "phone_number", placeholder: '例：080XXXXXXXX', class: "Main__Container__field__input"
+          .Main__Container__field
+            .Main__Container__field__label
               %p 郵便番号
               %span.requier 必須
             = f.text_field :post_code, autocomplete: "post_code", placeholder: '例：1234567', class: "Main__Container__field__input"
@@ -84,10 +89,6 @@
               %p 建物名
               %span.option 任意
             = f.text_field :building_name, autocomplete: "building_name", placeholder: '例：フリママンション101号室', class: "Main__Container__field__input"
-          .Main__Container__field
-            .Main__Container__field__label
-              %p 電話番号
-              %span.option 任意
-            = f.text_field :phone_number, autocomplete: "phone_number", placeholder: '例：080XXXXXXXX', class: "Main__Container__field__input"
+          
         .Main__Container__actions
           = f.submit "登録する", class: "Main__Container__actions__submit"
