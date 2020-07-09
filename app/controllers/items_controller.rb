@@ -5,6 +5,9 @@ class ItemsController < ApplicationController
   def new
   end
 
+  def confirm
+  end
+
   def buy
     Payjp.api_key = "sk_test_15e772991a03b9ebde1f7980"
     Payjp::Change.create(
