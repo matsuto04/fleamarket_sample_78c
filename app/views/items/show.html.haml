@@ -1,26 +1,59 @@
-%body
-  = render partial: 'template/header.html.haml'
-
+= render partial: 'template/header.html.haml'
 .Items
-  .Main
+  %section.Main
     .MainContainer
       .MainContainer__title
         %h1 サンプル
       .MainContainer__item
-        .MainContainer__item--image
-          %image_tag
-        .MainContainer__item--table
-          .TableBody
+        .MainContainer__item__image
+          .MainContainer__item__image__box
+            = image_tag 'pict-reason-01.jpg', alt: 'test', height: '300px', width: '300px', class: 'Image'
+            .MainContainer__item__image__box__sub
+              = image_tag 'pict-reason-01.jpg', alt: 'test', height: '60px', width: '60px', class: 'Image__sub'
+              = image_tag 'pict-reason-01.jpg', alt: 'test', height: '60px', width: '60px', class: 'Image__sub'
+              = image_tag 'pict-reason-01.jpg', alt: 'test', height: '60px', width: '60px', class: 'Image__sub'
+              = image_tag 'pict-reason-01.jpg', alt: 'test', height: '60px', width: '60px', class: 'Image__sub'
+              = image_tag 'pict-reason-01.jpg', alt: 'test', height: '60px', width: '60px', class: 'Image__sub'
+              = image_tag 'pict-reason-01.jpg', alt: 'test', height: '60px', width: '60px', class: 'Image__sub'
+              = image_tag 'pict-reason-01.jpg', alt: 'test', height: '60px', width: '60px', class: 'Image__sub'
+              = image_tag 'pict-reason-01.jpg', alt: 'test', height: '60px', width: '60px', class: 'Image__sub'
+              -# = image_tag 'pict-reason-01.jpg', alt: 'test', height: '60px', width: '60px', class: 'Image__sub'
+              -# = image_tag 'pict-reason-01.jpg', alt: 'test', height: '60px', width: '60px', class: 'Image__sub'
+        .MainContainer__item__table
+          %table.TableBody
             %tr
-              %th 見出し
-              %td データ
+              %th 出品者
+              %td= link_to "ユーザー名", '#'
+            %tr
+              %th カテゴリー
+              %td= link_to "レディース", '#'
+            %tr
+              %th 商品状態
+              %td 未使用に近い
+            %tr
+              %th 配送料の負担
+              %td 送料込み（出品者負担）
+            %tr
+              %th 配送の方法
+              %td 宅配便
+            %tr
+              %th 配送元地域
+              %td 東京都
+            %tr
+              %th 発送日の目安
+              %td 1〜２日で発送
       .MainContainer__pricebox
-        %span.price 1900円
-        %span.tax 税込
+        %span.price ¥1,900
+        %span.tax (税込)
         %span.fee_side 送料込み
       %form.MainContainer__actions
         %button.MainContainer__actions--btn{type: "submit"}
           = link_to '購入画面に進む', "#"
       .MainContainer__description
         .MainContainer__description--text
-          テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
+          商品説明欄 
+          %br
+          テキストテキストテキスト
+          %br
+          テキストテキストテキストテキストテキストテキストテキストテキスト
+= render 'template/footer'
