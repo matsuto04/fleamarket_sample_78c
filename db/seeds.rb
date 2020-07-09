@@ -1,31 +1,178 @@
 #レディース
 lady = Category.create(name: "レディース")
 lady_1 = lady.children.create(name: "トップス")
-lady_1.children.create([{name: "Tシャツ/カットソー（半袖/袖なし）"},{name:"Tシャツ/カットソー（七分/長袖）"},{name:"シャツ/ブラウス（半袖/袖なし）"},{name:"シャツ/ブラウス（七分/長袖）"},{name:"ポロシャツ"},{name:"キャミソール"},{name:"タンクトップ"},{name:"ホルターネック"},{name:"ニット/セーター"},{name:"チュニック"},{name:"カーディガン/ボレロ"},{name:"アンサンブル"},{name:"ベスト/ジレ"},{name:"パーカー"},{name:"トレーナー/スウェット"},{name:"ベアトップ/チューブトップ"},{name:"ジャージ"},{name:"その他"}])
+lady_1.children.create([
+  {name: "Tシャツ/カットソー（半袖/袖なし）"},
+  {name:"Tシャツ/カットソー（七分/長袖）"},
+  {name:"シャツ/ブラウス（半袖/袖なし）"},
+  {name:"シャツ/ブラウス（七分/長袖）"},
+  {name:"ポロシャツ"},
+  {name:"キャミソール"},
+  {name:"タンクトップ"},
+  {name:"ホルターネック"},
+  {name:"ニット/セーター"},
+  {name:"チュニック"},
+  {name:"カーディガン/ボレロ"},
+  {name:"アンサンブル"},
+  {name:"ベスト/ジレ"},
+  {name:"パーカー"},
+  {name:"トレーナー/スウェット"},
+  {name:"ベアトップ/チューブトップ"},
+  {name:"ジャージ"},
+  {name:"その他"}
+])
+
 lady_2 = lady.children.create(name: "ジャケットアウター")
-lady_2.children.create([{name:"テーラードジャケット"},{name:"ノーカラージャケット"},{name:"Gジャン/デニムジャケット"},{name:"レザージャケット"},{name:"ダウンジャケット"},{name:"ライダースジャケット"},{name:"ミリタリージャケット"},{name:"ダウンベスト"},{name:"ジャンパー/ブルゾン"},{name:"ポンチョ"},{name:"ロングコート"},{name:"トレンチコート"},{name:"ダッフルコート"},{name:"ピーコート"},{name:"チェスターコート"},{name:"モッズコート"},{name:"スタジャン"},{name:"毛布/ファーコート"},{name:"スプリングコート"},{name:"スカジャン"},{name:"その他"}])
+lady_2.children.create([
+  {name:"テーラードジャケット"},
+  {name:"ノーカラージャケット"},
+  {name:"Gジャン/デニムジャケット"},
+  {name:"レザージャケット"},
+  {name:"ダウンジャケット"},
+  {name:"ライダースジャケット"},
+  {name:"ミリタリージャケット"},
+  {name:"ダウンベスト"},
+  {name:"ジャンパー/ブルゾン"},
+  {name:"ポンチョ"},
+  {name:"ロングコート"},
+  {name:"トレンチコート"},
+  {name:"ダッフルコート"},
+  {name:"ピーコート"},
+  {name:"チェスターコート"},
+  {name:"モッズコート"},
+  {name:"スタジャン"},
+  {name:"毛布/ファーコート"},
+  {name:"スプリングコート"},
+  {name:"スカジャン"},
+  {name:"その他"}
+])
+
 lady_3 = lady.children.create(name:"パンツ")
-lady_3.children.create([{name:"デニム/ジーンズ"},{name:"ショートパンツ"},{name:"カジュアルパンツ"},{name:"ハーフパンツ"},{name:"チノパン"},{name:"ワークパンツ/カーゴパンツ"},{name:"クロップドパンツ"},{name:"サロペット/オーバーオール"},{name:"オールインワン"},{name:"サルエルパンツ"},{name:"ガウチョパンツ"},{name:"その他"}])
+lady_3.children.create([
+  {name:"デニム/ジーンズ"},
+  {name:"ショートパンツ"},
+  {name:"カジュアルパンツ"},
+  {name:"ハーフパンツ"},
+  {name:"チノパン"},
+  {name:"ワークパンツ/カーゴパンツ"},
+  {name:"クロップドパンツ"},
+  {name:"サロペット/オーバーオール"},
+  {name:"オールインワン"},
+  {name:"サルエルパンツ"},
+  {name:"ガウチョパンツ"},
+  {name:"その他"}
+])
+
 lady_4 = lady.children.create(name:"スカート")
-lady_4.children.create([{name:"ミニスカート"},{name:"ひざ丈スカート"},{name:"ロングスカート"},{name:"キュロット"},{name:"その他"}])
+lady_4.children.create([
+  {name:"ミニスカート"},
+  {name:"ひざ丈スカート"},
+  {name:"ロングスカート"},
+  {name:"キュロット"},
+  {name:"その他"}
+])
+
 lady_5 = lady.children.create(name:"ワンピース")
-lady_5.children.create([{name:"ミニワンピース"},{name:"ひざ丈ワンピース"},{name:"ロングワンピース"},{name:"その他"}])
+lady_5.children.create([
+  {name:"ミニワンピース"},
+  {name:"ひざ丈ワンピース"},
+  {name:"ロングワンピース"},
+  {name:"その他"}
+])
+
 lady_6 = lady.children.create(name:"靴")
-lady_6.children.create([{name:"ハイヒール/"},{name:"ブーツ"},{name:"サンダル"},{name:"スニーカー"},{name:"ミュール"},{name:"モカジン"},{name:"ローファー/革靴"},{name:"フラットシューズ/バレエシューズ"},{name:"長靴/レインシューズ"},{name:"その他"}])
+lady_6.children.create([
+  {name:"ハイヒール/"},
+  {name:"ブーツ"},
+  {name:"サンダル"},
+  {name:"スニーカー"},
+  {name:"ミュール"},
+  {name:"モカジン"},
+  {name:"ローファー/革靴"},
+  {name:"フラットシューズ/バレエシューズ"},
+  {name:"長靴/レインシューズ"},
+  {name:"その他"}
+])
+
 lady_7 = lady.children.create(name:"ルームウェア/パジャマ")
-lady_7.children.create([{name:"パジャマ"},{name:"ルームウェア"}])
+lady_7.children.create([
+  {name:"パジャマ"},
+  {name:"ルームウェア"}
+])
+
 lady_8 = lady.children.create(name:"レッグウェア")
-lady_8.children.create([{name:"ソックス"},{name:"スパッツ/レギンス"},{name:"ストッキング/タイツ"},{name:"レッグウォーマー"},{name:"その他"}])
+lady_8.children.create([
+  {name:"ソックス"},
+  {name:"スパッツ/レギンス"},
+  {name:"ストッキング/タイツ"},
+  {name:"レッグウォーマー"},
+  {name:"その他"}
+])
+
 lady_9 = lady.children.create(name:"帽子")
-lady_9.children.create([{name:"ニットキャップ/ビーニー"},{name:"ハット"},{name:"ハンチング/ベレー帽"},{name:"キャップ"},{name:"キャスケット"},{name:"麦わら帽子"},{name:"その他"}])
+lady_9.children.create([
+  {name:"ニットキャップ/ビーニー"},
+  {name:"ハット"},
+  {name:"ハンチング/ベレー帽"},
+  {name:"キャップ"},
+  {name:"キャスケット"},
+  {name:"麦わら帽子"},
+  {name:"その他"}
+])
+
 lady_10 = lady.children.create(name:"バック")
-lady_10.children.create([{name:"ハンドバック"},{name:"トートバック"},{name:"エコバック"},{name:"リュック/バックパック"},{name:"ボストンバック"},{name:"スポーツバッグ"},{name:"ショルダーバッグ"},{name:"クラッチバッグ"},{name:"ポーチ/バニティ"},{name:"ボディバック/ウェストバック"},{name:"マザーズバック"},{name:"メッセージバック"},{name:"ビジネスバック"},{name:"旅行用バック/キャリーバック"},{name:"ショップ袋"},{name:"和装用バッグ"},{name:"かごバッグ"},{name:"その他"}])
+lady_10.children.create([
+  {name:"ハンドバック"},
+  {name:"トートバック"},
+  {name:"エコバック"},
+  {name:"リュック/バックパック"},
+  {name:"ボストンバック"},
+  {name:"スポーツバッグ"},
+  {name:"ショルダーバッグ"},
+  {name:"クラッチバッグ"},
+  {name:"ポーチ/バニティ"},
+  {name:"ボディバック/ウェストバック"},
+  {name:"マザーズバック"},
+  {name:"メッセージバック"},
+  {name:"ビジネスバック"},
+  {name:"旅行用バック/キャリーバック"},
+  {name:"ショップ袋"},
+  {name:"和装用バッグ"},
+  {name:"かごバッグ"},
+  {name:"その他"}
+])
+
 lady_11 = lady.children.create(name:"アクセサリー")
-lady_11.children.create([{name:"ネックレス"},{name:"ブレスレット"},{name:"バングル/リストバンド"},{name:"リング"},{name:"ピアス（片耳用）"},{name:"ピアス(両耳用)"},{name:"イヤリング"},{name:"アンクレット"},{name:"ブローチ/コサージュ"},{name:"チャーム"},{name:"その他"}])
+lady_11.children.create([
+  {name:"ネックレス"},
+  {name:"ブレスレット"},
+  {name:"バングル/リストバンド"},
+  {name:"リング"},
+  {name:"ピアス（片耳用）"},
+  {name:"ピアス(両耳用)"},
+  {name:"イヤリング"},
+  {name:"アンクレット"},
+  {name:"ブローチ/コサージュ"},
+  {name:"チャーム"},
+  {name:"その他"}
+])
+
 lady_12 = lady.children.create(name:"ヘアアクセサリー")
-lady_12.children.create([{name:"ヘアゴム/シュシュ"},{name:"ヘアゴム/カチューシャ"},{name:"ヘアピン"},{name:"その他"}])
+lady_12.children.create([
+  {name:"ヘアゴム/シュシュ"},
+  {name:"ヘアゴム/カチューシャ"},
+  {name:"ヘアピン"},
+  {name:"その他"}
+])
+
 lady_13 = lady.children.create(name:"小物")
-lady_13.children.create([{name:"長財布"},{name:"折り財布"},{name:"コインケース/小銭入れ"},{name:"名刺入れ/定期入れ"},{name:"キーケース"},{name:"キーホルダー"},{name:"手袋/アームカバー"},{name:"ハンカチ"},{name:"ベルト"},{name:"マフラー/ショール"},{name:"ストール/スヌード"},{name:"バンダナ/スカーフ"},{name:"ネックウォーマー"},{name:"サスペンダー"},{name:"サングラス/メガネ"},{name:"モバイルケース/カバー"},{name:"手帳"},{name:"イヤマフラー"},{name:"傘"},{name:"レインコート/ポンチョ"},{name:"ミラー"},{name:"タバコグッズ"},{name:"その他"}])
+lady_13.children.create([
+  {name:"長財布"},
+  {name:"折り財布"},
+  {name:"コインケース/小銭入れ"},
+  {name:"名刺入れ/定期入れ"},
+  {name:"キーケース"},
+  {name:"キーホルダー"},{name:"手袋/アームカバー"},{name:"ハンカチ"},{name:"ベルト"},{name:"マフラー/ショール"},{name:"ストール/スヌード"},{name:"バンダナ/スカーフ"},{name:"ネックウォーマー"},{name:"サスペンダー"},{name:"サングラス/メガネ"},{name:"モバイルケース/カバー"},{name:"手帳"},{name:"イヤマフラー"},{name:"傘"},{name:"レインコート/ポンチョ"},{name:"ミラー"},{name:"タバコグッズ"},{name:"その他"}])
 lady_14 = lady.children.create(name:"時計")
 lady_14.children.create([{name:"腕時計（アナログ）"},{name:"腕時計（デジタル）"},{name:"ラバーベルト"},{name:"レザーベルト"},{name:"金属ベルト"},{name:"その他"}])
 lady_15 = lady.children.create(name:"ウィッグ/エクステ")
