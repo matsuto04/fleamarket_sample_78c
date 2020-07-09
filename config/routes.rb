@@ -2,8 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' } #sending_destinationテーブルに保存するため
   root 'home#index'
   resources :items
-  resources :users do
-    resources :cards
-  end
   get 'confirm' => 'items#confirm'
+  resources :users 
+  resources :cards, only: [:create, :new, :show, :destroy] 
 end

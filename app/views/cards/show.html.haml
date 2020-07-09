@@ -1,23 +1,22 @@
-%section.main-contents
-  .single-main
-    %section.chapter__container
-      %h2.chapter__head 支払い方法
-      .payment__main
-        .payment__list
-          .payment__list__content
-            %h3.sub__head クレジットカード
-            .card__number
-              カード番号
-              %br
-              = "" + @defauld_card_information.last4
-            .expire__date
-              有効期限
-              %br
-              - exp_month = @default_card_information.exp_month.to_s
-              - exp_year = @default_card_information.exp_yaer.to_s.slice(2,3)
-              = exp_month + " / " + exp_year
-              = form_tag(card_path(current_user.id), method: :delete, id: 'charge-form') do
-                %input{ type: "hidden", name: "card_id", value: "" }
-                %button.delete__button 解除する
-            %toppage_btn
-              = link_to 'トップページに戻る', root_path, class:"toppage_btn"
+= render 'template/header'
+.Chapter
+  .Chapter__head 支払い方法
+  .Chapter__title クレジットカード
+  .Chapter__card
+    %form.Chapter__card__content
+    .Chapter__card__number
+      カード番号
+      %br
+      = "**** **** **** " + @default_card_information.last4
+    .Chapter__card__date
+      有効期限
+      %br
+      - exp_month = @default_card_information.exp_month.to_s
+      - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+      = exp_month + " / " + exp_year
+      = form_tag(card_path(current_user.id), method: :delete, id:'charge-form') do
+        %input{ type: "hidden", name: "card_id", value: "" }
+        %button.Delete__button 削除する
+    .Payment__buttom
+      = link_to 'マイページに戻る', user_path(current_user.id), class:"toppage_btn"
+= render 'template/footer'
