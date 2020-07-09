@@ -68,6 +68,7 @@ men_12.children.create([{name:"ソックス"},{name:"レギンス/スパッツ"}
 men_13 = men.children.create(name:"アンダーウェア")
 men_13.children.create([{name:"トランクス"},{name:"ボクサーパンツ"},{name:"その他"}])
 men_14 = men.children.create(name:"その他")
+men_14.children.create([{name:"すべて"}])
 
 #ベビー・キッズ
 child = Category.create(name:"ベビー・キッズ")
@@ -129,6 +130,7 @@ interior_residence_accessory_11.children.create([{name:"ゴミ箱"},{name:"ウ�
 interior_residence_accessory_12 = interior_residence_accessory.children.create(name:"季節/年中行事")
 interior_residence_accessory_12.children.create([{name:"正月"},{name:"成人式"},{name:"バレンタインデー"},{name:"ひな祭り"},{name:"子どもの日"},{name:"母の日"},{name:"父の日"},{name:"サマーギフト/お中元"},{name:"夏/夏休み"},{name:"ハロウィン"},{name:"敬老の日"},{name:"七五三"},{name:"お歳暮"},{name:"クリスマス"},{name:"冬一般"},{name:"その他"}])
 interior_residence_accessory_13 = interior_residence_accessory.children.create(name:"その他")
+interior_residence_accessory_13.children.create([{name:"すべて"}])
 
 #本・音楽・ゲーム
 book_music_game = Category.create(name:"本・音楽・ゲーム")
@@ -303,3 +305,24 @@ car_motorcycle_6 = car_motorcycle.children.create(name: "オートバイパー�
 car_motorcycle_6.children.create([{name: "タイヤ"},{name: "マフラー"},{name: "エンジン、冷却装置"},{name: "カウル、フェンダー、外装"},{name: "サスペンション"},{name: "ホイール"},{name: "シート"},{name: "ブレーキ"},{name: "タンク"},{name: "ライト、ウィンカー"},{name: "チェーン、スプロケット、駆動系"},{name: "メーター"},{name: "電装系"},{name: "ミラー"},{name: "外国オートバイ用パーツ"},{name: "その他"}])
 car_motorcycle_7 = car_motorcycle.children.create(name: "オートバイアクセサリー")
 car_motorcycle_7.children.create([{name: "ヘルメット/シールド"},{name: "バイクウエア/装備"},{name: "アクセサリー"},{name: "メンテナンス"},{name: "カタログ/マニュアル"},{name: "その他"}])
+
+#その他
+others = Category.create(name: "その他")
+others_1 = others.children.create(name: "まとめ売り")
+others_1.children.create([{name: "すべて"}])
+others_2 = others.children.create(name: "ペット用品")
+others_2.children.create([{name: "ペットフード"},{name: "犬用品"},{name: "猫用品"},{name: "魚用品/水草"},{name: "小動物用品"},{name: "爬虫類/両生類用品"},{name: "かご/おり"},{name: "鳥用品"},{name: "虫類用品"},{name: "その他"}])
+others_3 = others.children.create(name: "食品")
+others_3.children.create([{name: "菓子"},{name: "米"},{name: "野菜"},{name: "果物"},{name: "調味料"},{name: "魚介類(加工食品)"},{name: "肉類(加工食品)"},{name: "その他 加工食品"},{name: "その他"}])
+others_4 = others.children.create(name: "飲料/酒")
+others_4.children.create([{name: "コーヒー"},{name: "ソフトドリンク"},{name: "ミネラルウォーター"},{name: "茶"},{name: "ウイスキー"},{name: "ワイン"},{name: "ブランデー"},{name: "焼酎"},{name: "日本酒"},{name: "ビール、発泡酒"},{name: "その他"}])
+others_5 = others.children.create(name: "日用品/生活雑貨/旅行")
+others_5.children.create([{name: "タオル/バス用品"},{name: "日用品/生活雑貨"},{name: "洗剤/柔軟剤"},{name: "旅行用品"},{name: "防災関連グッズ"},{name: "その他"}])
+others_6 = others.children.create(name: "アンティーク/コレクション")
+others_6.children.create([{name: "雑貨"},{name: "工芸品"},{name: "家具"},{name: "印刷物"},{name: "その他"}])
+others_7 = others.children.create(name: "文房具/事務用品")
+others_7.children.create([{name: "筆記具"},{name: "ノート/メモ帳"},{name: "テープ/マスキングテープ"},{name: "カレンダー/スケジュール"},{name: "アルバム/スクラップ"},{name: "ファイル/バインダー"},{name: "はさみ/カッター"},{name: "カードホルダー/名刺管理"},{name: "のり/ホッチキス"},{name: "その他"}])
+others_8 = others.children.create(name: "事務/店舗用品")
+others_8.children.create([{name: "オフィス用品一般"},{name: "オフィス家具"},{name: "店舗用品"},{name: "OA機器"},{name: "ラッピング/包装"},{name: "その他"}])
+others_9 = others.children.create(name: "その他")
+others_9.children.create([{name: "すべて"}])
