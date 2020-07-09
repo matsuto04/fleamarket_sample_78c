@@ -16,26 +16,26 @@
           .Categories
             %ul
               %li
-                = link_to "#", class: "category__seach search__btn" do
-                  %i.fas.fa-bars.category__icon
+                = link_to "#", class: "category__search search__btn" do
+                  %i.fas.fa-bars.Category__icon
                   カテゴリーから探す
-                %ul.Category__parent.category__list
+                %ul.Category__parent.Category__list
                   - @parents.each do |parent|
                     %li
-                      = link_to "#", class: "category__parent__name" do
+                      = link_to "#", class: "Category__parent--name" do
                         = parent.name
-                      %ul.Category__child.category__list
+                      %ul.Category__child.Category__list
                         - parent.children.each do |child|
                           %li
-                            = link_to "#", class: "category__child__name" do
+                            = link_to "#", class: "Category__child--name" do
                               = child.name
-                            %ul.Category__grandchild.category__list
+                            %ul.Category__grandchild.Category__list
                               - child.children.each do |grandchild|
-                                %li 
-                                  = link_to "#", class: "category__child__name" do
+                                %li
+                                  = link_to "#", class: " Category__child--name" do
                                     = grandchild.name
-              
-              
+                        
+                        
 
       %ul.HeaderInnerNavlistsRight
       - if user_signed_in?
