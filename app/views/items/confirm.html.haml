@@ -1,0 +1,37 @@
+%body.Sell
+  %header.SellTop
+    .SellTop__icon
+      = link_to root_path do
+        = image_tag "logo.png", alt: "logo", class: 'SellTop__icon--img'
+
+  %main.SellMain
+    .SellMainConfirm
+      .SellMainConfirmContainer
+        %h2.SellMainConfirmContainer__title
+          購入内容の確認
+      .SellMainConfirmContainer__info
+        %figure.SellMainConfirmContainer__info__figure
+          = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m25161980338_1.jpg?1593936690', alt: '商品のイメージ画像', height: '80px', width: '80px', class: 'SellMainConfirmContainer__info__figure__img'
+        .SellMainConfirmContainer__info__rough
+          %p.SellMainConfirmContainer__info__rough__text
+            牛革 メンズ 折り財布 カーキ 小銭入れ 本革レザー 大容量 贈り物 未使用
+          %p.SellMainConfirmContainer__info__rough__price
+            %span.SellMainConfirmContainer__info__rough__price__taxIn
+              送料込み（税込）
+            %span.SellMainConfirmContainer__info__rough__price__number
+              ¥3,300
+
+  %footer.SellBottom
+    .SellBottomContents
+      %ul.SellBottomContents__lists
+        %li.SellBottomContents__lists__list
+          = link_to 'プライバシーポリシー', '#'
+        %li.SellBottomContents__lists__list
+          = link_to 'メルカリ利用規約', '#'
+        %li.SellBottomContents__lists__list
+          = link_to '特定商取引に関する表記', '#'
+    .SellBottomLogo
+      = link_to root_path do
+        = image_tag 'logo.png', alt: 'logo', class: 'SellBottomLogo--img'
+    %p.SellBottom__copyright
+      © FURIMA

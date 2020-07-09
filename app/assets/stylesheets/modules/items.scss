@@ -22,7 +22,7 @@
     width: 100%;
     margin: 0 auto;
     &Form{
-      background-color: white;
+      background-color: #fff;
       &Container{
         border: solid 1px #F5F5F5;
         padding: 40px;
@@ -195,6 +195,18 @@
           &__text{
             font-size: 12px;
           }
+        }
+      }
+    }
+    &Confirm{
+      padding: 40px;
+      background-color: #fff;
+      &Container{
+        margin-bottom: 20px;
+        &__title{
+          font-size: 24px;
+          font-weight: bold;
+          text-align: center;
         }
       }
     }

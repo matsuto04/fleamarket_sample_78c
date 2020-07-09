@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :users do
     resources :cards
   end
+  get 'confirm' => 'items#confirm'
 end
