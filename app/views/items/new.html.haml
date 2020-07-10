@@ -5,7 +5,7 @@
         = image_tag "logo.png", alt: "logo", class: 'SellTop__icon--img'
   
   %main.SellMain
-    = form_with model: @item, class: "SellMainForm" do |f|
+    = form_with model: @item, class: "SellMainForm", local: true do |f|
       .SellMainFormContainer
         .SellMainFormContainer__title
           %h3.SellMainFormContainer__title--text
@@ -56,12 +56,21 @@
           %span.SellMainFormContainer__title--require
             必須
         .SellMainFormContainer__select
-          -# = f.select :category_id, choices, {}
           %select.SellMainFormContainer__select__field
             - @parent_categories.each do |parent|
               %label.SellMainFormContainer__select__field__label
                 %option
                   = parent.name
+          %select.SellMainFormContainer__select__field
+            - @child_categories.each do |child|
+              %label.SellMainFormContainer__select__field__label
+                %option
+                  = child.name
+          %select.SellMainFormContainer__select__field
+            - @grandChild_categories.each do |grandChild|
+              %label.SellMainFormContainer__select__field__label
+                %option
+                  = grandChild.name
         .SellMainFormContainer__title
           %h3.SellMainFormContainer__title--text
             商品の状態
@@ -109,7 +118,8 @@
             必須
           %span.SellMainFormContainer__price__ennMark
             ¥
-          %input(type="number" placeholder=0 class="SellMainFormContainer__price__number")/
+          = f.number_field :price, {class: "SellMainFormContainer__price__number"}
+          -# %input(type="number" placeholder=0 class="SellMainFormContainer__price__number")/
         .SellMainFormContainer__tax
           .SellMainFormContainer__tax__text
             販売手数料（10%）
@@ -122,11 +132,12 @@
           .SellMainFormContainer__tax__bar
             ー
         .SellMainFormContainer__btn
-          %button(type="submit" class="SellMainFormContainer__btn__submit")
-            出品する
-          %button(type="submit" class="SellMainFormContainer__btn__draft")
-            下書きに保存
-          = link_to("もどる", root_path, {class: "SellMainFormContainer__btn__back"})
+          = f.submit "出品する", class: "SellMainFormContainer__btn__submit"
+          -# %button(type="submit" class="SellMainFormContainer__btn__submit")
+          -#   出品する
+          -# %button(type="submit" class="SellMainFormContainer__btn__draft")
+          -#   下書きに保存
+          -# = link_to("もどる", root_path, {class: "SellMainFormContainer__btn__back"})
         .SellMainFormContainer__note
           %p.SellMainFormContainer__note__text
             禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。

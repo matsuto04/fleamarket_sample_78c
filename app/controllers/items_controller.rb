@@ -33,5 +33,6 @@ end
 
   def set_categories
     @parent_categories = Category.roots
-    @default_child_categories = @parent_categories.first.children
+    @child_categories = @parent_categories.first.children
+    @grandChild_categories = @child_categories.first.children
   end
