@@ -17,7 +17,7 @@
           最大10枚までアップロードできます
         .SellMainFormContainer__dropBox
         = f.fileds_for :image do |i|
-          = i.file_field :image, type: 'file', name: "item[images_attributes][][url]", value:"", style: "display:none", id: "" 
+          = i.file_field :image, type: 'file', name: "item[images_attributes][][url]", value:"", style: "display:none", id: ""  
           %label.SellMainFormContainer__dropBox__label
             = icon("fas", "camera", class: "SellMainFormContainer__dropBox__label__icon")
           %p.SellMainFormContainer__dropBox__text
