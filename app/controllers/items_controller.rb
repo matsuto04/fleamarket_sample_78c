@@ -1,8 +1,16 @@
 class ItemsController < ApplicationController
+  before_action :set_categories, only: [:new, :create]
+  
   def index
   end
 
   def new
+    @item = Item.new
+    @item.item_images.build
+  end
+
+  def create
+    @item = Item.new(item_params)
   end
 
   def confirm
@@ -17,3 +25,13 @@ class ItemsController < ApplicationController
     )
   end
 end
+
+  private
+  def item_params
+    params.require(:item).permit(:name, item_images_attributes:[:id, :url])
+  end
+
+  def set_categories
+    @parent_categories = Category.roots
+    @default_child_categories = @parent_categories.first.children
+  end
