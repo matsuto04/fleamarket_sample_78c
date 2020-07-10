@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
   end
 
   def new
+    @item = Item.new
   end
 
   def confirm
@@ -15,5 +16,9 @@ class ItemsController < ApplicationController
       card: params['payjp-token'], #フォームを送信すると作成,送信してくるトークン
       currency: 'jpy' #通貨
     )
+  end
+
+  def item_params
+    params.require(:item).premit(:name, :introduction, :price, :item_condition, :postage_payer, :prefecture_code_id, :preparation_day, :postage_type, :category_id, :trading_status, :buyer_id)
   end
 end
