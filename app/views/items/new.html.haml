@@ -14,13 +14,14 @@
             必須
         %p.SellMainFormContainer__note
           最大10枚までアップロードできます
-        .SellMainFormContainer__dropBox
-          = f.fields_for :item_images do |ff|
-            %label.SellMainFormContainer__dropBox__label
-              = icon("fas", "camera", class: "SellMainFormContainer__dropBox__label__icon")
-              = ff.file_field(:item_images, multiple: true, class: "SellMainFormContainer__dropBox__label__input")
-              -# %input(type="file" accept=".png, .jpg, .jpeg, .pdf, .doc" multiple required class="SellMainFormContainer__dropBox__label__input")/
-            %p.SellMainFormContainer__dropBox__text
+        #item__images
+          .SellMainFormContainer__img__dropBox0#items
+            = f.fields_for :item_images do |ff|
+              %label.SellMainFormContainer__img__dropBox__label
+                = ff.file_field :image, type: 'file', name: "item[images_attributes][][url]", value:"", style: "display:none", id:"img-file"
+                %label{for: "img-file"}
+                  = icon("fas", "camera", class: "SellMainFormContainer__img__dropBox__label__icon")
+            %p.SellMainFormContainer__img__dropBox__text
               ドラッグアンドドロップ
               %br
               またはクリックしてファイルをアップロード
@@ -33,7 +34,6 @@
             必須
         .SellMainFormContainer__itemName
           = f.text_field :name, {placeholder: "40文字まで", class: "SellMainFormContainer__itemName__field"}
-          -# %input(type="text" placeholder="40文字まで" class="SellMainFormContainer__itemName__field")/
 
       .SellMainFormContainer
         .SellMainFormContainer__title
@@ -43,7 +43,6 @@
             必須
         .SellMainFormContainer__itemExplanation
           = f.text_area :introduction, {class: "SellMainFormContainer__itemExplanation__field", placeholder: "例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでおすすめです。（1,000文字以内）（色、素材、重さ、定価、注意点など）"}
-          -# %textarea(class="SellMainFormContainer__itemExplanation__field" cols="30" rows="10" placeholder="例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでおすすめです。（1,000文字以内）（色、素材、重さ、定価、注意点など）")
         .SellMainFormContainer__wordCount
           0/1000
 
@@ -77,8 +76,7 @@
           %span.SellMainFormContainer__title--require
             必須
         .SellMainFormContainer__select
-          %select.SellMainFormContainer__select__field{:name => "item_condition"}
-            %option(selected value label="選択してください")
+          = f.select :item_condition, Item.item_conditions.keys, {include_blank: "選択してください", selected: 1}, {class: "SellMainFormContainer__select__field"}
 
       .SellMainFormContainer
         .SellMainFormContainer__subTitle
@@ -89,24 +87,22 @@
           %span.SellMainFormContainer__title--require
             必須
         .SellMainFormContainer__select
-          %select.SellMainFormContainer__select__field{name: "postage_payer" }
-            %option(selected value label="選択してください")
+          = f.select :postage_payer, Item.postage_payers.keys, {include_blank: "選択してください", selected:1} , {class: "SellMainFormContainer__select__field"}
+            
         .SellMainFormContainer__title
           %h3.SellMainFormContainer__title--text
             発送元の地域
           %span.SellMainFormContainer__title--require
             必須
         .SellMainFormContainer__select
-          %select.SellMainFormContainer__select__field{name: "iprefecture_code"}
-            %option(selected value label="選択してください")
+          = f.collection_select :prefecture_code_id, PrefectureCode.all, :id, :name,{selected: 0},{class: "SellMainFormContainer__select__field"}
         .SellMainFormContainer__title
           %h3.SellMainFormContainer__title--text
             発送までの日数
           %span.SellMainFormContainer__title--require
             必須
         .SellMainFormContainer__select
-          %select.SellMainFormContainer__select__field{name: "preparation_day"}
-            %option(selected value label="選択してください")
+          = f.select :preparation_day, Item.preparation_days.keys, {include_blank: "選択してください", selected:1}, {class: "SellMainFormContainer__select__field"}
 
       .SellMainFormContainer
         .SellMainFormContainer__subTitle
@@ -118,8 +114,7 @@
             必須
           %span.SellMainFormContainer__price__ennMark
             ¥
-          = f.number_field :price, {class: "SellMainFormContainer__price__number"}
-          -# %input(type="number" placeholder=0 class="SellMainFormContainer__price__number")/
+          = f.number_field :price, placeholder: 0, min: 300, max: 9999999, class: "SellMainFormContainer__price__number"
         .SellMainFormContainer__tax
           .SellMainFormContainer__tax__text
             販売手数料（10%）
@@ -129,7 +124,7 @@
         .SellMainFormContainer__tax
           .SellMainFormContainer__tax__text
             販売利益
-          .SellMainFormContainer__tax__bar
+          .SellMainFormContainer__tax__bottom
             ー
         .SellMainFormContainer__btn
           = f.submit "出品する", class: "SellMainFormContainer__btn__submit"
