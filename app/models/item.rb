@@ -2,6 +2,7 @@ class Item < ApplicationRecord
   belongs_to :seller, class_name: "User"
   has_one :buyer, class_name: "User"
   has_many :item_images, dependent: :destroy
+  accepts_nested_attributes_for :item_images, allow_destroy: true
   belongs_to :category
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture_code
@@ -27,13 +28,13 @@ class Item < ApplicationRecord
                         }
   #商品の状態
   enum item_condition: { BrandNew:0,#新品、未使用
-                        NearUnused:1,#未使用に近い
-                        NoNoticeableScratchesOrStains:2,#目立った傷や汚れなし
-                         SomeScratchesAndDirt:3,#やや傷や汚れあり
-                         ThereAreScratchesAndDirt:4,#傷や汚れあり
-                         OverallConditionIsbad:5#全体的に状態が悪い
+                          NearUnused:1,#未使用に近い
+                          NoNoticeableScratchesOrStains:2,#目立った傷や汚れなし
+                          SomeScratchesAndDirt:3,#やや傷や汚れあり
+                          ThereAreScratchesAndDirt:4,#傷や汚れあり
+                          OverallConditionIsbad:5#全体的に状態が悪い
                         }
- #配送料の負担
+  #配送料の負担
   enum postage_payer: { PostageIncluded:0,#送料込み
                         FreightCollect:1#着払い
                       }

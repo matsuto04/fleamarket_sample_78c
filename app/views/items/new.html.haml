@@ -5,7 +5,7 @@
         = image_tag "logo.png", alt: "logo", class: 'SellTop__icon--img'
   
   %main.SellMain
-    %form.SellMainForm
+    = form_with model: @item, class: "SellMainForm" do |f|
       .SellMainFormContainer
         .SellMainFormContainer__title
           %h3.SellMainFormContainer__title--text
@@ -15,13 +15,15 @@
         %p.SellMainFormContainer__note
           最大10枚までアップロードできます
         .SellMainFormContainer__dropBox
-          %label.SellMainFormContainer__dropBox__label
-            = icon("fas", "camera", class: "SellMainFormContainer__dropBox__label__icon")
-            %input(type="file" accept=".png, .jpg, .jpeg, .pdf, .doc" multiple required class="SellMainFormContainer__dropBox__label__input")/
-          %p.SellMainFormContainer__dropBox__text
-            ドラッグアンドドロップ
-            %br
-            またはクリックしてファイルをアップロード
+          = f.fields_for :item_images do |ff|
+            %label.SellMainFormContainer__dropBox__label
+              = icon("fas", "camera", class: "SellMainFormContainer__dropBox__label__icon")
+              = ff.file_field(:item_images, multiple: true, class: "SellMainFormContainer__dropBox__label__input")
+              -# %input(type="file" accept=".png, .jpg, .jpeg, .pdf, .doc" multiple required class="SellMainFormContainer__dropBox__label__input")/
+            %p.SellMainFormContainer__dropBox__text
+              ドラッグアンドドロップ
+              %br
+              またはクリックしてファイルをアップロード
 
       .SellMainFormContainer
         .SellMainFormContainer__title
@@ -30,7 +32,8 @@
           %span.SellMainFormContainer__title--require
             必須
         .SellMainFormContainer__itemName
-          %input(type="text" placeholder="40文字まで" class="SellMainFormContainer__itemName__field")/
+          = f.text_field :name, {placeholder: "40文字まで", class: "SellMainFormContainer__itemName__field"}
+          -# %input(type="text" placeholder="40文字まで" class="SellMainFormContainer__itemName__field")/
 
       .SellMainFormContainer
         .SellMainFormContainer__title
@@ -39,7 +42,8 @@
           %span.SellMainFormContainer__title--require
             必須
         .SellMainFormContainer__itemExplanation
-          %textarea(class="SellMainFormContainer__itemExplanation__field" cols="30" rows="10" placeholder="例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでおすすめです。（1,000文字以内）（色、素材、重さ、定価、注意点など）")
+          = f.text_area :introduction, {class: "SellMainFormContainer__itemExplanation__field", placeholder: "例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでおすすめです。（1,000文字以内）（色、素材、重さ、定価、注意点など）"}
+          -# %textarea(class="SellMainFormContainer__itemExplanation__field" cols="30" rows="10" placeholder="例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでおすすめです。（1,000文字以内）（色、素材、重さ、定価、注意点など）")
         .SellMainFormContainer__wordCount
           0/1000
 
@@ -52,9 +56,12 @@
           %span.SellMainFormContainer__title--require
             必須
         .SellMainFormContainer__select
-          %select.SellMainFormContainer__select__field{:name => "category" }
-            %label.SellMainFormContainer__select__field__label
-              %option(selected value label="選択してください")
+          -# = f.select :category_id, choices, {}
+          %select.SellMainFormContainer__select__field
+            - @parent_categories.each do |parent|
+              %label.SellMainFormContainer__select__field__label
+                %option
+                  = parent.name
         .SellMainFormContainer__title
           %h3.SellMainFormContainer__title--text
             商品の状態
