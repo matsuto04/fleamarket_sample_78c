@@ -49,7 +49,7 @@
           font-size: 14px;
         }
         &__img {
-          &__dropBox{
+          &__dropBox0{
             height: 160px;
             background-color: #F5F5F5;
             border: dashed 1px #cccccc;
@@ -229,4 +229,36 @@
       font-size: 12px;
     }
   }
+}
+
+.SellMainFormContainer__img__dropBox0{
+  width: 100%;
+}
+.SellMainFormContainer__img__dropBox1{
+  width: 491px;
+}
+.SellMainFormContainer__img__dropBox2{
+  width: 363px;
+}
+.SellMainFormContainer__img__dropBox3{
+  width: 234px;
+}
+.SellMainFormContainer__img__dropBox4{
+  width: 106px;
+}
+//下段のfile_field
+.SellMainFormContainer__img__dropBox5{
+  width: 100%;
+}
+.SellMainFormContainer__img__dropBox6{
+  width: 491px;
+}
+.SellMainFormContainer__img__dropBox7{
+  width: 363px;
+}
+.SellMainFormContainer__img__dropBox8{
+  width: 234px;
+}
+.SellMainFormContainer__img__dropBox{
+  width: 106px;
 }
