@@ -6,6 +6,6 @@ Rails.application.routes.draw do
       get :confirm
     end
   end
-  resources :users 
   resources :cards, only: [:create, :new, :show, :destroy] 
+  resources :users 
 end
