@@ -73,7 +73,7 @@ ActiveRecord::Schema.define(version: 2020_07_09_013810) do
     t.string "destination_first_name_kana", null: false
     t.string "destination_family_name_kana", null: false
     t.integer "post_code", null: false
-    t.integer "prefecture_code", null: false
+    t.bigint "prefecture_code_id", null: false
     t.string "city", null: false
     t.string "house_number", null: false
     t.string "building_name"
@@ -82,6 +82,7 @@ ActiveRecord::Schema.define(version: 2020_07_09_013810) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["phone_number"], name: "index_sending_destinations_on_phone_number", unique: true
+    t.index ["prefecture_code_id"], name: "index_sending_destinations_on_prefecture_code_id"
     t.index ["user_id"], name: "index_sending_destinations_on_user_id"
   end
 
