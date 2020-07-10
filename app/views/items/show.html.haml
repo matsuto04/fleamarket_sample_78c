@@ -3,7 +3,8 @@
   %section.Main
     .MainContainer
       .MainContainer__title
-        %h1 サンプル
+        %h1  
+          = @item.name
       .MainContainer__item
         .MainContainer__item__image
           .MainContainer__item__image__box
@@ -12,27 +13,35 @@
           %table.TableBody
             %tr
               %th 出品者
-              %td= link_to "ユーザー名", '#'
+              %td= link_to "#{@user.nickname}","#"
+                  
             %tr
               %th カテゴリー
               %td= link_to "レディース", '#'
             %tr
               %th 商品状態
-              %td 未使用に近い
+              %td 
+                =@item.item_condition
             %tr
               %th 配送料の負担
-              %td 送料込み（出品者負担）
+              %td 
+                =@item.postage_payer
             %tr
               %th 配送の方法
-              %td 宅配便
+              %td 
+                =@item.postage_type
             %tr
               %th 配送元地域
-              %td 東京都
+              %td= link_to "#{@item.prefecture_code.name}","#"
+                
             %tr
               %th 発送日の目安
-              %td 1〜２日で発送
+              %td 
+                =@item.preparation_day
       .MainContainer__pricebox
-        %span.price ¥1,900
+        %span.price 
+          ¥
+          =@item.price
         %span.tax (税込)
         %span.fee_side 送料込み
       %form.MainContainer__actions
@@ -42,7 +51,5 @@
         .MainContainer__description--text
           商品説明欄 
           %br
-          テキストテキストテキスト
-          %br
-          テキストテキストテキストテキストテキストテキストテキストテキスト
+            =@item.introduction
 = render 'template/footer'
