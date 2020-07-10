@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
         :destination_first_name_kana,
         :destination_family_name_kana,
         :post_code, 
-        :prefecture_code,
+        :prefecture_code_id,
         :city,
         :house_number,
         :building_name,

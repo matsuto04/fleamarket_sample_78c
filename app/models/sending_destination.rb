@@ -1,4 +1,6 @@
 class SendingDestination < ApplicationRecord
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :prefecture_code
   belongs_to :user
 
   validates :phone_number, uniqueness: true
@@ -10,5 +12,6 @@ class SendingDestination < ApplicationRecord
   validates :prefecture_code, presence: true
   validates :city, presence: true
   validates :house_number, presence: true
+
 
 end
