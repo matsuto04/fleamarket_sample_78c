@@ -18,7 +18,7 @@
           .SellMainFormContainer__img__dropBox0#items
             = f.fields_for :item_images do |ff|
               %label.SellMainFormContainer__img__dropBox__label
-                = ff.file_field :image, type: 'file', name: "item[images_attributes][][url]", value:"", style: "display:none", id:"img-file"
+                = ff.file_field :url, type: 'file', name: "item[images_attributes][][url]", value:"", style: "display:none", id:"img-file"
                 %label{for: "img-file"}
                   = icon("fas", "camera", class: "SellMainFormContainer__img__dropBox__label__icon")
             %p.SellMainFormContainer__img__dropBox__text
@@ -95,7 +95,7 @@
           %span.SellMainFormContainer__title--require
             必須
         .SellMainFormContainer__select
-          = f.collection_select :prefecture_code_id, PrefectureCode.all, :id, :name,{selected: 0},{class: "SellMainFormContainer__select__field"}
+          = f.collection_select :prefecture_code_id, PrefectureCode.all, :id, :name,{selected: 0}, {class: "SellMainFormContainer__select__field"}
         .SellMainFormContainer__title
           %h3.SellMainFormContainer__title--text
             発送までの日数
