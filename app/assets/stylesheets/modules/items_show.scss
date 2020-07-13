@@ -105,6 +105,39 @@
           padding: 10px;
         }
       }
+      &__EditDelete{
+        display:flex;
+        justify-content: space-between;
+        &--edit {
+          border-radius: 4px;
+          background:red;
+          border:1px solid red;
+          width:60px;
+          font-weight:bold;
+          line-height:30px;
+          margin-left:25px;
+          text-align:center;
+          a{
+            color:#fff;
+            letter-spacing:3px;
+          }
+         }
+        &--delete {
+          border-radius: 4px;
+          background:red;
+          border:1px solid red;
+          width:60px;
+          font-weight:bold;
+          line-height:30px;
+          margin-right:25px;
+          text-align:center;
+          a{
+            color:#fff;
+            letter-spacing:3px;
+          }
+        
+        }
+      }
     }
   }
 }
