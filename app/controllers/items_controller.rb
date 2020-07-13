@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-before_action :set_user
+before_action :set_user,:images_params
 
   def index
     @parents = Category.where(ancestry: nil)
@@ -33,5 +33,9 @@ before_action :set_user
 
   def set_user
     @user = User.find(params[:id])
+  end
+
+  def images_params
+    @item_image = ItemImage.find(params[:id])
   end
 end

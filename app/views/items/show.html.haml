@@ -45,18 +45,20 @@
         %span.tax (税込)
         %span.fee_side 送料込み
       %form.MainContainer__actions
-        %button.MainContainer__actions--btn{type: "submit"}
-          = link_to '購入画面に進む', "#"
+        - if user_signed_in? && current_user.id != @item.seller.id
+          %button.MainContainer__actions--btn{type: "submit"}
+            = link_to '購入画面に進む', "#"
+        - else
+          .MainContainer__EditDelete
+            .MainContainer__EditDelete--edit
+              = link_to '編集','#'
+            .MainContainer__EditDelete--delete
+              = link_to '削除','#'
       .MainContainer__description
         .MainContainer__description--text
           商品説明欄 
           %br
             =@item.introduction
-      .MainContainer__EditDelete
-        - if user_signed_in? && current_user.id == @item.seller.id
-          .MainContainer__EditDelete--edit
-            = link_to '編集','#'
-          .MainContainer__EditDelete--delete
-            = link_to '削除','#'
+      
       
 = render 'template/footer'
