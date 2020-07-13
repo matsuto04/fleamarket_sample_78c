@@ -14,13 +14,20 @@
             必須
         %p.SellMainFormContainer__note
           最大10枚までアップロードできます
-        #item__images
-          .SellMainFormContainer__img__dropBox0#items
-            = f.fields_for :item_images do |ff|
-              %label.SellMainFormContainer__img__dropBox__label
-                = ff.file_field :url, type: 'file', name: "item[images_attributes][][url]", value:"", style: "display:none", id:"img-file"
+          -# #item__images
+          -#   .SellMainFormContainer__img__dropBox0#items
+          -#     = f.fields_for :item_images do |ff|
+          -#       %label.SellMainFormContainer__img__dropBox__label
+          -#         = ff.file_field :url, type: 'file', name: "item[images_attributes][][url]", value:"", style: "display:none", id:"img-file"
+          -#         %label{for: "img-file"}
+          -#           = icon("fas", "camera", class: "SellMainFormContainer__img__dropBox__label__icon")
+        #image-box-1
+          .item-num-0#image-box__container
+            = f.fields_for :item_images do |i|
+              .input-area
+                = i.file_field :item_image, type: 'file', name: "item[images_attributes][][url]", value:"", style: "display:none", id:"img-file"
                 %label{for: "img-file"}
-                  = icon("fas", "camera", class: "SellMainFormContainer__img__dropBox__label__icon")
+                  %i.fas.fa-camera
             %p.SellMainFormContainer__img__dropBox__text
               ドラッグアンドドロップ
               %br
