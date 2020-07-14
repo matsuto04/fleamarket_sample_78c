@@ -4,7 +4,6 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    @item.item_images.build
     @item.item_images.new
     @category_parent_array = ["---"] #セレクトボックスの初期値設定
     Category.where(ancestry: nil).each do |parent| #データベースから、親カテゴリーのみ抽出し、配列化
@@ -24,7 +23,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    @item.category_id = "1"
+    binding.pry
     if @item.save
       redirect_to root_path
     else
@@ -44,7 +43,6 @@ class ItemsController < ApplicationController
     )
   end
 end
-
   private
   def item_params
     params.require(:item).permit(
@@ -55,6 +53,7 @@ end
       :prefecture_code_id,
       :preparation_day,
       :price,
+      category_ids: [],
       item_images_attributes: [:item_id, :url]
     ).merge(
       seller_id: current_user.id
