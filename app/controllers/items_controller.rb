@@ -8,7 +8,7 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.item_images.new
-    @category_parent_array = ["---"] #セレクトボックスの初期値設定
+    @category_parent_array = ["選択してください"] #セレクトボックスの初期値設定
     Category.where(ancestry: nil).each do |parent| #データベースから、親カテゴリーのみ抽出し、配列化
       @category_parent_array << parent.name
     end
@@ -56,9 +56,6 @@ class ItemsController < ApplicationController
   end
 
   private
-
-end
-  private
   def item_params
     params.require(:item).permit(
       :name,
@@ -70,13 +67,19 @@ end
       :price,
       :category_id,
       item_images_attributes: [:item_id, :url]
-    ).merge(
+      )
+      .merge(
       seller_id: current_user.id
-    )
+      )
   end
 
+  def category_params
+    { category_id: params[:category_id]}
+  end
+      
   def set_categories
     @parent_categories = Category.roots
     @child_categories = @parent_categories.first.children
     @grandChild_categories = @child_categories.first.children
   end
+end
