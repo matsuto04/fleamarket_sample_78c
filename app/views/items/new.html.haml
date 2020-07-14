@@ -14,17 +14,18 @@
             必須
         %p.SellMainFormContainer__note
           最大10枚までアップロードできます
-        #item__images
-          .SellMainFormContainer__img__dropBox0#items
-            = f.fields_for :item_images do |ff|
-              %label.SellMainFormContainer__img__dropBox__label
-                = ff.file_field :url, type: 'file', name: "item[images_attributes][][url]", value:"", style: "display:none", id:"img-file"
-                %label{for: "img-file"}
-                  = icon("fas", "camera", class: "SellMainFormContainer__img__dropBox__label__icon")
-            %p.SellMainFormContainer__img__dropBox__text
-              ドラッグアンドドロップ
-              %br
-              またはクリックしてファイルをアップロード
+        .SellMainFormContainer__img
+          #item__images
+            .SellMainFormContainer__img__dropBox-0#items
+              = f.fields_for :item_images do |i|
+                %label.SellMainFormContainer__img__dropBox__label
+                  = i.file_field :image, type: 'file', name: "item[item_images_attributes][][url]", value:"", style: "display:none", id:"img-file"
+                  %label{for: "img-file"}
+                    = icon("fas", "camera", class: "SellMainFormContainer__img__dropBox__label__icon")
+                  %p.SellMainFormContainer__img__dropBox__text
+                    ドラッグアンドドロップ
+                    %br
+                    またはクリックしてファイルをアップロード
 
       .SellMainFormContainer
         .SellMainFormContainer__title
@@ -66,7 +67,7 @@
           %span.SellMainFormContainer__title--require
             必須
         .SellMainFormContainer__select
-          = f.select :item_condition, Item.item_conditions.keys, {include_blank: "選択してください", selected: 1}, {class: "SellMainFormContainer__select__field"}
+          = f.select :item_condition, options_for_select(Item.item_conditions.keys), {include_blank: "選択してください", selected: 1}, {class: "SellMainFormContainer__select__field"}
 
       .SellMainFormContainer
         .SellMainFormContainer__subTitle
@@ -92,7 +93,7 @@
           %span.SellMainFormContainer__title--require
             必須
         .SellMainFormContainer__select
-          = f.select :preparation_day, Item.preparation_days.keys, {include_blank: "選択してください", selected:1}, {class: "SellMainFormContainer__select__field"}
+          = f.select :preparation_day, options_for_select(Item.preparation_days.keys), {include_blank: "選択してください", selected:1}, {class: "SellMainFormContainer__select__field"}
 
       .SellMainFormContainer
         .SellMainFormContainer__subTitle
@@ -118,11 +119,7 @@
             ー
         .SellMainFormContainer__btn
           = f.submit "出品する", class: "SellMainFormContainer__btn__submit"
-          -# %button(type="submit" class="SellMainFormContainer__btn__submit")
-          -#   出品する
-          -# %button(type="submit" class="SellMainFormContainer__btn__draft")
-          -#   下書きに保存
-          -# = link_to("もどる", root_path, {class: "SellMainFormContainer__btn__back"})
+          = link_to("もどる", root_path, {class: "SellMainFormContainer__btn__back"})
         .SellMainFormContainer__note
           %p.SellMainFormContainer__note__text
             禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
