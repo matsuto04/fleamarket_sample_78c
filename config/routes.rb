@@ -4,12 +4,15 @@ Rails.application.routes.draw do
   resources :items do
     member do
       get :confirm
+  
     end
     collection do
+      post 'pay/:id'=> 'items#pay', as: 'pay'
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
     end
   end
+
   resources :users 
   resources :cards, only: [:create, :new, :show, :destroy] 
 end
