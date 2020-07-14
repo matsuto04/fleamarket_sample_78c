@@ -67,7 +67,7 @@
           %span.SellMainFormContainer__title--require
             必須
         .SellMainFormContainer__select
-          = f.select :item_condition, options_for_select(Item.item_conditions.keys), {include_blank: "選択してください", selected: 1}, {class: "SellMainFormContainer__select__field"}
+          = f.select :item_condition, Item.item_conditions.keys, {include_blank: "選択してください", selected: 0}, {class: "SellMainFormContainer__select__field"}
 
       .SellMainFormContainer
         .SellMainFormContainer__subTitle
@@ -78,7 +78,7 @@
           %span.SellMainFormContainer__title--require
             必須
         .SellMainFormContainer__select
-          = f.select :postage_payer, Item.postage_payers.keys, {include_blank: "選択してください", selected:1} , {class: "SellMainFormContainer__select__field"}
+          = f.select :postage_payer, Item.postage_payers.keys, {include_blank: "選択してください", selected: 0} , {class: "SellMainFormContainer__select__field"}
             
         .SellMainFormContainer__title
           %h3.SellMainFormContainer__title--text
@@ -93,7 +93,7 @@
           %span.SellMainFormContainer__title--require
             必須
         .SellMainFormContainer__select
-          = f.select :preparation_day, options_for_select(Item.preparation_days.keys), {include_blank: "選択してください", selected:1}, {class: "SellMainFormContainer__select__field"}
+          = f.select :preparation_day, Item.preparation_days.keys, {include_blank: "選択してください", selected: 0}, {class: "SellMainFormContainer__select__field"}
 
       .SellMainFormContainer
         .SellMainFormContainer__subTitle

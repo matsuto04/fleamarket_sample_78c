@@ -3,46 +3,73 @@
   %section.Main
     .MainContainer
       .MainContainer__title
-        %h1 サンプル
+        %h1  
+          = @item.name
       .MainContainer__item
         .MainContainer__item__image
           .MainContainer__item__image__box
-            = image_tag 'pict-reason-01.jpg', alt: 'test', height: '300px', width: '300px', class: 'Image'
+            = image_tag @item_images.url.url,alt: 'test', class: 'Image'
+          %ul.Image__sub
+            %li.Image__sub--pict
+              
         .MainContainer__item__table
           %table.TableBody
             %tr
               %th 出品者
-              %td= link_to "ユーザー名", '#'
+              %td= link_to @item.seller.nickname,"#"
+                  
             %tr
               %th カテゴリー
               %td= link_to "レディース", '#'
             %tr
               %th 商品状態
-              %td 未使用に近い
+              %td 
+                =@item.item_condition
             %tr
               %th 配送料の負担
-              %td 送料込み（出品者負担）
+              %td 
+                =@item.postage_payer
             %tr
               %th 配送の方法
-              %td 宅配便
+              %td 
+                =@item.postage_type
             %tr
               %th 配送元地域
-              %td 東京都
+              %td= link_to "#{@item.prefecture_code.name}","#"
+                
             %tr
               %th 発送日の目安
-              %td 1〜２日で発送
+              %td 
+                =@item.preparation_day
       .MainContainer__pricebox
-        %span.price ¥1,900
+        %span.price 
+          ¥
+          =@item.price
         %span.tax (税込)
         %span.fee_side 送料込み
       %form.MainContainer__actions
-        %button.MainContainer__actions--btn{type: "submit"}
-          = link_to '購入画面に進む', "#"
+        - if user_signed_in? && current_user.id != @item.seller.id
+          %button.MainContainer__actions--btn{type: "submit"}
+            = link_to '購入画面に進む', "#"
+        
+          
       .MainContainer__description
         .MainContainer__description--text
           商品説明欄 
           %br
-          テキストテキストテキスト
-          %br
-          テキストテキストテキストテキストテキストテキストテキストテキスト
-= render 'template/footer'
+            =@item.introduction
+      .MainContainer__EditDelete
+        - if user_signed_in? && current_user.id == @item.seller.id
+          .MainContainer__EditDelete--edit
+            = link_to '編集','#'
+          .MainContainer__EditDelete--delete
+            = link_to '削除','#'
+    .show__items
+      %ul.show-item
+        %li
+          = link_to '前へ','#',class:'show__item--previous'
+            
+        %li
+          = link_to '次へ','#',class:'show__item--next'
+        
+= render 'template/footer' 
