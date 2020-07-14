@@ -73,7 +73,7 @@
             .Main__Container__field__label
               %p 都道府県
               %span.requier 必須
-            = f.collection_select :prefecture_code_id, PrefectureCode.where.not(name: '未定'), :id, :name,{prompt: false},{class: "Main__Container__field__input"}
+            = f.collection_select :prefecture_code_id, PrefectureCode.all, :id, :name, {selected: 0}, {class: "Main__Container__field__input"}
           .Main__Container__field
             .Main__Container__field__label
               %p 市区町村

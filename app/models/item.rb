@@ -2,6 +2,7 @@ class Item < ApplicationRecord
   belongs_to :seller, class_name: "User"
   has_one :buyer, class_name: "User"
   has_many :item_images, dependent: :destroy
+  accepts_nested_attributes_for :item_images, allow_destroy: true
   belongs_to :category
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture_code
@@ -19,32 +20,37 @@ class Item < ApplicationRecord
   validates :seller_id,presence: true
 
   #配送状況
-  enum trading_status: { AlreadyDelivered:0,#配送済み
-                          InTransit:1,#輸送中
-                          InDelivery:2,#配達中
-                          Delivered:3,#配達済み
-                          InVestigating:4#調査中
+  enum trading_status: { 
+                          '配送済み':0,
+                          '輸送中':1,
+                          '配達中':2,
+                          '配達済み':3,
+                          '調査中':4,
                         }
   #商品の状態
-  enum item_condition: { BrandNew:0,#新品、未使用
-                        NearUnused:1,#未使用に近い
-                        NoNoticeableScratchesOrStains:2,#目立った傷や汚れなし
-                         SomeScratchesAndDirt:3,#やや傷や汚れあり
-                         ThereAreScratchesAndDirt:4,#傷や汚れあり
-                         OverallConditionIsbad:5#全体的に状態が悪い
+  enum item_condition: {
+                          '新品、未使用':0,
+                          '未使用に近い':1,
+                          '目立った傷や汚れなし':2,
+                          'やや傷や汚れあり':3,
+                          '傷や汚れあり':4,
+                          '全体的に状態が悪い':5,
                         }
- #配送料の負担
-  enum postage_payer: { PostageIncluded:0,#送料込み
-                        FreightCollect:1#着払い
+  #配送料の負担
+  enum postage_payer: {
+                        '送料込み':0,
+                        '着払い':1,
                       }
   #発送までの日数
-  enum preparation_day:{ MaxTwo:0,#1~2日で発送
-                        MaxThree:1,#2~3日で発送
-                        MaxSeven:2#4~7日で発送
+  enum preparation_day: { 
+                        '1~2日で発送':0,
+                        '2~3日で発送':1,
+                        '4~7日で発送':2,
                       }
   #配送の方法
-  enum postage_type:{Undecided:0,#未定
-                      Courier:1,#宅急便
-                      Post:2#郵便
+  enum postage_type: { 
+                      '未定':0,
+                      '宅急便':1,
+                      '郵便':2
                     }
 end
