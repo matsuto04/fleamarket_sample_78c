@@ -1,6 +1,5 @@
 class ItemsController < ApplicationController
-
-
+  before_action :set_categorie
   def index
     @parents = Category.where(ancestry: nil)
   end
@@ -13,7 +12,6 @@ class ItemsController < ApplicationController
       @category_parent_array << parent.name
     end
   end
-
   # 以下全て、formatはjsonのみ
   def get_category_children # 親カテゴリーが選択された後に動くアクション
     @category_children = Category.find_by(name: "#{params[:parent_name]}").children #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
@@ -35,30 +33,36 @@ class ItemsController < ApplicationController
   end
 
   def confirm
+    @item = Item.find(params[:id])
+    @card = Card.find_by(user_id: current_user.id)
+    customer = Payjp::Customer.retrieve(@card.customer_id)
+    @default_card_information = customer.cards.retrieve(@card.card_id)
+    @user = User.find(current_user.id)
   end
 
   def show
     @item = Item.find(params[:id])
     @parents = Category.where(ancestry: nil)
     @category_id = @item.category_id
-    @item_images = ItemImage.find(params[:id])
+    
     # @category_parent = Category.find(@category_id).parent.parent
     # @category_child = Category.find(@category_id).parent
     # @category_grandchild = Category.find(@category_id)
   end
 
-  def buy
-    Payjp.api_key = "sk_test_15e772991a03b9ebde1f7980"
-    Payjp::Change.create(
-      amount: 809, #決済する値段
-      card: params['payjp-token'], #フォームを送信すると作成,送信してくるトークン
+  def pay
+    @item = Item.find(params[:id])
+    card = Card.where(user_id: current_user.id).first
+    Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
+    Payjp::Charge.create(
+      amount: @item.price,
+      customer: card.customer_id,
       currency: 'jpy' #通貨
     )
+    @item.update( buyer_id: current_user.id )
+    redirect_to root_path
   end
 
-  private
-
-end
   private
   def item_params
     params.require(:item).permit(
@@ -81,3 +85,9 @@ end
     @child_categories = @parent_categories.first.children
     @grandChild_categories = @child_categories.first.children
   end
+
+  def set_categorie
+    @parents = Category.where(ancestry: nil)
+  end
+end
+

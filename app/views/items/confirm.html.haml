@@ -11,20 +11,20 @@
           購入内容の確認
         .BuyMainConfirmContainer__info
           %figure.BuyMainConfirmContainer__info__figure
-            = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m25161980338_1.jpg?1593936690', alt: '商品のイメージ画像', class: 'BuyMainConfirmContainer__info__figure__img'
+            = image_tag @item.item_images.first.url.url, alt: '商品のイメージ画像', class: 'BuyMainConfirmContainer__info__figure__img'
           .BuyMainConfirmContainer__info__box
             %p.BuyMainConfirmContainer__info__box__text
-              牛革 メンズ 折り財布 カーキ 小銭入れ 本革レザー 大容量 贈り物 未使用
+              = @item.name
             %p.BuyMainConfirmContainer__info__box__price
               %span.BuyMainConfirmContainer__info__box__price__taxIn
                 送料込み（税込）
               %span.BuyMainConfirmContainer__info__box__price__number
-                ¥3,300
+                = "¥#{@item.price}"
         .BuyMainConfirmContainer__payment
           %span.BuyMainConfirmContainer__payment__text
             支払い金額
           %span.BuyMainConfirmContainer__payment__number
-            ¥3,300
+            = "¥#{@item.price}"
         .BuyMainConfirmContainer__payWay
           %h3.BuyMainConfirmContainer__payWay__title
             支払い方法
@@ -33,9 +33,13 @@
           %p 
             クレジットカード
           %p
-            ************1234
+            = "**** **** **** " + @default_card_information.last4
           %p
             有効期限
+          %p
+            - exp_month = @default_card_information.exp_month.to_s
+            - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+            = exp_month + " / " + exp_year
           = image_tag 'https://pcweb-assets.mercdn.net/assets/img/card/visa.svg?2269318488', alt: 'visa', height: '20px', width: '50px', class: 'BuyMainConfirmContainer__cardData__img'
         .BuyMainConfirmContainer__postageType
           %h3.SellMainConfirmContainer__postageType__title
@@ -43,14 +47,15 @@
           = link_to("変更する", '#', {class: "BuyMainConfirmContainer__postageType__edit"})
         .BuyMainConfirmContainer__postData
           %p 
-            〒220-0012
+            = @user.sending_destination.post_code
           %p
-            神奈川県 横浜市西区みなとみらい 1-2-34
+            = "#{@user.sending_destination.prefecture_code[:name]} #{@user.sending_destination.city} #{@user.sending_destination.house_number} #{@user.sending_destination.building_name}"
           %p
-            佐藤 太郎
+            = @user.nickname
         .BuyMainConfirmContainer__btn
-          %button(type="submit" class="BuyMainConfirmContainer__btn__submit")
-            購入する
+          = form_tag(action: :pay, method: :post) do
+            %button(type="submit" class="BuyMainConfirmContainer__btn__submit")
+              購入する
 
 
   %footer.BuyBottom
