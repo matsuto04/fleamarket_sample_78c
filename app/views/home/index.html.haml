@@ -94,62 +94,8 @@
           = link_to '#' do
             %h3.MainPickupProductBoxTop__title 新規投稿商品
         .MainPickupProductBoxProductLists
-          .MainPickupProductBoxProductLists__list
-            = link_to '#' do
-              %figure.MainPickupProductBoxProductLists__list--img
-                = image_tag 'https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/16/IMG_9072.JPG', alt: '', class: 'MainPickupProductBoxProductLists__list--img--pict'
-              .MainPickupProductBoxProductLists__list--body
-                %h3.MainPickupProductBoxProductLists__list--body--name
-                  ee
-                .MainPickupProductBoxProductLists__list--body--details
-                  %ul.MainPickupProductBoxProductLists__list--body__details--ul
-                    %li 1000円
-                    %li
-                      %i.fa.fa-star.likeIcon
-                      0
-                  %p (税込)
-          .MainPickupProductBoxProductLists__list
-            = link_to '#' do
-              %figure.MainPickupProductBoxProductLists__list--img
-                = image_tag 'https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png', alt: '', class: 'MainPickupProductBoxProductLists__list--img--pict'
-              .MainPickupProductBoxProductLists__list--body
-                %h3.MainPickupProductBoxProductLists__list--body--name
-                  ee
-                .MainPickupProductBoxProductLists__list--body--details
-                  %ul.MainPickupProductBoxProductLists__list--body__details--ul
-                    %li 1000円
-                    %li
-                      %i.fa.fa-star.likeIcon
-                      0
-                  %p (税込)
-          .MainPickupProductBoxProductLists__list
-            = link_to '#' do
-              %figure.MainPickupProductBoxProductLists__list--img
-                = image_tag 'https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png', alt: '', class: 'MainPickupProductBoxProductLists__list--img--pict'
-              .MainPickupProductBoxProductLists__list--body
-                %h3.MainPickupProductBoxProductLists__list--body--name
-                  ee
-                .MainPickupProductBoxProductLists__list--body--details
-                  %ul.MainPickupProductBoxProductLists__list--body__details--ul
-                    %li 1000円
-                    %li
-                      %i.fa.fa-star.likeIcon
-                      0
-                  %p (税込)
-          .MainPickupProductBoxProductLists__list
-            = link_to '#' do
-              %figure.MainPickupProductBoxProductLists__list--img
-                = image_tag 'https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png', alt: '', class: 'MainPickupProductBoxProductLists__list--img--pict'
-              .MainPickupProductBoxProductLists__list--body
-                %h3.MainPickupProductBoxProductLists__list--body--name
-                  ee
-                .MainPickupProductBoxProductLists__list--body--details
-                  %ul.MainPickupProductBoxProductLists__list--body__details--ul
-                    %li 1000円
-                    %li
-                      %i.fa.fa-star.likeIcon
-                      0
-                  %p (税込)
+          - @items.each do |item|
+            = render 'items/item', item: item
 
     %section.MainPickup
       %h2.MainPickupHead ピックアップカテゴリー
@@ -158,62 +104,8 @@
           = link_to '#' do
             %h3.MainPickupProductBoxTop__title アーカイブ
         .MainPickupProductBoxProductLists
-          .MainPickupProductBoxProductLists__list
-            = link_to '#' do
-              %figure.MainPickupProductBoxProductLists__list--img
-                = image_tag 'https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/16/IMG_9072.JPG', alt: '', class: 'MainPickupProductBoxProductLists__list--img--pict'
-              .MainPickupProductBoxProductLists__list--body
-                %h3.MainPickupProductBoxProductLists__list--body--name
-                  ee
-                .MainPickupProductBoxProductLists__list--body--details
-                  %ul.MainPickupProductBoxProductLists__list--body__details--ul
-                    %li 1000円
-                    %li
-                      %i.fa.fa-star.likeIcon
-                      0
-                  %p (税込)
-          .MainPickupProductBoxProductLists__list
-            = link_to '#' do
-              %figure.MainPickupProductBoxProductLists__list--img
-                = image_tag 'https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png', alt: '', class: 'MainPickupProductBoxProductLists__list--img--pict'
-              .MainPickupProductBoxProductLists__list--body
-                %h3.MainPickupProductBoxProductLists__list--body--name
-                  ee
-                .MainPickupProductBoxProductLists__list--body--details
-                  %ul.MainPickupProductBoxProductLists__list--body__details--ul
-                    %li 1000円
-                    %li
-                      %i.fa.fa-star.likeIcon
-                      0
-                  %p (税込)
-          .MainPickupProductBoxProductLists__list
-            = link_to '#' do
-              %figure.MainPickupProductBoxProductLists__list--img
-                = image_tag 'https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png', alt: '', class: 'MainPickupProductBoxProductLists__list--img--pict'
-              .MainPickupProductBoxProductLists__list--body
-                %h3.MainPickupProductBoxProductLists__list--body--name
-                  ee
-                .MainPickupProductBoxProductLists__list--body--details
-                  %ul.MainPickupProductBoxProductLists__list--body__details--ul
-                    %li 1000円
-                    %li
-                      %i.fa.fa-star.likeIcon
-                      0
-                  %p (税込)
-          .MainPickupProductBoxProductLists__list
-            = link_to '#' do
-              %figure.MainPickupProductBoxProductLists__list--img
-                = image_tag 'https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png', alt: '', class: 'MainPickupProductBoxProductLists__list--img--pict'
-              .MainPickupProductBoxProductLists__list--body
-                %h3.MainPickupProductBoxProductLists__list--body--name
-                  ee
-                .MainPickupProductBoxProductLists__list--body--details
-                  %ul.MainPickupProductBoxProductLists__list--body__details--ul
-                    %li 1000円
-                    %li
-                      %i.fa.fa-star.likeIcon
-                      0
-                  %p (税込)
+          - @items.each do |item|
+            = render 'items/item', item: item
 
   = render 'template/footer'
   = render 'template/item'
