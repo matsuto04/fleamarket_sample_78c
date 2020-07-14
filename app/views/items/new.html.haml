@@ -55,21 +55,11 @@
           %span.SellMainFormContainer__title--require
             必須
         .SellMainFormContainer__select
-          %select.SellMainFormContainer__select__field
-            - @parent_categories.each do |parent|
-              %label.SellMainFormContainer__select__field__label
-                %option
-                  = parent.name
-          %select.SellMainFormContainer__select__field
-            - @child_categories.each do |child|
-              %label.SellMainFormContainer__select__field__label
-                %option
-                  = child.name
-          %select.SellMainFormContainer__select__field
-            - @grandChild_categories.each do |grandChild|
-              %label.SellMainFormContainer__select__field__label
-                %option
-                  = grandChild.name
+          .SellMainFormContainer__select__area
+            .SellMainFormContainer__select__area__wrapper
+              .SellMainFormContainer__select__area__wrapper__box
+                = f.select :category, @category_parent_array, {}, {class: 'SellMainFormContainer__select__area__wrapper__box--select', id: 'parent_category'}
+
         .SellMainFormContainer__title
           %h3.SellMainFormContainer__title--text
             商品の状態
