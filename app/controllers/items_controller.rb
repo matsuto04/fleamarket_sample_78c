@@ -1,5 +1,8 @@
 class ItemsController < ApplicationController
+
+
   def index
+    @parents = Category.where(ancestry: nil)
   end
 
   def new
@@ -34,6 +37,16 @@ class ItemsController < ApplicationController
   def confirm
   end
 
+  def show
+    @item = Item.find(params[:id])
+    @parents = Category.where(ancestry: nil)
+    @category_id = @item.category_id
+    @item_images = ItemImage.find(params[:id])
+    # @category_parent = Category.find(@category_id).parent.parent
+    # @category_child = Category.find(@category_id).parent
+    # @category_grandchild = Category.find(@category_id)
+  end
+
   def buy
     Payjp.api_key = "sk_test_15e772991a03b9ebde1f7980"
     Payjp::Change.create(
@@ -42,6 +55,9 @@ class ItemsController < ApplicationController
       currency: 'jpy' #通貨
     )
   end
+
+  private
+
 end
   private
   def item_params
