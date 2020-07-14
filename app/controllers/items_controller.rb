@@ -21,12 +21,11 @@ class ItemsController < ApplicationController
 
   def get_category_grandchildren # 子カテゴリーが選択された後に動くアクション
     @category_grandchildren = Category.find("#{params[:child_id]}").children #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
-
   end
 
   def create
     @item = Item.new(item_params)
-    @item.category_id = "1"
+    @category_id = @item.category_id
     if @item.save
       redirect_to root_path
     else
