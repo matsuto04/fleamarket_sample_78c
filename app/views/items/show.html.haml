@@ -61,7 +61,7 @@
       .MainContainer__EditDelete
         - if user_signed_in? && current_user.id == @item.seller.id
           .MainContainer__EditDelete--edit
-            = link_to '編集','#'
+            = link_to '編集',edit_item_path(@item)
           .MainContainer__EditDelete--delete
             = link_to '削除','#'
     .show__items
