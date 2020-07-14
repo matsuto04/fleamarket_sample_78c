@@ -1,4 +1,4 @@
-$(function () {
+$(document).on('turbolinks:load', (function () {
   $('.SellMainFormContainer__price__number').on('keyup', function(){
     var data = $(this).val();
     var profit = Math.round(data * 0.9)
@@ -13,4 +13,4 @@ $(function () {
       $('.SellMainFormContainer__tax__bar').html('');
     }
   })
-})
+}))

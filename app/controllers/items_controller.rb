@@ -11,6 +11,12 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
+    @item.category_id = "1"
+    if @item.save
+      redirect_to root_path
+    else
+      redirect_to action: :new
+    end
   end
 
   def confirm
@@ -28,7 +34,18 @@ end
 
   private
   def item_params
-    params.require(:item).permit(:name, item_images_attributes:[:id, :url])
+    params.require(:item).permit(
+      :name,
+      :introduction,
+      :item_condition,
+      :postage_payer,
+      :prefecture_code_id,
+      :preparation_day,
+      :price,
+      item_images_attributes: [:item_id, :url]
+    ).merge(
+      seller_id: current_user.id
+    )
   end
 
   def set_categories

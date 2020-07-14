@@ -49,25 +49,36 @@
           font-size: 14px;
         }
         &__img {
-          &__dropBox0{
-            height: 160px;
-            background-color: #F5F5F5;
-            border: dashed 1px #cccccc;
-            text-align: center;
-            &__label{
-              &__icon{
-                font-size: 28px;
-                display: flex;
-                justify-content: center;
-                margin-top: 40px;
-              }
-              &__input{
-                display: none;
-              }
+          height: 218px;
+          display: flex;
+          justify-content: center;
+          background-color: #F5F5F5;
+          border: dashed 1px #cccccc;
+          text-align: center;
+          align-items: center;
+          #item__images {
+            display: flex;
+            flex-wrap: wrap;
+            .item-image {
+              margin: 0 4.6px 4.6px;
+              background-color: white;
             }
-            &__text{
-              font-size: 12px;
-              margin: 10px 0;
+            &__dropBox{
+              &__label{
+                &__icon{
+                  font-size: 28px;
+                  display: flex;
+                  justify-content: center;
+                  margin-top: 40px;
+                }
+                &__input{
+                  display: none;
+                }
+              }
+              &__text{
+                font-size: 12px;
+                margin: 10px 0;
+              }
             }
           }
         }
@@ -232,34 +243,34 @@
   }
 }
 
-.SellMainFormContainer__img__dropBox0{
+.SellMainFormContainer__img__dropBox-0 {
   width: 100%;
 }
-.SellMainFormContainer__img__dropBox1{
+.SellMainFormContainer__img__dropBox-1 {
   width: 491px;
 }
-.SellMainFormContainer__img__dropBox2{
+.SellMainFormContainer__img__dropBox-2 {
   width: 363px;
 }
-.SellMainFormContainer__img__dropBox3{
+.SellMainFormContainer__img__dropBox-3 {
   width: 234px;
 }
-.SellMainFormContainer__img__dropBox4{
+.SellMainFormContainer__img__dropBox-4 {
   width: 106px;
 }
 //下段のfile_field
-.SellMainFormContainer__img__dropBox5{
+.SellMainFormContainer__img__dropBox-5 {
   width: 100%;
 }
-.SellMainFormContainer__img__dropBox6{
+.SellMainFormContainer__img__dropBox-6 {
   width: 491px;
 }
-.SellMainFormContainer__img__dropBox7{
+.SellMainFormContainer__img__dropBox-7 {
   width: 363px;
 }
-.SellMainFormContainer__img__dropBox8{
+.SellMainFormContainer__img__dropBox-8 {
   width: 234px;
 }
-.SellMainFormContainer__img__dropBox{
+.SellMainFormContainer__img__dropBox {
   width: 106px;
 }
