@@ -106,6 +106,17 @@
         }
         &__select{
           margin-bottom: 20px;
+          &__area{
+            margin-bottom: 20px;
+            &__wrapper{
+              margin-bottom: 20px;
+              &__box{
+                &--select{
+
+                }
+              }
+            }
+          }
           &__field{
             background-color: #fff;
             border: 1px solid #cccccc;
