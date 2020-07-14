@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :set_categorie
   def index
   end
 
@@ -9,6 +10,10 @@ class ItemsController < ApplicationController
     Category.where(ancestry: nil).each do |parent| #データベースから、親カテゴリーのみ抽出し、配列化
       @category_parent_array << parent.name
     end
+  end
+
+  def show
+    
   end
 
   # 以下全て、formatはjsonのみ
@@ -23,7 +28,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    binding.pry
+    @item.category_id = "1"
     if @item.save
       redirect_to root_path
     else
@@ -42,7 +47,6 @@ class ItemsController < ApplicationController
       currency: 'jpy' #通貨
     )
   end
-end
   private
   def item_params
     params.require(:item).permit(
@@ -65,3 +69,9 @@ end
     @child_categories = @parent_categories.first.children
     @grandChild_categories = @child_categories.first.children
   end
+
+  def set_categorie
+    @parents = Category.where(ancestry: nil)
+  end
+end
+
