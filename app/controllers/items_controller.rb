@@ -23,7 +23,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    binding.pry
+    @item.category_id = "1"
     if @item.save
       redirect_to root_path
     else
@@ -53,7 +53,7 @@ end
       :prefecture_code_id,
       :preparation_day,
       :price,
-      category_ids: [],
+      :category_id,
       item_images_attributes: [:item_id, :url]
     ).merge(
       seller_id: current_user.id
