@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.item_images.build
-
+    @item.item_images.new
     @category_parent_array = ["---"] #セレクトボックスの初期値設定
     Category.where(ancestry: nil).each do |parent| #データベースから、親カテゴリーのみ抽出し、配列化
       @category_parent_array << parent.name
@@ -19,6 +19,7 @@ class ItemsController < ApplicationController
 
   def get_category_grandchildren # 子カテゴリーが選択された後に動くアクション
     @category_grandchildren = Category.find("#{params[:child_id]}").children #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
+
   end
 
   def create
