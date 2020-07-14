@@ -8,7 +8,7 @@
       .MainContainer__item
         .MainContainer__item__image
           .MainContainer__item__image__box
-            = image_tag @item_images.url.to_s,alt: 'test', class: 'Image'
+            = image_tag @item_images.url.url,alt: 'test', class: 'Image'
           %ul.Image__sub
             %li.Image__sub--pict
               
