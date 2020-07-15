@@ -1,134 +1,52 @@
-$(document).on("turbolinks:load", (function(){
-  //DataTransferオブジェクトで、データを格納する箱を作る
-  var dataBox = new DataTransfer();
-  //querySelectorでfile_fieldを取得
-  var file_field = document.querySelector('input[type=file]')
-  //fileが選択された時に発火するイベント
-  $('#img-file').change(function(){
-    //選択したfileのオブジェクトをpropで取得
-    var files = $('input[type="file"]').prop('files')[0];
-    $.each(this.files, function(i, file){
-      //FileReaderのreadAsDataURLで指定したFileオブジェクトを読み込む
-      var fileReader = new FileReader();
-
-      //DataTransferオブジェクトに対して、fileを追加
-      dataBox.items.add(file)
-      //DataTransferオブジェクトに入ったfile一覧をfile_fieldの中に代入
-      file_field.files = dataBox.files
-
-      var num = $('.item-image').length + 1 + i
-      fileReader.readAsDataURL(file);
-
-      if (num == 10){
-        $('#items').css('display', 'none')   
+$(function () {
+  $(document).on('click', '.image_upload', function () {
+    var preview = $('<div class="image-preview__wapper"><img class="preview"></div><div class="image-preview_btn"><div class="image-preview_btn_delete">削除</div></div>');
+    var append_input = $(`<li class="input"><label class="upload-label"><div class="upload-label__text"><i class="fa fa-camera fa-4x"></i><div class="input-area display-none"><input class="hidden image_upload" type="file"></div></div></label></li>`)
+    $ul = $('#previews')
+    $li = $(this).parents('li');
+    $label = $(this).parents('.upload-label');
+    $inputs = $ul.find('.image_upload');
+    $('.image_upload').on('change', function (e) {
+      var reader = new FileReader();
+      reader.readAsDataURL(e.target.files[0]);
+      reader.onload = function (e) {
+        $(preview).find('.preview').attr('src', e.target.result);
       }
-      //読み込みが完了すると、srcにfileのURLを格納
-      fileReader.onloadend = function() {
-        var src = fileReader.result
-        var html= `<div class='item-image' data-image="${file.name}">
-                    <div class=' item-image__content'>
-                      <div class='item-image__content--icon'>
-                        <img src=${src} width="114" height="80" >
-                      </div>
-                    </div>
-                    <div class='item-image__operetion'>
-                      <div class='item-image__operetion--delete'>削除</div>
-                    </div>
-                  </div>`
-        //image_box__container要素の前にhtmlを差し込む
-        $('#items').before(html);
-      };
-      //image-box__containerのクラスを変更し、CSSでドロップボックスの大きさを変えてやる。
-      $('#items').attr('class', `.SellMainFormContainer__img__dropBox-${num}`)
+      $li.append(preview);
+      $('#previews li').css({
+        'width': `80px`
+      })
+      $label.css('display', 'none');
+      $li.removeClass('input');
+      $li.addClass('image-preview');
+      $lis = $ul.find('.image-preview');
+      if ($lis.length < 10) {
+        $ul.append(append_input)
+        $('#previews li:last-child').css({
+          'width': `80px`
+        })
+      }
+      $inputs.each(function (num, input) {
+        $(input).removeAttr('name');
+        $(input).attr({
+          name: "product[images_attributes][" + num + "][image]",
+          id: "images_attributes_" + num + "_image"
+        });
+      });
     });
   });
-  //削除ボタンをクリックすると発火するイベント
-  $(document).on("click", '.item-image__operetion--delete', function() {
-    //削除を押されたプレビュー要素を取得
-    var target_image = $(this).parent().parent()
-    //削除を押されたプレビューimageのfile名を取得
-    var target_name = $(target_image).data('image')
-    //プレビューがひとつだけの場合、file_fieldをクリア
-    if(file_field.files.length == 1){
-      //inputタグに入ったファイルを削除
-      $('input[type=file]').val(null)
-      dataBox.clearData();
-      console.log(dataBox)
-    }else{
-      //プレビューが複数の場合
-      $.each(file_field.files, function(i,input){
-        //削除を押された要素と一致した時、index番号に基づいてdataBoxに格納された要素を削除する
-        if(input.name == target_name){
-          dataBox.items.remove(i) 
-        }
-      })
-      //DataTransferオブジェクトに入ったfile一覧をfile_fieldの中に再度代入
-      file_field.files = dataBox.files
+  $(document).on('click', '.image-preview_btn_delete', function () {
+    var append_input = $(`<li class="input"><label class="upload-label"><div class="upload-label__text"><i class="fa fa-camera fa-4x"></i><div class="input-area display-none"><input class="hidden image_upload" type="file"></div></div></label></li>`)
+    $ul = $('#previews')
+    $lis = $ul.find('.image-preview');
+    $li = $(this).parents('.image-preview');
+    $li.remove();
+    $lis = $ul.find('.image-preview');
+    if ($lis.length == 9) {
+      $ul.append(append_input)
     }
-    //プレビューを削除
-    target_image.remove()
-    //image-box__containerクラスをもつdivタグのクラスを削除のたびに変更
-    var num = $('.item-image').length
-    $('#items').show()
-    $('#items').attr('class', `.SellMainFormContainer__img__dropBox-${num}`)
-  })
-  var dropArea = document.getElementById("item__images");
-
-//loadイベント発生時に発火するイベント
-  window.onload = function(e) {
-      dropArea.addEventListener("dragover", function(e){
-        e.preventDefault();
-        //ドロップエリアに影がつく
-        $(this).children('#items').css({'border': '1px solid rgb(204, 204, 204)','box-shadow': '0px 0px 4px'})
-      },false);
-  // ドラッグした要素がドロップターゲットの上にある時にイベントが発火
-  // ドラッグした要素がドロップターゲットから離れた時に発火するイベント
-      dropArea.addEventListener("dragleave", function(e){
-        e.preventDefault();
-        //ドロップエリアの影が消える
-        $(this).children('#items').css({'border': '1px dashed rgb(204, 204, 204)','box-shadow': '0px 0px 0px'})
-      },false);
-    
-  //ドラッグした要素をドロップした時に発火するイベント
-      dropArea.addEventListener("drop", function(e) {
-        e.preventDefault();
-        $(this).children('#items').css({'border': '1px dashed rgb(204, 204, 204)','box-shadow': '0px 0px 0px'});
-        var files = e.dataTransfer.files;
-        //ドラッグアンドドロップで取得したデータについて、プレビューを表示
-        $.each(files, function(i,file){
-          //アップロードされた画像を元に新しくfilereaderオブジェクトを生成
-          var fileReader = new FileReader();
-          //dataTransferオブジェクトに値を追加
-          dataBox.items.add(file)
-          file_field.files = dataBox.files
-          //lengthで要素の数を取得
-          var num = $('.item-image').length + i + 1
-          //指定されたファイルを読み込む
-          fileReader.readAsDataURL(file);
-          // 10枚プレビューを出したらドロップボックスが消える
-          if (num == 10){
-            $('#items').css('display', 'none')   
-          }
-          //image fileがロードされた時に発火するイベント
-          fileReader.onload = function() {
-            //変数srcにresultで取得したfileの内容を代入
-            var src = fileReader.result
-            var html =`<div class='item-image' data-image="${file.name}">
-            <div class=' item-image__content'>
-            <div class='item-image__content--icon'>
-            <img src=${src} width="114" height="80" >
-            </div>
-            </div>
-            <div class='item-image__operetion'>
-            <div class='item-image__operetion--delete'>削除</div>
-            </div>
-            </div>`
-            //image-box__containerの前にhtmlオブジェクトを追加　
-            $('#items').before(html);
-          };
-          //image-box__containerに.SellMainFormContainer__img__dropBox-(変数)という名前のクラスを追加する
-          $('#items').attr('class', `.SellMainFormContainer__img__dropBox-${num}`)
-        })
-      })
-  }
-}));
+    $('#previews li:last-child').css({
+      'width': `80px`
+    })
+  });
+});

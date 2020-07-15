@@ -48,40 +48,6 @@
           margin: 16px 0;
           font-size: 14px;
         }
-        &__img {
-          height: 218px;
-          display: flex;
-          justify-content: center;
-          background-color: #F5F5F5;
-          border: dashed 1px #cccccc;
-          text-align: center;
-          align-items: center;
-          #item__images {
-            display: flex;
-            flex-wrap: wrap;
-            .item-image {
-              margin: 0 4.6px 4.6px;
-              background-color: white;
-            }
-            &__dropBox{
-              &__label{
-                &__icon{
-                  font-size: 28px;
-                  display: flex;
-                  justify-content: center;
-                  margin-top: 40px;
-                }
-                &__input{
-                  display: none;
-                }
-              }
-              &__text{
-                font-size: 12px;
-                margin: 10px 0;
-              }
-            }
-          }
-        }
         &__itemName{
           height: 50px;
           &__field{
@@ -266,34 +232,68 @@
   }
 }
 
-.SellMainFormContainer__img__dropBox-0 {
+.product-new__field__uploader{
+  margin-bottom: 50px;
   width: 100%;
+  #previews{
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    .image-preview__wapper{
+      width: 80px;
+      height: 80px;
+      .preview{
+        width: 80px;
+        height: 80px;
+      }
+    }
+    .image-preview_btn{
+      text-align: center;
+      padding: 8px;
+      border-top: 1px solid #cccccc;
+      cursor: pointer;
+      &:hover{
+        transition: 0.5s;
+        background-color: #cccccc;
+      }
+    }
+    .input{
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      .upload-label {
+        width: 100%;
+        height: 121px;
+        background-color: rgb(245, 245, 245);
+        .upload-label__text{
+          text-align: center;
+          position: absolute;
+          bottom: 50px;
+          left: 10px;
+          z-index: 0;
+          width: 100%;
+          transform: translate(0, -50%);
+        }
+        .input-area{
+          display: none;
+        }
+      }
+    }
+  }
 }
-.SellMainFormContainer__img__dropBox-1 {
-  width: 491px;
+.mainbox-product-header{
+  margin: 30px 0 8px;
+  width: 434px;
+  &__text{
+  margin-bottom: 20px;
+  }
 }
-.SellMainFormContainer__img__dropBox-2 {
-  width: 363px;
-}
-.SellMainFormContainer__img__dropBox-3 {
-  width: 234px;
-}
-.SellMainFormContainer__img__dropBox-4 {
-  width: 106px;
-}
-//下段のfile_field
-.SellMainFormContainer__img__dropBox-5 {
-  width: 100%;
-}
-.SellMainFormContainer__img__dropBox-6 {
-  width: 491px;
-}
-.SellMainFormContainer__img__dropBox-7 {
-  width: 363px;
-}
-.SellMainFormContainer__img__dropBox-8 {
-  width: 234px;
-}
-.SellMainFormContainer__img__dropBox {
-  width: 106px;
+.require{
+  display: inline;
+  width: 32px;
+  height: 15px;
+  padding: 2.5px 5.5px;
+  background-color: #68C7CC;
+  color: #ffffff;
+  border-radius: 7px;
 }

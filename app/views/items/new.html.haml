@@ -13,19 +13,28 @@
           %span.SellMainFormContainer__title--require
             必須
         %p.SellMainFormContainer__note
-          最大10枚までアップロードできます
-        .SellMainFormContainer__img
-          #item__images
-            .SellMainFormContainer__img__dropBox-0#items
-              = f.fields_for :item_images do |i|
-                %label.SellMainFormContainer__img__dropBox__label
-                  = i.file_field :image, type: 'file', name: "item[item_images_attributes][][url]", value:"", style: "display:none", id:"img-file"
-                  %label{for: "img-file"}
-                    = icon("fas", "camera", class: "SellMainFormContainer__img__dropBox__label__icon")
-                  %p.SellMainFormContainer__img__dropBox__text
-                    ドラッグアンドドロップ
-                    %br
-                    またはクリックしてファイルをアップロード
+          最大5枚までアップロードできます
+        .product-new__field__uploader
+          = f.fields_for :item_images do |image|
+            %ul#previews
+              %li.input
+                %label.upload-label
+                  .upload-label__text
+                    %p クリックしてファイルをアップロード
+                  .input-area
+                    = image.file_field :image, class: "hidden image_upload"
+        -# .SellMainFormContainer__img
+        -#   #item__images
+        -#     .SellMainFormContainer__img__dropBox-0#items
+        -#       = f.fields_for :item_images do |i|
+        -#         %label.SellMainFormContainer__img__dropBox__label
+        -#           = i.file_field :image, type: 'file', name: "item[item_images_attributes][][url]", value:"", style: "display:none", id:"img-file"
+        -#           %label{for: "img-file"}
+        -#             = icon("fas", "camera", class: "SellMainFormContainer__img__dropBox__label__icon")
+        -#           %p.SellMainFormContainer__img__dropBox__text
+        -#             ドラッグアンドドロップ
+        -#             %br
+        -#             またはクリックしてファイルをアップロード
 
       .SellMainFormContainer
         .SellMainFormContainer__title
