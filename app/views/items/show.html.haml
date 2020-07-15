@@ -20,7 +20,11 @@
                   
             %tr
               %th カテゴリー
-              %td= link_to "レディース", '#'
+              %td#categories
+                = link_to @parent_category.name,"#"
+                = link_to @child_category.name,"#"
+                = link_to @grandChild_category.name,"#"
+              
             %tr
               %th 商品状態
               %td 

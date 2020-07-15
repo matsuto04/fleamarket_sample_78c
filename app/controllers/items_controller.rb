@@ -7,7 +7,7 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.item_images.new
-    @category_parent_array = ["---"] #セレクトボックスの初期値設定
+    @category_parent_array = ["選択してください"] #セレクトボックスの初期値設定
     Category.where(ancestry: nil).each do |parent| #データベースから、親カテゴリーのみ抽出し、配列化
       @category_parent_array << parent.name
     end
@@ -19,12 +19,11 @@ class ItemsController < ApplicationController
 
   def get_category_grandchildren # 子カテゴリーが選択された後に動くアクション
     @category_grandchildren = Category.find("#{params[:child_id]}").children #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
-
   end
 
   def create
     @item = Item.new(item_params)
-    @item.category_id = "1"
+    @category_id = @item.category_id
     if @item.save
       redirect_to root_path
     else
@@ -46,12 +45,9 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    @parents = Category.where(ancestry: nil)
-    @category_id = @item.category_id
-    
-    # @category_parent = Category.find(@category_id).parent.parent
-    # @category_child = Category.find(@category_id).parent
-    # @category_grandchild = Category.find(@category_id)
+    @grandChild_category = Category.find(@item.category_id)
+    @child_category = @grandChild_category.parent
+    @parent_category = @child_category.parent
   end
 
   def pay
@@ -83,19 +79,13 @@ class ItemsController < ApplicationController
       :price,
       :category_id,
       item_images_attributes: [:item_id, :url]
-    ).merge(
+      )
+      .merge(
       seller_id: current_user.id
-    )
-  end
-
-  def set_categories
-    @parent_categories = Category.roots
-    @child_categories = @parent_categories.first.children
-    @grandChild_categories = @child_categories.first.children
+      )
   end
 
   def set_categorie
     @parents = Category.where(ancestry: nil)
   end
 end
-

@@ -69,6 +69,18 @@
                 font-size: 13px;
                 padding: 5px 10px;
               }
+              #categories{
+                width: 61%;
+                background: #fff;
+                border: 1px solid #e8ebe7;
+                font-size: 13px;
+                padding: 5px 10px;
+                a{
+                  display: inline-block;
+                  display: block;
+                  margin-top: 5px;
+                }
+              }
             }
           }
         }
