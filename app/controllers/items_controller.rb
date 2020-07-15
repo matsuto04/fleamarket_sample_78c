@@ -41,12 +41,9 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    @parents = Category.where(ancestry: nil)
-    @category_id = @item.category_id
-    
-    # @category_parent = Category.find(@category_id).parent.parent
-    # @category_child = Category.find(@category_id).parent
-    # @category_grandchild = Category.find(@category_id)
+    @grandChild_category = Category.find(@item.category_id)
+    @child_category = @grandChild_category.parent
+    @parent_category = @child_category.parent
   end
 
   def pay
@@ -79,17 +76,6 @@ class ItemsController < ApplicationController
       seller_id: current_user.id
       )
   end
-
-  def category_params
-    { category_id: params[:category_id]}
-  end
-      
-  def set_categories
-    @parent_categories = Category.roots
-    @child_categories = @parent_categories.first.children
-    @grandChild_categories = @child_categories.first.children
-  end
-
 
   def set_categorie
     @parents = Category.where(ancestry: nil)
