@@ -9,7 +9,7 @@ $(document).on('turbolinks:load', (function(){
     var childSelectHtml = '';
     childSelectHtml = `<div class='SellMainFormContainer__select__area__wrapper' id= 'children_wrapper'>
                         <div class='SellMainFormContainer__select__area__wrapper__box'>
-                          <select class="SellMainFormContainer__select__area__wrapper__box--select" id="child_category" name="category_id">
+                          <select class="SellMainFormContainer__select__area__wrapper__box--select" id="child_category" name="item[category_id]">
                             <option value="選択してください" data-category="選択してください">選択してください</option>
                             ${insertHTML}
                           <select>
@@ -22,7 +22,7 @@ $(document).on('turbolinks:load', (function(){
     var grandchildSelectHtml = '';
     grandchildSelectHtml = `<div class='SellMainFormContainer__select__area__wrapper' id= 'grandchildren_wrapper'>
                               <div class='SellMainFormContainer__select__area__wrapper__box'>
-                                <select class="SellMainFormContainer__select__area__wrapper__box--select" id="grandchild_category" name="category_id">
+                                <select class="SellMainFormContainer__select__area__wrapper__box--select" id="grandchild_category" name="item[category_id]">
                                   <option value="選択してください" data-category="選択してください">選択してください</option>
                                   ${insertHTML}
                                 </select>
