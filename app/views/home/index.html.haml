@@ -94,7 +94,7 @@
           = link_to '#' do
             %h3.MainPickupProductBoxTop__title 新規投稿商品
         .MainPickupProductBoxProductLists
-          - @items.each do |item|
+          - @items.last(4).each do |item|
             = render 'items/item', item: item
 
     %section.MainPickup
@@ -103,8 +103,8 @@
         .MainPickupProductBoxTop
           = link_to '#' do
             %h3.MainPickupProductBoxTop__title アーカイブ
-        .MainPickupProductBoxProductLists
-          - @items.each do |item|
+        #bottomBox.MainPickupProductBoxProductLists
+          - @items.first(4).each do |item|
             = render 'items/item', item: item
 
   = render 'template/footer'
