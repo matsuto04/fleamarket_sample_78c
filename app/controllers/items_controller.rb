@@ -73,7 +73,8 @@ class ItemsController < ApplicationController
     Category.where(ancestry: nil).each do |parent| #データベースから、親カテゴリーのみ抽出し、配列化
       @category_parent_array << parent.name
     end
-    @item_images = ItemImage.find(params[:id])
+    @category_list = Category.all.where(ancestry: nil).map{|i| [i.name, i.id]}
+    
   end
 
   def update
