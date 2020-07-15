@@ -76,26 +76,20 @@ $(document).on("turbolinks:load", (function(){
 
 //loadイベント発生時に発火するイベント
   window.onload = function(e) {
-    if(dropArea != null) {
       dropArea.addEventListener("dragover", function(e){
         e.preventDefault();
         //ドロップエリアに影がつく
         $(this).children('#items').css({'border': '1px solid rgb(204, 204, 204)','box-shadow': '0px 0px 4px'})
       },false);
-    }
   // ドラッグした要素がドロップターゲットの上にある時にイベントが発火
   // ドラッグした要素がドロップターゲットから離れた時に発火するイベント
-    if(dropArea != null) {
       dropArea.addEventListener("dragleave", function(e){
         e.preventDefault();
         //ドロップエリアの影が消える
         $(this).children('#items').css({'border': '1px dashed rgb(204, 204, 204)','box-shadow': '0px 0px 0px'})
       },false);
-    }
     
   //ドラッグした要素をドロップした時に発火するイベント
-    
-    if(dropArea != null) {
       dropArea.addEventListener("drop", function(e) {
         e.preventDefault();
         $(this).children('#items').css({'border': '1px dashed rgb(204, 204, 204)','box-shadow': '0px 0px 0px'});
@@ -136,6 +130,5 @@ $(document).on("turbolinks:load", (function(){
           $('#items').attr('class', `.SellMainFormContainer__img__dropBox-${num}`)
         })
       })
-    }
   }
 }));
