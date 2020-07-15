@@ -48,40 +48,6 @@
           margin: 16px 0;
           font-size: 14px;
         }
-        &__img {
-          height: 218px;
-          display: flex;
-          justify-content: center;
-          background-color: #F5F5F5;
-          border: dashed 1px #cccccc;
-          text-align: center;
-          align-items: center;
-          #item__images {
-            display: flex;
-            flex-wrap: wrap;
-            .item-image {
-              margin: 0 4.6px 4.6px;
-              background-color: white;
-            }
-            &__dropBox{
-              &__label{
-                &__icon{
-                  font-size: 28px;
-                  display: flex;
-                  justify-content: center;
-                  margin-top: 40px;
-                }
-                &__input{
-                  display: none;
-                }
-              }
-              &__text{
-                font-size: 12px;
-                margin: 10px 0;
-              }
-            }
-          }
-        }
         &__itemName{
           height: 50px;
           &__field{
@@ -266,34 +232,87 @@
   }
 }
 
-.SellMainFormContainer__img__dropBox-0 {
-  width: 100%;
-}
-.SellMainFormContainer__img__dropBox-1 {
-  width: 491px;
-}
-.SellMainFormContainer__img__dropBox-2 {
-  width: 363px;
-}
-.SellMainFormContainer__img__dropBox-3 {
-  width: 234px;
-}
-.SellMainFormContainer__img__dropBox-4 {
-  width: 106px;
-}
-//下段のfile_field
-.SellMainFormContainer__img__dropBox-5 {
-  width: 100%;
-}
-.SellMainFormContainer__img__dropBox-6 {
-  width: 491px;
-}
-.SellMainFormContainer__img__dropBox-7 {
-  width: 363px;
-}
-.SellMainFormContainer__img__dropBox-8 {
-  width: 234px;
-}
-.SellMainFormContainer__img__dropBox {
-  width: 106px;
+.post__drop__box__container{
+  margin: 16px auto 0;
+  display: flex;
+
+  //プレビュー表示欄のCSS
+  .prev-content {
+    display: flex;
+    .preview-box {
+      height: 162px;
+      width: 112px;
+      margin: 0 15px 10px 0;
+      .upper-box {
+        height: 112px;
+        width: 100%;
+        img{
+          width: 112px;
+          height: 112px;
+        }
+      }
+      .lower-box {
+        display: flex;
+        text-align: center;
+        .update-box {
+          color: #00b0ff;
+          width: 50%;
+          height: 50px;
+          line-height: 50px;
+          border: 1px solid #eee;
+          background: #f5f5f5;
+          cursor: pointer;
+        }
+        .delete-box {
+          color: #00b0ff;
+          width: 50%;
+          height: 50px;
+          line-height: 50px;
+          border: 1px solid #eee;
+          background: #f5f5f5;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  //投稿クリックエリアのCSS
+  .label-content{
+    margin-bottom: 10px;
+    width: 620px;
+    .label-box {
+      display: block;
+      border: 1px dashed #ccc;
+      position: relative;
+      background: #f5f5f5;
+      width: 100%;
+      height: 162px;
+      cursor: pointer;
+      &__text-visible {
+        position: absolute;
+        top: 50%;
+        left: 16px;
+        right: 16px;
+        text-align: center;
+        font-size: 14px;
+        line-height: 1.5;
+        font-weight: bold;
+        -webkit-transform: translate(0, -50%);
+        transform: translate(0, -50%);
+        pointer-events: none;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    }
+  }
+
+  //file_fieldのcss
+  .hidden-content {
+    .hidden-field {
+      display: none;
+    }
+    .hidden-checkbox {
+      display: none;
+    }
+  }
 }
