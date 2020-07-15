@@ -14,15 +14,19 @@
             必須
         %p.SellMainFormContainer__note
           最大5枚までアップロードできます
-        .product-new__field__uploader
-          = f.fields_for :item_images do |image|
-            %ul#previews
-              %li.input
-                %label.upload-label
-                  .upload-label__text
-                    %p クリックしてファイルをアップロード
-                  .input-area
-                    = image.file_field :image, class: "hidden image_upload"
+        .post__drop__box__container
+          .prev-content
+          .label-content
+            %label{for: "item_item_images_attributes_0_url", class: "label-box", id: "label-box--0"}
+              %pre.label-box__text-visible クリックしてファイルをアップロード
+          .hidden-content
+            = f.fields_for :item_images do |i|
+              = i.file_field :url, class: "hidden-field"
+              %input{class:"hidden-field", type: "file", name: "item[item_images_attributes][1][url]", id: "item_item_images_attributes_1_url" }
+              %input{class:"hidden-field", type: "file", name: "item[item_images_attributes][2][url]", id: "item_item_images_attributes_2_url" }
+              %input{class:"hidden-field", type: "file", name: "item[item_images_attributes][3][url]", id: "item_item_images_attributes_3_url" }
+              %input{class:"hidden-field", type: "file", name: "item[item_images_attributes][4][url]", id: "item_item_images_attributes_4_url" }
+
         -# .SellMainFormContainer__img
         -#   #item__images
         -#     .SellMainFormContainer__img__dropBox-0#items
