@@ -35,9 +35,13 @@ class ItemsController < ApplicationController
   def confirm
     @item = Item.find(params[:id])
     @card = Card.find_by(user_id: current_user.id)
-    customer = Payjp::Customer.retrieve(@card.customer_id)
-    @default_card_information = customer.cards.retrieve(@card.card_id)
-    @user = User.find(current_user.id)
+    if @card.blank?
+      redirect_to new_card_path
+    else
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      @default_card_information = customer.cards.retrieve(@card.card_id)
+      @user = User.find(current_user.id)
+    end
   end
 
   def show
@@ -53,14 +57,18 @@ class ItemsController < ApplicationController
   def pay
     @item = Item.find(params[:id])
     card = Card.where(user_id: current_user.id).first
-    Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
-    Payjp::Charge.create(
-      amount: @item.price,
-      customer: card.customer_id,
-      currency: 'jpy' #通貨
-    )
-    @item.update( buyer_id: current_user.id )
-    redirect_to root_path
+    if card.blank?
+      redirect_to new_card_path
+    else
+      Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
+      Payjp::Charge.create(
+        amount: @item.price,
+        customer: card.customer_id,
+        currency: 'jpy' #通貨
+      )
+      @item.update( buyer_id: current_user.id )
+      redirect_to root_path
+    end
   end
 
   private
