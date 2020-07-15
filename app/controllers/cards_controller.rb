@@ -3,15 +3,6 @@ class CardsController < ApplicationController
   before_action :set_card, only:[:index, :show, :destroy]
   before_action :set_category
 
-  def index
-    if @card.blank?
-      render :new
-    else
-      Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
-      customer = Payjp::Customer.retrieve(@card.customer_id)
-      @default_card_information = customer.cards.retrieve(@card.card_id)
-    end
-  end
 
   def new
     @card = Card.where(user_id: current_user.id)
