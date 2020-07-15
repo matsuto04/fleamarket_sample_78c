@@ -2,6 +2,9 @@
   = link_to item_path(item.id) do
     %figure.MainPickupProductBoxProductLists__list--img
       = image_tag item.item_images.first.url.url, alt: '', class: 'MainPickupProductBoxProductLists__list--img--pict'
+      - if item.buyer_id.present?
+        .MainPickupProductBoxProductLists__list--img--buy
+          %p SOLD
     .MainPickupProductBoxProductLists__list--body
       %h3.MainPickupProductBoxProductLists__list--body--name
         = item.name
