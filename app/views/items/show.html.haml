@@ -8,7 +8,7 @@
       .MainContainer__item
         .MainContainer__item__image
           .MainContainer__item__image__box
-            = image_tag @item_images.url.url,alt: 'test', class: 'Image'
+            -# = image_tag(@item.item_images[0].item_images.url), alt: 'test', class: 'Image'
           %ul.Image__sub
             %li.Image__sub--pict
               
@@ -20,15 +20,19 @@
                   
             %tr
               %th カテゴリー
-              %td= link_to "レディース", '#'
+              %td#categories
+                = link_to @parent_category.name,"#"
+                = link_to @child_category.name,"#"
+                = link_to @grandChild_category.name,"#"
+              
             %tr
               %th 商品状態
               %td 
-                =@item.item_condition
+                = @item.item_condition
             %tr
               %th 配送料の負担
               %td 
-                =@item.postage_payer
+                = @item.postage_payer
             %tr
               %th 配送の方法
               %td 
@@ -50,7 +54,7 @@
       %form.MainContainer__actions
         - if user_signed_in? && current_user.id != @item.seller.id
           %button.MainContainer__actions--btn{type: "submit"}
-            = link_to '購入画面に進む', "#"
+            = link_to '購入画面に進む', confirm_item_path(@item)
         
           
       .MainContainer__description
