@@ -96,11 +96,22 @@ class ItemsController < ApplicationController
 
   def update
     @item = Item.find(params[:id])
-    if @item.update(item_update_params)
-      redirect_to root_path
-    else
-      render action: :edit
+    length = @item.item_images.length
+    i = 0
+    while i < length do
+      if  item_update_params[:item_images_attributes]["#{i}"]["_destroy"] == "0"
+        @item.update(item_update_params)
+        redirect_to root_path
+        return
+      else
+        i += 1
+      end
     end
+    if item_update_params[:item_images_attributes]["#{i}"]
+      @item.update(item_update_params)
+    end
+    redirect_to edit_item_path(@item.id)
+    return
   end
 
   def destroy
