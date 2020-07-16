@@ -67,6 +67,26 @@ class ItemsController < ApplicationController
     end
   end
 
+
+  def edit
+    @item = Item.find(params[:id])
+    @category_parent_array = ["---"] #セレクトボックスの初期値設定
+    Category.where(ancestry: nil).each do |parent| #データベースから、親カテゴリーのみ抽出し、配列化
+      @category_parent_array << parent.name
+    end
+    @category_list = Category.all.where(ancestry: nil).map{|i| [i.name, i.id]}
+    
+  end
+
+  def update
+    @item = Item.find(params[:id])
+    if @item.update(item_params)
+      redirect_to :root_path
+    else
+      render action: :edit
+    end
+  end
+
   def destroy
     item = Item.find(params[:id])
     item.destroy
@@ -91,7 +111,25 @@ class ItemsController < ApplicationController
       )
   end
 
+  def item_update_params
+    params.require(:item).permit(
+      :name,
+      :introduction,
+      :item_condition,
+      :postage_payer,
+      :prefecture_code_id,
+      :preparation_day,
+      :price,
+      :category_id,
+      :image_cache,
+      item_images_attributes: [:item_id, :url]
+    ).merge(
+      seller_id: current_user.id
+    )
+  end
+
   def set_categorie
     @parents = Category.where(ancestry: nil)
   end
 end
+

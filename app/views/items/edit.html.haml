@@ -1,0 +1,142 @@
+%body.Sell
+  %header.SellTop
+    .SellTop__icon
+      = link_to root_path do
+        = image_tag "logo.png", alt: "logo", class: 'SellTop__icon--img'
+  
+  %main.SellMain
+    = form_with model: @item, class: "SellMainForm", local: true do |f|
+      .SellMainFormContainer
+        .SellMainFormContainer__title
+          %h3.SellMainFormContainer__title--text
+            出品画像
+          %span.SellMainFormContainer__title--require
+            必須
+        %p.SellMainFormContainer__note
+          最大5枚までアップロードできます
+        .post__drop__box__container
+          .prev-content
+          .label-content
+            %label{for: "item_item_images_attributes_0_url", class: "label-box", id: "label-box--0"}
+              %pre.label-box__text-visible クリックしてファイルをアップロード
+          .hidden-content
+            = f.fields_for :item_images do |i|
+              = i.file_field :url, class: "hidden-field"
+              %input{class:"hidden-field", type: "file", name: "item[item_images_attributes][1][url]", id: "item_item_images_attributes_1_url" }
+              %input{class:"hidden-field", type: "file", name: "item[item_images_attributes][2][url]", id: "item_item_images_attributes_2_url" }
+              %input{class:"hidden-field", type: "file", name: "item[item_images_attributes][3][url]", id: "item_item_images_attributes_3_url" }
+              %input{class:"hidden-field", type: "file", name: "item[item_images_attributes][4][url]", id: "item_item_images_attributes_4_url" }
+
+
+      .SellMainFormContainer
+        .SellMainFormContainer__title
+          %h3.SellMainFormContainer__title--text
+            商品名
+          %span.SellMainFormContainer__title--require
+            必須
+        .SellMainFormContainer__itemName
+          = f.text_field :name, {placeholder: "40文字まで", class: "SellMainFormContainer__itemName__field"}
+
+      .SellMainFormContainer
+        .SellMainFormContainer__title
+          %h3.SellMainFormContainer__title--text
+            商品の説明
+          %span.SellMainFormContainer__title--require
+            必須
+        .SellMainFormContainer__itemExplanation
+          = f.text_area :introduction, {class: "SellMainFormContainer__itemExplanation__field", placeholder: "例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでおすすめです。（1,000文字以内）（色、素材、重さ、定価、注意点など）"}
+        .SellMainFormContainer__wordCount
+          0/1000
+
+      .SellMainFormContainer
+        .SellMainFormContainer__subTitle
+          商品の詳細
+        .SellMainFormContainer__title
+          %h3.SellMainFormContainer__title--text
+            カテゴリー
+          %span.SellMainFormContainer__title--require
+            必須
+        .SellMainFormContainer__select
+          .SellMainFormContainer__select__area
+            .SellMainFormContainer__select__area__wrapper
+              .SellMainFormContainer__select__area__wrapper__box
+                = f.select :category_id, @category_parent_array, {}, {class: 'SellMainFormContainer__select__area__wrapper__box--select', id: 'parent_category'}
+
+        .SellMainFormContainer__title
+          %h3.SellMainFormContainer__title--text
+            商品の状態
+          %span.SellMainFormContainer__title--require
+            必須
+        .SellMainFormContainer__select
+          = f.select :item_condition, Item.item_conditions.keys, {include_blank: "選択してください"}, {class: "SellMainFormContainer__select__field"}
+
+      .SellMainFormContainer
+        .SellMainFormContainer__subTitle
+          発送について
+        .SellMainFormContainer__title
+          %h3.SellMainFormContainer__title--text
+            発送料の負担
+          %span.SellMainFormContainer__title--require
+            必須
+        .SellMainFormContainer__select
+          = f.select :postage_payer, Item.postage_payers.keys, {include_blank: "選択してください"} , {class: "SellMainFormContainer__select__field"}
+            
+        .SellMainFormContainer__title
+          %h3.SellMainFormContainer__title--text
+            発送元の地域
+          %span.SellMainFormContainer__title--require
+            必須
+        .SellMainFormContainer__select
+          = f.collection_select :prefecture_code_id, PrefectureCode.all, :id, :name,{}, {class: "SellMainFormContainer__select__field"}
+        .SellMainFormContainer__title
+          %h3.SellMainFormContainer__title--text
+            発送までの日数
+          %span.SellMainFormContainer__title--require
+            必須
+        .SellMainFormContainer__select
+          = f.select :preparation_day, Item.preparation_days.keys, {include_blank: "選択してください"}, {class: "SellMainFormContainer__select__field"}
+
+      .SellMainFormContainer
+        .SellMainFormContainer__subTitle
+          価格（¥300〜9,999,999）
+        .SellMainFormContainer__price
+          %h3.SellMainFormContainer__price__title
+            販売価格
+          %span.SellMainFormContainer__price__require
+            必須
+          %span.SellMainFormContainer__price__ennMark
+            ¥
+          = f.number_field :price, placeholder: 0, min: 300, max: 9999999, class: "SellMainFormContainer__price__number"
+        .SellMainFormContainer__tax
+          .SellMainFormContainer__tax__text
+            販売手数料（10%）
+          .SellMainFormContainer__tax__bar
+            ー
+        %hr.SellMainFormContainer__bar/
+        .SellMainFormContainer__tax
+          .SellMainFormContainer__tax__text
+            販売利益
+          .SellMainFormContainer__tax__bottom
+            ー
+        .SellMainFormContainer__btn
+          = f.submit "更新する", class: "SellMainFormContainer__btn__submit"
+          = link_to("もどる", root_path, {class: "SellMainFormContainer__btn__back"})
+        .SellMainFormContainer__note
+          %p.SellMainFormContainer__note__text
+            禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
+
+
+  %footer.SellBottom
+    .SellBottomContents
+      %ul.SellBottomContents__lists
+        %li.SellBottomContents__lists__list
+          = link_to 'プライバシーポリシー', '#'
+        %li.SellBottomContents__lists__list
+          = link_to 'メルカリ利用規約', '#'
+        %li.SellBottomContents__lists__list
+          = link_to '特定商取引に関する表記', '#'
+    .SellBottomLogo
+      = link_to root_path do
+        = image_tag 'logo.png', alt: 'logo', class: 'SellBottomLogo--img'
+    %p.SellBottom__copyright
+      © FURIMA
