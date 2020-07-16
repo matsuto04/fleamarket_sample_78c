@@ -67,7 +67,7 @@
           .MainContainer__EditDelete--edit
             = link_to '編集',edit_item_path(@item)
           .MainContainer__EditDelete--delete
-            = link_to '削除','#'
+            = link_to '削除', item_path(@item), method: :delete
     .show__items
       %ul.show-item
         %li

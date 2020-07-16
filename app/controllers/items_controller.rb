@@ -67,6 +67,7 @@ class ItemsController < ApplicationController
     end
   end
 
+
   def edit
     @item = Item.find(params[:id])
     @category_parent_array = ["---"] #セレクトボックスの初期値設定
@@ -84,6 +85,12 @@ class ItemsController < ApplicationController
     else
       render action: :edit
     end
+
+  def destroy
+    item = Item.find(params[:id])
+    item.destroy
+    redirect_to root_path
+
   end
 
   private
@@ -97,7 +104,7 @@ class ItemsController < ApplicationController
       :preparation_day,
       :price,
       :category_id,
-      item_images_attributes: [:item_id, :url]
+      item_images_attributes: [:item_id, :url, :_destroy]
       )
       .merge(
       seller_id: current_user.id
