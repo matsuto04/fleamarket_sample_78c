@@ -67,6 +67,13 @@ class ItemsController < ApplicationController
     end
   end
 
+  def updata
+    
+  end
+
+  def destroy
+    
+  end
   private
   def item_params
     params.require(:item).permit(
