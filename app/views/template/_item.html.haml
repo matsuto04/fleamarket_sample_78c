@@ -1,4 +1,5 @@
-= link_to(new_item_path, {class: "PurchaseBtn"}) do
-  .PurchaseBtn__box
-    %span.PurchaseBtn__box__text 出品する
-    = image_tag 'icon_camera.png', class: 'PurchaseBtn__box__icon'
+- if user_signed_in?
+  = link_to(new_item_path, {class: "PurchaseBtn"}) do
+    .PurchaseBtn__box
+      %span.PurchaseBtn__box__text 出品する
+      = image_tag 'icon_camera.png', class: 'PurchaseBtn__box__icon'
