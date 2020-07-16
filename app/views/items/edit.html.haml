@@ -36,12 +36,6 @@
             - @item.item_images.length.upto(4) do |i|
               %input{name: "item[item_images_attributes][#{i}][url]", id: "item_item_images_attributes_#{i}_url", class:"hidden-field", type:"file"}
 
-              -# %input{class:"hidden-field", type: "file", name: "item[item_images_attributes][1][url]", id: "item_item_images_attributes_1_url" }
-              -# %input{class:"hidden-field", type: "file", name: "item[item_images_attributes][2][url]", id: "item_item_images_attributes_2_url" }
-              -# %input{class:"hidden-field", type: "file", name: "item[item_images_attributes][3][url]", id: "item_item_images_attributes_3_url" }
-              -# %input{class:"hidden-field", type: "file", name: "item[item_images_attributes][4][url]", id: "item_item_images_attributes_4_url" }
-
-
       .SellMainFormContainer
         .SellMainFormContainer__title
           %h3.SellMainFormContainer__title--text
