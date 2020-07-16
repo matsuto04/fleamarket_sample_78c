@@ -85,12 +85,12 @@ class ItemsController < ApplicationController
     else
       render action: :edit
     end
+  end
 
   def destroy
     item = Item.find(params[:id])
     item.destroy
     redirect_to root_path
-
   end
 
   private

@@ -13,19 +13,20 @@
           %span.SellMainFormContainer__title--require
             必須
         %p.SellMainFormContainer__note
-          最大10枚までアップロードできます
-        .SellMainFormContainer__img
-          #item__images
-            .SellMainFormContainer__img__dropBox-0#items
-              = f.fields_for :item_images do |i|
-                %label.SellMainFormContainer__img__dropBox__label
-                  = i.file_field :item, type: 'file', name: "item[item_images_attributes][][url]", value:"", style: "display:none", id:"img-file"
-                  %label{for: "img-file"}
-                    = icon("fas", "camera", class: "SellMainFormContainer__img__dropBox__label__icon")
-                  %p.SellMainFormContainer__img__dropBox__text
-                    ドラッグアンドドロップ
-                    %br
-                    またはクリックしてファイルをアップロード
+          最大5枚までアップロードできます
+        .post__drop__box__container
+          .prev-content
+          .label-content
+            %label{for: "item_item_images_attributes_0_url", class: "label-box", id: "label-box--0"}
+              %pre.label-box__text-visible クリックしてファイルをアップロード
+          .hidden-content
+            = f.fields_for :item_images do |i|
+              = i.file_field :url, class: "hidden-field"
+              %input{class:"hidden-field", type: "file", name: "item[item_images_attributes][1][url]", id: "item_item_images_attributes_1_url" }
+              %input{class:"hidden-field", type: "file", name: "item[item_images_attributes][2][url]", id: "item_item_images_attributes_2_url" }
+              %input{class:"hidden-field", type: "file", name: "item[item_images_attributes][3][url]", id: "item_item_images_attributes_3_url" }
+              %input{class:"hidden-field", type: "file", name: "item[item_images_attributes][4][url]", id: "item_item_images_attributes_4_url" }
+
 
       .SellMainFormContainer
         .SellMainFormContainer__title
