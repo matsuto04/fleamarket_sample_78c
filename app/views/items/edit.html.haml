@@ -60,8 +60,13 @@
           .SellMainFormContainer__select__area
             .SellMainFormContainer__select__area__wrapper
               .SellMainFormContainer__select__area__wrapper__box
-                = f.select :category_id, @category_parent_array, {}, {class: 'SellMainFormContainer__select__area__wrapper__box--select', id: 'parent_category'}
-
+                = f.select :parent_name, @category_parent_array,{selected:@item.category.parent.parent.name},{class: 'SellMainFormContainer__select__area__wrapper__box--select',id:'parent_category'}
+            .SellMainFormContainer__select__area__wrapper#children_wrapper
+              .SellMainFormContainer__select__area__wrapper__box
+                = f.select :child_id, options_for_select(@category_children_array.map{|b|[b.name, b.id,{date:{category: b.id}}]},{prompt: "指定なし",selectd:@item.category.parent.id}),{},{class:'SellMainFormContainer__select__area__wrapper__box--select',id:'child_category'}
+            .SellMainFormContainer__select__area__wrapper#grandchildren_wrapper
+              .SellMainFormContainer__select__area__wrapper__box
+                = f.select :category_id, options_for_select(@category_grandchildren_array.map{|b| [b.name, b.id,{data:{category: b.id}}]},{prompt:"指定なし",selected: @item.category.id}),{}, {class: 'SellMainFormContainer__select__area__wrapper__box--select',id:'grandchild_category'}
         .SellMainFormContainer__title
           %h3.SellMainFormContainer__title--text
             商品の状態

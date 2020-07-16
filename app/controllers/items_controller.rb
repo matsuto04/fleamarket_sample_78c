@@ -73,18 +73,31 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
-    @category_parent_array = ["---"] #セレクトボックスの初期値設定
-    Category.where(ancestry: nil).each do |parent| #データベースから、親カテゴリーのみ抽出し、配列化
+    grandchild_category = @item.category
+    child_category = grandchild_category.parent
+
+    @category_parent_array = []
+    Category.where(ancestry: nil).each do |parent|
       @category_parent_array << parent.name
     end
-    @category_list = Category.all.where(ancestry: nil).map{|i| [i.name, i.id]}
+
+    @category_children_array = []
+    Category.where(ancestry: child_category.ancestry).each do |children|
+      @category_children_array << children
+    end
+
+    @category_grandchildren_array = []
+    Category.where(ancestry: grandchild_category.ancestry).each do |grandchildren|
+      @category_grandchildren_array << grandchildren
+    end
+    
     
   end
 
   def update
     @item = Item.find(params[:id])
     if @item.update(item_params)
-      redirect_to :root_path
+      redirect_to root_path
     else
       render action: :edit
     end
