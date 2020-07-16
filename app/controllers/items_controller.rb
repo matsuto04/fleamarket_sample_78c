@@ -87,7 +87,6 @@ class ItemsController < ApplicationController
 
   def set_categorie
     @parents = Category.where(ancestry: nil)
+    qqqqq
   end
 end
-
-p
