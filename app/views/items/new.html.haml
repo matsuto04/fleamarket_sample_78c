@@ -43,9 +43,10 @@
           %span.SellMainFormContainer__title--require
             必須
         .SellMainFormContainer__itemExplanation
-          = f.text_area :introduction, {class: "SellMainFormContainer__itemExplanation__field", placeholder: "例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでおすすめです。（1,000文字以内）（色、素材、重さ、定価、注意点など）"}
+          = f.text_area :introduction, {id: "input-text", class: "SellMainFormContainer__itemExplanation__field", placeholder: "例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでおすすめです。（1,000文字以内）（色、素材、重さ、定価、注意点など）"}
         .SellMainFormContainer__wordCount
-          0/1000
+          %p#counter
+            0/1000
 
       .SellMainFormContainer
         .SellMainFormContainer__subTitle
