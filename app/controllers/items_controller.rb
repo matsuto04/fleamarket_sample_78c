@@ -31,10 +31,6 @@ class ItemsController < ApplicationController
     end
   end
 
-  def destroy
-    iririririri
-  end
-
   def confirm
     @item = Item.find(params[:id])
     @card = Card.find_by(user_id: current_user.id)
