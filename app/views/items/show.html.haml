@@ -7,10 +7,23 @@
           = @item.name
       .MainContainer__item
         .MainContainer__item__image
-          .MainContainer__item__image__box
-            -# = image_tag(@item.item_images[0].item_images.url), alt: 'test', class: 'Image'
-          %ul.Image__sub
-            %li.Image__sub--pict
+          .main-content.clearfix
+            .main-content__photo
+              .owl-carousel.owl-loaded.owl-drag
+                .owl-stage-outer
+                  .owl-stage{ style: 'left:0px',width: '900px'}
+                    - @item.item_images.each do |i|
+                      - if i.url.present?
+                        .owl-item{ style: 'width:300px'}
+                          .owl-item__inner.is-higher-width
+                            = image_tag i.url.url
+
+                .owl-dots
+                  - if @item.item_images.present?
+                    - @item.item_images.each do |i|
+                      .owl-dot
+                        .owl-dot-inner
+                          = image_tag i.url.url
               
         .MainContainer__item__table
           %table.TableBody
