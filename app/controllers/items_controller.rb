@@ -24,6 +24,9 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @category_id = @item.category_id
+    if @item.item_image_ids.nil?
+      redirect_to action: :new
+    end
     if @item.save
       redirect_to root_path
     else
