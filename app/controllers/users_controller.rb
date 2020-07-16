@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(current_user.id)
     @parents = Category.where(ancestry: nil)
+    @items = Item.includes(:item_images)
   end
 
   def edit
