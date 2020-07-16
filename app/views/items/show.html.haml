@@ -18,11 +18,11 @@
                           .owl-item__inner.is-higher-width
                             = image_tag i.url.url
 
-                .owl-dots
+                .owl-dots{ style: 'display:flex'}
                   - if @item.item_images.present?
                     - @item.item_images.each do |i|
                       .owl-dot
-                        .owl-dot-inner
+                        .owl-dot-inner{ style: 'display:flex'}
                           = image_tag i.url.url
               
         .MainContainer__item__table
@@ -78,15 +78,8 @@
       .MainContainer__EditDelete
         - if user_signed_in? && current_user.id == @item.seller.id
           .MainContainer__EditDelete--edit
-            = link_to '編集','#'
+            = link_to '編集', edit_item_path(@item)
           .MainContainer__EditDelete--delete
             = link_to '削除', item_path(@item), method: :delete
-    .show__items
-      %ul.show-item
-        %li
-          = link_to '前へ','#',class:'show__item--previous'
-            
-        %li
-          = link_to '次へ','#',class:'show__item--next'
         
 = render 'template/footer' 

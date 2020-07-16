@@ -26,8 +26,6 @@ $(document).on('turbolinks:load', function() {
     slickObj = $('.owl-stage').slick('getSlick');
     slickObj.slickGoTo(index);    // アニメーション中でも切り替える
   });
-  //画像が４枚よりも多い場合
-  if($('.owl-dot').length > 4) {
-    $('.owl-dot').css({'width':'60px','height':'60px'});
-  }
+  
+  $('.owl-dot-inner img').css({'width':'64px','height':'64px'});
 });
