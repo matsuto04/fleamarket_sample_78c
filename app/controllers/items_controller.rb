@@ -32,7 +32,7 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    
+    iririririri
   end
 
   def confirm
