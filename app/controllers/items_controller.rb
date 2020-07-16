@@ -31,6 +31,10 @@ class ItemsController < ApplicationController
     end
   end
 
+  def destroy
+    
+  end
+
   def confirm
     @item = Item.find(params[:id])
     @card = Card.find_by(user_id: current_user.id)
@@ -87,6 +91,5 @@ class ItemsController < ApplicationController
 
   def set_categorie
     @parents = Category.where(ancestry: nil)
-    qqqqq
   end
 end
