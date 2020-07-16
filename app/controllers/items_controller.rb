@@ -89,3 +89,5 @@ class ItemsController < ApplicationController
     @parents = Category.where(ancestry: nil)
   end
 end
+
+p
