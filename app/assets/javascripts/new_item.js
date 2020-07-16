@@ -82,8 +82,8 @@ $(document).on('turbolinks:load', function(){
         }
 
         //プレビュー削除したフィールドにdestroy用のチェックボックスがあった場合、チェックを外す=============
-        if ($(`#item_images_attributes_${id}__destroy`)){
-          $(`#item_images_attributes_${id}__destroy`).prop('checked',false);
+        if ($(`#item_item_images_attributes_${id}__destroy`)){
+          $(`#item_item_images_attributes_${id}__destroy`).prop('checked',false);
         } 
         //=============================================================================
 
@@ -107,9 +107,9 @@ $(document).on('turbolinks:load', function(){
 
       //新規投稿時
       //削除用チェックボックスの有無で判定
-      if ($(`#item_images_attributes_${id}__destroy`).length == 0) {
+      if ($(`#item_item_images_attributes_${id}__destroy`).length == 0) {
         //フォームの中身を削除 
-        $(`#item_images_attributes_${id}_image`).val("");
+        $(`#item_item_images_attributes_${id}_url`).val("");
         var count = $('.preview-box').length;
         //5個めが消されたらラベルを表示
         if (count == 4) {
@@ -123,7 +123,7 @@ $(document).on('turbolinks:load', function(){
       } else {
 
         //投稿編集時
-        $(`#item_images_attributes_${id}__destroy`).prop('checked',true);
+        $(`#item_item_images_attributes_${id}__destroy`).prop('checked',true);
         //5個めが消されたらラベルを表示
         if (count == 4) {
           $('.label-content').show();

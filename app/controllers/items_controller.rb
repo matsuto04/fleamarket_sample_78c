@@ -75,7 +75,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     grandchild_category = @item.category
     child_category = grandchild_category.parent
-
+    
     @category_parent_array = []
     Category.where(ancestry: nil).each do |parent|
       @category_parent_array << parent.name
@@ -96,7 +96,7 @@ class ItemsController < ApplicationController
 
   def update
     @item = Item.find(params[:id])
-    if @item.update(item_params)
+    if @item.update(item_update_params)
       redirect_to root_path
     else
       render action: :edit
@@ -120,10 +120,10 @@ class ItemsController < ApplicationController
       :preparation_day,
       :price,
       :category_id,
-      item_images_attributes: [:item_id, :url, :_destroy]
+      item_images_attributes: [:id, :url, :_destroy]
       )
       .merge(
-      seller_id: current_user.id
+        seller_id: current_user.id
       )
   end
 
@@ -138,7 +138,7 @@ class ItemsController < ApplicationController
       :price,
       :category_id,
       :image_cache,
-      item_images_attributes: [:item_id, :url]
+      item_images_attributes: [:id, :_destroy, :url]
     ).merge(
       seller_id: current_user.id
     )
