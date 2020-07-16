@@ -67,13 +67,12 @@ class ItemsController < ApplicationController
     end
   end
 
-  def updata
-    
+  def destroy
+    item = Item.find(params[:id])
+    item.destroy
+    redirect_to root_path
   end
 
-  def destroy
-    
-  end
   private
   def item_params
     params.require(:item).permit(
@@ -85,7 +84,7 @@ class ItemsController < ApplicationController
       :preparation_day,
       :price,
       :category_id,
-      item_images_attributes: [:item_id, :url]
+      item_images_attributes: [:item_id, :url, :_destroy]
       )
       .merge(
       seller_id: current_user.id
