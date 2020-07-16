@@ -309,13 +309,21 @@ section{display: block;}
           font-weight: bold;
         }
       }
-      &ProductLists{
+      #bottomBox{
         width: 780px;
         margin: 26px auto;
         display: flex;
         justify-content: space-around;
+      }
+      &ProductLists{
+        width: 780px;
+        margin: 26px auto 0;
+        display: flex;
+        justify-content: space-around;
         &__list{
           width: 220px;
+          box-shadow: 1px 1px 2px gray;
+          margin: 0 10px;
           &--img{
             width: 220px;
             height: 150px;
@@ -453,6 +461,7 @@ section{display: block;}
     right: 32px;
     position: fixed;
     padding: 15px;
+    border-radius: 4px;
     &__text{
       color: #fff;
       display: block;
