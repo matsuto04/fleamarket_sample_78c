@@ -6,6 +6,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def new
     @user = User.new
     @sending_destination = @user.build_sending_destination
+    # @profile = @user.profile.user_id
   end
   # GET /resource/sign_up
   # def new
