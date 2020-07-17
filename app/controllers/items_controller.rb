@@ -97,7 +97,7 @@ class ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
     if @item.update(item_update_params)
-      redirect_to root_path
+      redirect_to update_done_items_path
     else
       render action: :edit
     end
