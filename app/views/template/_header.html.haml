@@ -5,11 +5,12 @@
         = link_to root_path do
           = image_tag "logo.png", alt: "logo", class: 'HeaderInnerTop__icon--img'
       .HeaderInnerTop__searchBox
-        %form.HeaderInnerTop__searchBox__form
-          %input.HeaderInnerTop__searchBox__form__input{name: "key", placeholder: "キーワードから探す"}
-          %button.HeaderInnerTop__searchBox__form__btn{type: "submit"}
+        = form_with(url: search_items_path, local: true, method: :get, class: "HeaderInnerTop__searchBox__form") do |f|
+          = f.text_field :keyword, class: "HeaderInnerTop__searchBox__form__input", placeholder: "キーワードから探す"
+          = button_tag type: 'submit', class: "HeaderInnerTop__searchBox__form__btn" do
             .HeaderInnerTop__searchBox__form__btn--icon
               = image_tag "icon-search 1.png", alt: "search_icon", class: 'HeaderInnerTop__searchBox__form__btn--icon--img'
+              
     .HeaderInnerNav
       %ul.HeaderInnerNavlistsLeft
         %li.HeaderInnerNavlistsLeft__item
