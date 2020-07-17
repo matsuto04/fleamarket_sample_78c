@@ -5,7 +5,10 @@
       = link_to user_path(current_user.id) do
         = image_tag 'bg-appBanner-pict.jpg', alt: 'sample'
       .User__image__name
-        = link_to @user.nickname, user_path(current_user.id)
+        - if @user.profile.present? && @user.profile.avatar.present?
+          = image_tag @user.profile.avatar.url
+        - else
+          = @user.nickname
       .User__image__edit
         .User__image__edit__items
           出品数:
@@ -18,9 +21,15 @@
       .User__card__edit
         = link_to 'カードの詳細', card_path
     .User__introduction
-      %h2 テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
+      - if @user.profile.present? && @user.profile.introduce?
+        = @user.profile.introduce
+      - else
+        = "自己紹介文はありません"
     .User__action
-      = link_to "編集する", edit_user_profile_path(current_user), class: 'User__action__button'
+      - if @user.profile.present?
+        = link_to "変更する", edit_profile_path(@profile), class: 'User__action__button'
+      - else
+        = link_to "設定する", new_profile_path, class: 'User__action__button'
     .User__item
       %h1 この出品者の商品
     .User__items
