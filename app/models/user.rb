@@ -22,4 +22,5 @@ class User < ApplicationRecord
   has_one :credit_card, dependent: :destroy
   has_one :card, dependent: :destroy
 
+
 end

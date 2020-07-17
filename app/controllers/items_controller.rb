@@ -24,10 +24,8 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @category_id = @item.category_id
-    if @item.item_image_ids.nil?
-      redirect_to action: :new
-    end
-    if @item.save
+    if @item.item_images.present?
+      @item.save
       redirect_to root_path
     else
       redirect_to action: :new
@@ -96,11 +94,22 @@ class ItemsController < ApplicationController
 
   def update
     @item = Item.find(params[:id])
-    if @item.update(item_update_params)
-      redirect_to update_done_items_path
-    else
-      render action: :edit
+    length = @item.item_images.length
+    i = 0
+    while i < length do
+      if  item_update_params[:item_images_attributes]["#{i}"]["_destroy"] == "0"
+        @item.update(item_update_params)
+        redirect_to update_done_items_path
+        return
+      else
+        i += 1
+      end
     end
+    if item_update_params[:item_images_attributes]["#{i}"]
+      @item.update(item_update_params)
+    end
+    redirect_to edit_item_path(@item.id)
+    return
   end
 
   def update_done
