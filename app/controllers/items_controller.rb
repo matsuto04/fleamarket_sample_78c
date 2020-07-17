@@ -99,7 +99,7 @@ class ItemsController < ApplicationController
     while i < length do
       if  item_update_params[:item_images_attributes]["#{i}"]["_destroy"] == "0"
         @item.update(item_update_params)
-        redirect_to root_path
+        redirect_to update_done_items_path
         return
       else
         i += 1
@@ -110,6 +110,10 @@ class ItemsController < ApplicationController
     end
     redirect_to edit_item_path(@item.id)
     return
+  end
+
+  def update_done
+    @item_update = Item.order("updated_at DESC").first
   end
 
   def destroy

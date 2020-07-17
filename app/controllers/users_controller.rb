@@ -6,8 +6,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(current_user.id)
-    @items = Item.where(seller_id: current_user.id)
     @parents = Category.where(ancestry: nil)
+    @items = Item.where(seller_id: @user).order(created_at: :desc)
+    @items_length = @items.length
   end
 
   def edit
