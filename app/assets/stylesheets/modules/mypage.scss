@@ -89,14 +89,21 @@
     &__item {
       font-weight: bold;
       font-size: 22px;
+      height: 40px;
+      width: 100%;
+      background-color: #3CCACE;
+      color: #fff;
+      line-height: 40px;
+      padding-left: 20px;
+      margin-bottom: 10px;
     }
     &__items {
       display: flex;
       flex-wrap: wrap;
+      padding: 10px 15px;
       #wrap {
         margin: 6px;
       }
     }
-    
   }
 }
