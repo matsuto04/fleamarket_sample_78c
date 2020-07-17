@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users 
+  resources :users do
+    resources :profiles, only: [:edit, :update] 
+  end
   resources :cards, only: [:create, :new, :show, :destroy] 
 end
