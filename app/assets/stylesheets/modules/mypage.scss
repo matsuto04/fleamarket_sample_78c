@@ -68,24 +68,39 @@
       margin-top: 30px;
       &__new {
         a {
-          border: 1px solid black;
-          padding: 5px 10px;
+          border: 1px solid #3CCACE;
+          padding: 10px 30px;
           border-radius: 4px;
+          color: #3CCACE;
         }
       }
       &__edit {
         a {
-          border: 1px solid black;
-          padding: 5px 10px;
-          margin-left: 50px;
+          border: 1px solid #3CCACE;
+          padding: 10px 30px;
+          margin-left: 40px;
           border-radius: 4px;
+          color: #3CCACE;
         }
       }
     }
     &__introduction {
       padding: 30px 50px 60px;
     }
-
+    &__action {
+      text-align: center;
+      margin: 20px 0 40px;
+      &__button {
+        border: 1px solid #3CCACE;
+        border-radius: 4px;
+        background: #3CCACE;
+        font-size: 22px;
+        font-weight: bold;
+        letter-spacing: 7px;
+        color: #fff;
+        padding: 10px 112px;
+      }
+    }
     &__item {
       font-weight: bold;
       font-size: 22px;
