@@ -44,7 +44,7 @@ class CardsController < ApplicationController
       Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
       customer = Payjp::Customer.retrieve(@card.customer_id)
       customer.delete
-      @card.delete
+      @card.destroy
       redirect_to user_path(current_user.id)
     end
   end
