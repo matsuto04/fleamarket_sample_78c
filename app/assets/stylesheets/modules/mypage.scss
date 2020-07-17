@@ -26,7 +26,7 @@
         line-height: 150px;
         border-radius: 50%;
         top: 15%;
-        left: 40%;
+        left: 41%;
         font-size: 24px;
         width: 150px;
         height: 150px;
@@ -41,7 +41,7 @@
         flex-direction: column;
         position: absolute;
         top: 72%;
-        left: 40%;
+        left: 42%;
         text-align: center;
         &__items {
           font-size: 20px;
@@ -89,14 +89,21 @@
     &__item {
       font-weight: bold;
       font-size: 22px;
+      height: 40px;
+      width: 100%;
+      background-color: #3CCACE;
+      color: #fff;
+      line-height: 40px;
+      padding-left: 20px;
+      margin-bottom: 10px;
     }
     &__items {
       display: flex;
       flex-wrap: wrap;
+      padding: 10px 15px;
       #wrap {
         margin: 6px;
       }
     }
-    
   }
 }

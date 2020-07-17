@@ -8,7 +8,8 @@
         = link_to @user.nickname, user_path(current_user.id)
       .User__image__edit
         .User__image__edit__items
-          = "出品数:10000"
+          出品数:
+          = @items_length
         .User__image__edit__mypage
           = link_to '編集', edit_user_path(@user)
     .User__card
