@@ -21,5 +21,6 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :sending_destination
   has_one :credit_card, dependent: :destroy
   has_one :card, dependent: :destroy
+  has_many :items
 
 end
