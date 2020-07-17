@@ -1,0 +1,11 @@
+= render 'template/header.html.haml'
+.done__edit
+  .done__edit__title
+    %h3 商品情報を更新しました
+  .done__edit__toppage
+    = link_to "トップページへ戻る",root_path,class: 'link'
+  .done__edit__confirmation
+    = link_to "更新した商品を確認する",item_path(@item_update),class: 'link'
+
+= render 'template/footer'
+= render 'template/item'
