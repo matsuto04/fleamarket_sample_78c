@@ -5,7 +5,7 @@
       .MainContainer__header
         %p.result 
           = @items.name
-        %h2 検索結果
+        %h2 の検索結果
       .MainContainer__field
         - @items.each do |item|
           = render 'item', item: item
