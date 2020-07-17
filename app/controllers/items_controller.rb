@@ -103,6 +103,10 @@ class ItemsController < ApplicationController
     end
   end
 
+  def update_done
+    @item_update = Item.order("updated_at DESC").first
+  end
+
   def destroy
     item = Item.find(params[:id])
     item.destroy
