@@ -69,8 +69,9 @@
         %span.fee_side 送料込み
       %form.MainContainer__actions
         - if user_signed_in? && current_user.id != @item.seller.id
-          %button.MainContainer__actions--btn{type: "submit"}
-            = link_to '購入画面に進む', confirm_item_path(@item)
+          - if @item.buyer_id == nil
+            %button.MainContainer__actions--btn{type: "submit"}
+              = link_to '購入画面に進む', confirm_item_path(@item)
         
           
       .MainContainer__description
