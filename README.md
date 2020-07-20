@@ -1,111 +1,82 @@
-# README
+# fleamarket_sample_78c
 
-## usersテーブル
+[![Image from Gyazo](https://i.gyazo.com/2b6b6ffea69ebcd056c9b75b3cc15672.jpg)](https://gyazo.com/2b6b6ffea69ebcd056c9b75b3cc15672)
 
-|Column|Type|Options|
-|------|----|-------|
-|nickname|string|null:false|
-|password|string|null:false|
-|email|string|null:false, unique:true, index:true|
-|first_name|string|null:false|
-|family_name|string|null:false|
-|first_name_kana|string|null:false|
-|family_name_kana|string|null:false|
-|birth_year|date|null:false|
-|birth_month|date|null:false|
-|birth_day|date|null:false|
+ゲストユーザーで簡単ログインできます。  
+http://52.198.187.191/
+
+## 【このアプリでできること】
+ユーザー登録を行い運動した記録を走行記録として投稿することができます。  
+自身が使っている運動グッズなどの画像を投稿し情報共有ができます。  
+大会記録などを投稿し、情報の共有をすることができます。  
+ユーザーが投稿時の走行記録をランキング表示し、ユーザー間で切磋琢磨することができます。  
+
+## 【なぜそのアプリを作ったか】
+IT業界が進歩していく中で、3人に1人が運動不足と言う結果(WHO)が出ており、  
+前職が自衛官でもある自分が何か運動を促進するようなアプリ作れないかと思い作成しました。  
+また他にも、自分自身走る事が好きで、情報や記録を共有することで、  
+利用者の運動への意欲を向上させる事を目的に作成しました。  
+
+## 【言語】
+Ruby 2.6.5  
+Ruby on Rails 6.0.0  
+HTML  
+CSS  
+jQuery  
+
+## 【機能一覧】
+■ユーザー機能(devise)  
+・新規登録機能  
+・ログイン、ログアウト機能  
+・登録情報変更機能  
+・簡単ログイン機能  
+・管理者権限機能(ユーザー情報の編集、削除、投稿の編集、削除)  
+
+■走行記事  
+・投稿機能  
+・画像投稿機能  
+・削除機能  
+・編集機能  
+・走行記録機能  
+・タグ付け機能  
+
+■走行記事に対するいいね機能(非同期)  
+・いいね機能  
+・取り消し機能  
+
+■フォロー、フォロワー機能  
+・ユーザー間のフォロー、フォロワー機能  
+
+■走行記事に対するコメント機能(非同期)  
+・コメント機能  
+
+■ランキング機能  
+・累計走行距離のランキング機能  
+
+■検索機能  
+・文字検索機能  
+・タグ検索機能  
+
+■ページネーション機能  
+・kaminariによるページネーション機能  
+
+■その他の機能  
+・ユーザー詳細ページでの、累計走行距離表示機能  
+・ユーザー詳細ページでの、ランキング順位表示機能  
+・ユーザー詳細ページでの、総いいね表示機能  
+・ユーザー詳細ページでの、投稿数表示機能  
+・ユーザー詳細ページでの、フォロー、フォロワー数表示機能  
+
+## 【工夫した事】
+・ユーザー目線を意識して投稿したくなるようなUI/UXにした事  
+・ランキング機能を実装し、競争性を意識した事  
+・TECHCAMPで学んだ事を活かした事  
 
 
-### Association
-- has_many :seller_items, foreign_key: "seller_id", class_name: "items"
-- has_many :buyer_items, foreign_key: "buyer_id", class_name: "items"
-- has_one :profile, dependent: :destroy
-- has_one :sending_destination, dependent: :destroy
-- has_one :card, dependent: :destroy
-
-## itemsテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-|introduction|text|null: false|
-|price|integer|null: false|
-|item_condition|integer|null: false|
-|postage_payer|integer|null: false|
-|prefecture_code_id|integer|null: false|
-|preparation_day|integer|null: false|
-|postage_type|integer|null: false|
-|category_id|bigint|null: false, foreign_key: true|
-|trading_status|enum|null: false|
-|seller|references|null: false, foreign_key: true|
-|buyer|references|foreign_key: true|
-|deal_closed_date|timestamp|
-
-
-### Association
-- has_many :item_images, dependent: :destroy
-- belongs_to :category
-- belongs_to :seller, class_name: "User"
-- has_one :buyer, class_name: "User"
-- belongs_to_active_hash :prefecture_code
-
-## cardsテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|user|references|null:false, foregin_key:ture|
-|customer_id|string|null: false|
-|card_id|string|null: false|
-
-### Association
-- belongs_to :user
-
-## profilesテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|introduction|text| |
-|avatar|string| |
-|user|references|null:false, foreign_key: true|
-
-### Association
-- belongs_to :user
-
-## sending_destinationsテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|destination_first_name|string|null: false|
-|destination_family_name|string|null: false|
-|destination_first_name_kana|string|null: false|
-|destination_family_name_kana|string|null: false|
-|post_code|integer(7)|null: false|
-|prefecture_code|integer|null: false|
-|city|string|null: false|
-|house_number|string|null: false|
-|building_name|string| |
-|phone_number|string|unique: true|
-|user|references|null: false, foreign_key: true|
-
-### Association
-- belongs_to :user
-
-## categoriseテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-|ancestry|string|null:false|
-
-### Association
-- has_many :items
-
-## item_imagesテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|url|string|null: false|
-|item|references|null: false, foreign_key: true|
-
-### Association
-- belongs_to :item
+## 【課題や今後実装したい機能】
+・ランキング機能の充実  
+・文字検索の非同期機能  
+・APIを盛り込む事  
+ 
+## 【DB設計】
+![Untitled Diagram](https://user-images.githubusercontent.com/58378612/87174996-fa09df00-c312-11ea-948b-427cc37c355d.png)
