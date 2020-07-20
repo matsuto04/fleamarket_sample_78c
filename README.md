@@ -60,7 +60,7 @@ jQuery
 ・売却済商品の差別化  
  
 ## 【DB設計】
-![Untitled Diagram](https://user-images.githubusercontent.com/58378612/87174996-fa09df00-c312-11ea-948b-427cc37c355d.png)
+![ER図  fleamarket_sample_78c](https://user-images.githubusercontent.com/66255661/87902618-13d6bf00-ca95-11ea-941f-693a1be93b89.png)
 
 ## usersテーブル
 
