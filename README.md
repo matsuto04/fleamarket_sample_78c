@@ -3,7 +3,7 @@
 [![Image from Gyazo](https://i.gyazo.com/2b6b6ffea69ebcd056c9b75b3cc15672.jpg)](https://gyazo.com/2b6b6ffea69ebcd056c9b75b3cc15672)
 
 ゲストユーザーで簡単ログインできます。  
-http://52.198.187.191/
+http://54.199.32.127/
 
 ## 【このアプリでできること】
 ユーザー登録を行い運動した記録を走行記録として投稿することができます。  
