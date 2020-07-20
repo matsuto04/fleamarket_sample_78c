@@ -1,5 +1,4 @@
-# fleamarket_sample_78c
-[![Image from Gyazo](https://i.gyazo.com/afd826f59ce163459cce893fdee84325.jpg)](https://gyazo.com/afd826f59ce163459cce893fdee84325)
+# fleamarket_sample_78c[![Image from Gyazo](https://i.gyazo.com/afd826f59ce163459cce893fdee84325.jpg)](https://gyazo.com/afd826f59ce163459cce893fdee84325)
 ゲストユーザーで簡単ログインできます。  
 http://52.198.187.191/
 
