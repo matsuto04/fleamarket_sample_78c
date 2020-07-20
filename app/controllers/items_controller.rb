@@ -38,6 +38,7 @@ class ItemsController < ApplicationController
     if @card.blank?
       redirect_to new_card_path
     else
+      Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
       customer = Payjp::Customer.retrieve(@card.customer_id)
       @default_card_information = customer.cards.retrieve(@card.card_id)
       @user = User.find(current_user.id)

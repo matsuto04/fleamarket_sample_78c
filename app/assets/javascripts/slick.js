@@ -10,7 +10,7 @@ $(document).on('turbolinks:load', function() {
     $(this).css({'opacity':'1','pointer':'default'});
   });
   //スライド
-  $('.owl-stage').slick({
+  $('.owl-stage').not('.slick-initialized').slick({
     autoplay: false,
     Speed: 3000,
     arrows: false,
