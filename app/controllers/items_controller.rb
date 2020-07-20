@@ -25,8 +25,11 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     @category_id = @item.category_id
     if @item.item_images.present?
-      @item.save
-      redirect_to root_path
+      if @item.save
+        redirect_to root_path
+      else
+        redirect_to action: :new
+      end
     else
       redirect_to action: :new
     end
