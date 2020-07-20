@@ -1,6 +1,6 @@
 # fleamarket_sample_78c[![Image from Gyazo](https://i.gyazo.com/afd826f59ce163459cce893fdee84325.jpg)](https://gyazo.com/afd826f59ce163459cce893fdee84325)
 ゲストユーザーで簡単ログインできます。  
-http://52.198.187.191/
+http://54.199.32.127/
 
 ## 【このアプリでできること】
 ユーザー登録を行い商品を出品し、また購入することができます。  
