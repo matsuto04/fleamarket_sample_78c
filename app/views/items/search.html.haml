@@ -1,4 +1,12 @@
 = render 'template/header'
-- @items.each do |item|
-  = render 'item', item: item
+.SearchItems
+  .Main
+    .MainContainer
+      .MainContainer__header
+        %p.result 
+          = @items.name
+        %h2 の検索結果
+      .MainContainer__field
+        - @items.each do |item|
+          = render 'item', item: item
 = render 'template/footer'

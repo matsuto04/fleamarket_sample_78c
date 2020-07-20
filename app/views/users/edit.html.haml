@@ -77,7 +77,7 @@
             .Main__Container__field__label
               %p 都道府県
               %span.requier 必須
-            = f.collection_select :prefecture_code_id, PrefectureCode.all, :id, :name,{selected: 0}, {class: "Main__Container__field__input"}
+            = f.collection_select :prefecture_code_id, PrefectureCode.all, :id, :name,{selected: 0}, {class: "Main__Container__field__inputs"}
           .Main__Container__field
             .Main__Container__field__label
               %p 市区町村
@@ -96,4 +96,4 @@
           
         .Main__Container__actions
           = f.submit "変更する", class: "Main__Container__actions__submit"
-          
+  = render 'template/footer'
