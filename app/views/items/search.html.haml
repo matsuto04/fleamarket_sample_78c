@@ -4,7 +4,7 @@
     .MainContainer
       .MainContainer__header
         %p.result 
-          = @items.name
+          = params[:keyword]
         %h2 の検索結果
       .MainContainer__field
         - @items.each do |item|
