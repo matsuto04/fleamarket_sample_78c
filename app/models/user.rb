@@ -19,6 +19,5 @@ class User < ApplicationRecord
   has_one :sending_destination, dependent: :destroy
   # Userを通してsending_destinationに保存する
   accepts_nested_attributes_for :sending_destination
-  has_one :credit_card, dependent: :destroy
   has_one :card, dependent: :destroy
 end
